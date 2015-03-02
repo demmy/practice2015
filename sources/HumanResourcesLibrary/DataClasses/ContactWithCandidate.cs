@@ -12,7 +12,7 @@ namespace HumanResourcesLibrary.DataClasses
         Call
     }
 
-    class ContactWithCandidate
+    public class ContactWithCandidate
     {
     }
 }

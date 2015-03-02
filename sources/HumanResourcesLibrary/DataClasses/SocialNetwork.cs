@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HumanResourcesLibrary.DataClasses
 {
-    class SocialNetwork
+    public class SocialNetwork
     {
     }
 }

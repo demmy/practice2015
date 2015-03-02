@@ -12,7 +12,7 @@ namespace HumanResourcesLibrary.DataClasses
         Female
     }
 
-    class Candidate
+    public class Candidate
     {
     }
 }
