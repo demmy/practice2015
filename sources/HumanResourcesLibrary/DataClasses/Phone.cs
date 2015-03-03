@@ -11,8 +11,12 @@ namespace HumanResourcesLibrary.DataClasses
         public Phone CreateDeepCopy()
         {
             Phone p = new Phone();
-            // copy fields here
+            p.Type = this.Type;
+            p.Phone = this.Phone;
             return p;
         }
+
+        public string Phone { get; set; }
+        public PhoneType Type { get; set; }
     }
 }
