@@ -6,14 +6,9 @@ using System.Threading.Tasks;
 
 namespace HumanResourcesLibrary.DataClasses
 {
-    public enum EnglishLevel
+    public enum PhoneType
     {
-        Beginner,
-        Elementary,
-        PreIntermediate,
-        Intermediate,
-        UpperIntermediate,
-        Advanced,
-        Proficiency
+        Home,
+        Mobile
     }
 }
