@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace HumanResourcesLibrary.DataClasses
 {
-    public class Phone : IDeepCopy<Phone>
+    public class UniqueItem
     {
-        public Phone CreateDeepCopy()
+        public Guid Id { get; set; }
+
+        public UniqueItem()
         {
-            Phone p = new Phone();
-            // copy fields here
-            return p;
+            Id = Guid.NewGuid();
         }
     }
 }

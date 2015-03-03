@@ -12,7 +12,11 @@ namespace HumanResourcesLibrary.DataClasses
         Call
     }
 
-    public class ContactWithCandidate
+    public class ContactWithCandidate : IDeepCopy<ContactWithCandidate>
     {
+        public ContactWithCandidate CreateDeepCopy()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
