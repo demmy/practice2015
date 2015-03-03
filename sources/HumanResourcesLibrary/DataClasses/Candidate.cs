@@ -32,6 +32,13 @@ namespace HumanResourcesLibrary.DataClasses
         public List<SocialNetwork> SocialNetworksList { get; set; }
         public ContactWithCandidate LastContact { get ; set; }
 
+        public Candidate()
+        {
+            Phones = new List<Phone>();
+            ContactsList = new List<ContactWithCandidate>();
+            SocialNetworksList = new List<SocialNetwork>();
+        }
+
         public string GetFullName()
         {
             return FirstName + " " + LastName;
@@ -48,7 +55,7 @@ namespace HumanResourcesLibrary.DataClasses
             copy.Country = this.Country;
             copy.City = this.City;
             copy.RelocationAgreement = this.RelocationAgreement;
-            this.Photo.CopyTo(copy.Photo, 0);
+            copy.Photo = (byte[])this.Photo;
             copy.Email = this.Email;
             copy.Skype = this.Skype;
             copy.SiteURL = this.SiteURL;
@@ -73,5 +80,6 @@ namespace HumanResourcesLibrary.DataClasses
         {
             return socialNetwork.CreateDeepCopy();
         }
+
     }
 }
