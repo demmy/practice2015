@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,7 +22,7 @@ namespace HumanResourcesLibrary.DataClasses
         public string Country { get; set; }
         public string City { get; set; }
         public bool RelocationAgreement { get; set; }
-        //public Image Photo { get; set; } //какаие-то странности с namespace. 
+        public byte [] Photo { get; set; } 
         public List<Phone> Phones { get; set; }
         public string Email { get; set; }
         public string Skype { get; set; }
@@ -49,7 +48,7 @@ namespace HumanResourcesLibrary.DataClasses
             copy.Country = this.Country;
             copy.City = this.City;
             copy.RelocationAgreement = this.RelocationAgreement;
-            //copy.Photo = this.Photo;
+            this.Photo.CopyTo(copy.Photo, 0);
             copy.Email = this.Email;
             copy.Skype = this.Skype;
             copy.SiteURL = this.SiteURL;
