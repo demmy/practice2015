@@ -33,6 +33,10 @@ namespace HumanResourcesLibrary.DataClasses
             copy.LastName = this.LastName;
             copy.FirstName = this.FirstName;
             copy.Phones = this.Phones.ConvertAll(CopyPhone);
+            copy.Gender = this.Gender;
+            copy.City = this.City;
+            copy.AgreeToMove = this.AgreeToMove;
+            copy.Country = this.Country;
             return copy;
         }
 
