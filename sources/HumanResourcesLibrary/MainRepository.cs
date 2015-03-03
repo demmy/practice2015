@@ -9,14 +9,23 @@ namespace HumanResourcesLibrary
 {
     internal class MainRepository : IMainRepository
     {
+        private List<Vacancy> vacancies = new List<Vacancy>();
+        private List<Candidate> candidates = new List<Candidate>();
+
+        public MainRepository()
+        {
+            vacancies.Add(new Vacancy() { Title = "Super Vacancy 1" });
+            candidates.Add(new Candidate() { LastName = "Ivanov", FirstName = "Ivan", Phones = new List<Phone>() });
+        }
+
         public List<Vacancy> GetAllVacancies()
         {
-            throw new NotImplementedException();
+            return vacancies.ConvertAll((v) => { return v.CreateDeepCopy(); });
         }
 
         public List<Candidate> GetAllCandidates()
         {
-            throw new NotImplementedException();
+            return candidates.ConvertAll((v) => { return v.CreateDeepCopy(); });
         }
 
         public List<Candidate> GetCandidates(/* here search criteria go */)

@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace HumanResourcesLibrary.DataClasses
 {
-    public class SocialNetwork : IDeepCopy<SocialNetwork>
+    public interface IDeepCopy<T>
     {
-        public SocialNetwork CreateDeepCopy()
-        {
-            throw new NotImplementedException();
-        }
+        T CreateDeepCopy();
     }
 }
