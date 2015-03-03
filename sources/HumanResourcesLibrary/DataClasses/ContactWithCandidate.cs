@@ -16,7 +16,18 @@ namespace HumanResourcesLibrary.DataClasses
     {
         public ContactWithCandidate CreateDeepCopy()
         {
-            throw new NotImplementedException();
+            ContactWithCandidate copy = new ContactWithCandidate();
+            copy.Date = this.Date;
+            copy.Type = this.Type;
+            copy.Comment = this.Comment;
+            return copy;
         }
+
+        public ContactTypes Type{get; set;}
+        public DateTime Date { get; set; }
+        public string Comment { get; set; }
+        public ContactWithCandidate() { }
+
+
     }
 }
