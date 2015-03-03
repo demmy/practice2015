@@ -114,6 +114,7 @@
             // coID
             // 
             this.coID.Caption = "ID";
+            this.coID.FieldName = "Id";
             this.coID.Name = "coID";
             this.coID.Visible = true;
             this.coID.VisibleIndex = 0;
@@ -160,7 +161,6 @@
             this.editButton.Location = new System.Drawing.Point(100, 12);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(82, 22);
-            this.editButton.StyleController = this.layoutControl1;
             this.editButton.TabIndex = 5;
             this.editButton.Text = "Edit";
             this.editButton.Click += new System.EventHandler(this.editButton_Click);
