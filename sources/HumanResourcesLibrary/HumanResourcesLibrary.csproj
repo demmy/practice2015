@@ -44,7 +44,9 @@
     <Compile Include="DataClasses\EnglishLevel.cs" />
     <Compile Include="DataClasses\IDeepCopy.cs" />
     <Compile Include="DataClasses\Phone.cs" />
+    <Compile Include="DataClasses\PhoneType.cs" />
     <Compile Include="DataClasses\SocialNetwork.cs" />
+    <Compile Include="DataClasses\SocialNetworkType.cs" />
     <Compile Include="DataClasses\UniqueItem.cs" />
     <Compile Include="DataClasses\Vacancy.cs" />
     <Compile Include="IMainRepository.cs" />

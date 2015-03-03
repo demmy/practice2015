@@ -12,11 +12,11 @@ namespace HumanResourcesLibrary.DataClasses
         {
             Phone p = new Phone();
             p.Type = this.Type;
-            p.Phone = this.Phone;
+            p.PhoneNumber = this.PhoneNumber;
             return p;
         }
 
-        public string Phone { get; set; }
+        public string PhoneNumber { get; set; }
         public PhoneType Type { get; set; }
     }
 }
