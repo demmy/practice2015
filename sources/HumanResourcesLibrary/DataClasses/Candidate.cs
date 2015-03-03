@@ -17,10 +17,7 @@ namespace HumanResourcesLibrary.DataClasses
         public string LastName { get; set; }
         public string FirstName { get; set; }
         public List<Phone> Phones { get; set; }
-        public Gender Gender { get; set; }
-        public string City { get; set; }
-        public bool AgreeToMove { get; set; }
-        public string Country { get; set; }
+
 
         public string GetFullName()
         {
