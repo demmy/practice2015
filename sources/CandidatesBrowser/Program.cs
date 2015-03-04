@@ -16,7 +16,7 @@ namespace CandidatesBrowser
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Forms.CandidatesBrowserMainForm());
+            //TODO: uncomment when form will be ready: Application.Run(new CandidatesBrowserMainForm());
         }
     }
 }

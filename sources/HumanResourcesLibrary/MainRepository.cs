@@ -35,6 +35,7 @@ namespace HumanResourcesLibrary
         {
             return candidates.ConvertAll((v) => { return v.CreateDeepCopy(); });
         }
+        
 
         /// <summary>
         /// Use this method to get list of candidates which correspond to given criteria
