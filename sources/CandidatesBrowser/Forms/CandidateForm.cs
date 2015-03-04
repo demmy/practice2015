@@ -16,10 +16,5 @@ namespace CandidatesBrowser.Forms
         {
             InitializeComponent();
         }
-
-        private void CandidateForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            this.Owner.Enabled = true;
-        }
     }
 }

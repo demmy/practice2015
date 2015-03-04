@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.mainLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.mainGridControl = new DevExpress.XtraGrid.GridControl();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.mainBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mainGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.coID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFirstName = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -41,50 +41,50 @@
             this.coLastContactComment = new DevExpress.XtraGrid.Columns.GridColumn();
             this.editButton = new DevExpress.XtraEditors.SimpleButton();
             this.addButton = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.mainLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.addLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.editLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonsEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
-            this.layoutControl1.SuspendLayout();
+            this.gridLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            ((System.ComponentModel.ISupportInitialize)(this.mainLayoutControl)).BeginInit();
+            this.mainLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainGridControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainLayoutControlGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsEmptySpaceItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLayoutControlItem)).BeginInit();
             this.SuspendLayout();
             // 
-            // layoutControl1
+            // mainLayoutControl
             // 
-            this.layoutControl1.Controls.Add(this.mainGridControl);
-            this.layoutControl1.Controls.Add(this.editButton);
-            this.layoutControl1.Controls.Add(this.addButton);
-            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl1.Name = "layoutControl1";
-            this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(582, 363, 250, 350);
-            this.layoutControl1.OptionsPrint.AppearanceGroupCaption.BackColor = System.Drawing.Color.LightGray;
-            this.layoutControl1.OptionsPrint.AppearanceGroupCaption.Font = new System.Drawing.Font("Tahoma", 10.25F);
-            this.layoutControl1.OptionsPrint.AppearanceGroupCaption.Options.UseBackColor = true;
-            this.layoutControl1.OptionsPrint.AppearanceGroupCaption.Options.UseFont = true;
-            this.layoutControl1.OptionsPrint.AppearanceGroupCaption.Options.UseTextOptions = true;
-            this.layoutControl1.OptionsPrint.AppearanceGroupCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.layoutControl1.OptionsPrint.AppearanceGroupCaption.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.layoutControl1.OptionsPrint.AppearanceItemCaption.Options.UseTextOptions = true;
-            this.layoutControl1.OptionsPrint.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.layoutControl1.OptionsPrint.AppearanceItemCaption.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(784, 561);
-            this.layoutControl1.TabIndex = 0;
-            this.layoutControl1.Text = "mainLayoutControl";
+            this.mainLayoutControl.Controls.Add(this.mainGridControl);
+            this.mainLayoutControl.Controls.Add(this.editButton);
+            this.mainLayoutControl.Controls.Add(this.addButton);
+            this.mainLayoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainLayoutControl.Location = new System.Drawing.Point(0, 0);
+            this.mainLayoutControl.Name = "mainLayoutControl";
+            this.mainLayoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(582, 363, 250, 350);
+            this.mainLayoutControl.OptionsPrint.AppearanceGroupCaption.BackColor = System.Drawing.Color.LightGray;
+            this.mainLayoutControl.OptionsPrint.AppearanceGroupCaption.Font = new System.Drawing.Font("Tahoma", 10.25F);
+            this.mainLayoutControl.OptionsPrint.AppearanceGroupCaption.Options.UseBackColor = true;
+            this.mainLayoutControl.OptionsPrint.AppearanceGroupCaption.Options.UseFont = true;
+            this.mainLayoutControl.OptionsPrint.AppearanceGroupCaption.Options.UseTextOptions = true;
+            this.mainLayoutControl.OptionsPrint.AppearanceGroupCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.mainLayoutControl.OptionsPrint.AppearanceGroupCaption.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.mainLayoutControl.OptionsPrint.AppearanceItemCaption.Options.UseTextOptions = true;
+            this.mainLayoutControl.OptionsPrint.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.mainLayoutControl.OptionsPrint.AppearanceItemCaption.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.mainLayoutControl.Root = this.mainLayoutControlGroup;
+            this.mainLayoutControl.Size = new System.Drawing.Size(784, 561);
+            this.mainLayoutControl.TabIndex = 0;
+            this.mainLayoutControl.Text = "mainLayoutControl";
             // 
             // mainGridControl
             // 
-            this.mainGridControl.DataSource = this.bindingSource1;
+            this.mainGridControl.DataSource = this.mainBindingSource;
             this.mainGridControl.Location = new System.Drawing.Point(12, 38);
             this.mainGridControl.MainView = this.mainGridView;
             this.mainGridControl.Name = "mainGridControl";
@@ -93,9 +93,9 @@
             this.mainGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.mainGridView});
             // 
-            // bindingSource1
+            // mainBindingSource
             // 
-            this.bindingSource1.DataSource = typeof(HumanResourcesLibrary.DataClasses.Candidate);
+            this.mainBindingSource.DataSource = typeof(HumanResourcesLibrary.DataClasses.Candidate);
             // 
             // mainGridView
             // 
@@ -109,7 +109,6 @@
             this.mainGridView.GridControl = this.mainGridControl;
             this.mainGridView.Name = "mainGridView";
             this.mainGridView.OptionsView.ShowGroupPanel = false;
-            this.mainGridView.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.mainGridView_RowStyle);
             // 
             // coID
             // 
@@ -161,51 +160,50 @@
             this.editButton.Location = new System.Drawing.Point(100, 12);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(82, 22);
+            this.editButton.StyleController = this.mainLayoutControl;
             this.editButton.TabIndex = 5;
             this.editButton.Text = "Edit";
-            this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
             // addButton
             // 
             this.addButton.Location = new System.Drawing.Point(12, 12);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(84, 22);
-            this.addButton.StyleController = this.layoutControl1;
+            this.addButton.StyleController = this.mainLayoutControl;
             this.addButton.TabIndex = 4;
             this.addButton.Text = "Add";
-            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
-            // layoutControlGroup1
+            // mainLayoutControlGroup
             // 
-            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup1.GroupBordersVisible = false;
-            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1,
-            this.layoutControlItem2,
+            this.mainLayoutControlGroup.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.mainLayoutControlGroup.GroupBordersVisible = false;
+            this.mainLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.addLayoutControlItem,
+            this.editLayoutControlItem,
             this.buttonsEmptySpaceItem,
-            this.layoutControlItem3});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(784, 561);
-            this.layoutControlGroup1.TextVisible = false;
+            this.gridLayoutControlItem});
+            this.mainLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
+            this.mainLayoutControlGroup.Name = "Root";
+            this.mainLayoutControlGroup.Size = new System.Drawing.Size(784, 561);
+            this.mainLayoutControlGroup.TextVisible = false;
             // 
-            // layoutControlItem1
+            // addLayoutControlItem
             // 
-            this.layoutControlItem1.Control = this.addButton;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(88, 26);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
+            this.addLayoutControlItem.Control = this.addButton;
+            this.addLayoutControlItem.Location = new System.Drawing.Point(0, 0);
+            this.addLayoutControlItem.Name = "addLayoutControlItem";
+            this.addLayoutControlItem.Size = new System.Drawing.Size(88, 26);
+            this.addLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
+            this.addLayoutControlItem.TextVisible = false;
             // 
-            // layoutControlItem2
+            // editLayoutControlItem
             // 
-            this.layoutControlItem2.Control = this.editButton;
-            this.layoutControlItem2.Location = new System.Drawing.Point(88, 0);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(86, 26);
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem2.TextVisible = false;
+            this.editLayoutControlItem.Control = this.editButton;
+            this.editLayoutControlItem.Location = new System.Drawing.Point(88, 0);
+            this.editLayoutControlItem.Name = "editLayoutControlItem";
+            this.editLayoutControlItem.Size = new System.Drawing.Size(86, 26);
+            this.editLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
+            this.editLayoutControlItem.TextVisible = false;
             // 
             // buttonsEmptySpaceItem
             // 
@@ -215,14 +213,14 @@
             this.buttonsEmptySpaceItem.Size = new System.Drawing.Size(590, 26);
             this.buttonsEmptySpaceItem.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // layoutControlItem3
+            // gridLayoutControlItem
             // 
-            this.layoutControlItem3.Control = this.mainGridControl;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 26);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(764, 515);
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem3.TextVisible = false;
+            this.gridLayoutControlItem.Control = this.mainGridControl;
+            this.gridLayoutControlItem.Location = new System.Drawing.Point(0, 26);
+            this.gridLayoutControlItem.Name = "gridLayoutControlItem";
+            this.gridLayoutControlItem.Size = new System.Drawing.Size(764, 515);
+            this.gridLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
+            this.gridLayoutControlItem.TextVisible = false;
             // 
             // CandidatesBrowserMainForm
             // 
@@ -230,38 +228,37 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(241)))));
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.layoutControl1);
+            this.Controls.Add(this.mainLayoutControl);
             this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "CandidatesBrowserMainForm";
             this.Text = "Candidates Browser";
-            this.Load += new System.EventHandler(this.MainForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
-            this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.mainLayoutControl)).EndInit();
+            this.mainLayoutControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.mainGridControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainLayoutControlGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsEmptySpaceItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLayoutControlItem)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevExpress.XtraLayout.LayoutControl layoutControl1;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
+        private DevExpress.XtraLayout.LayoutControl mainLayoutControl;
+        private DevExpress.XtraLayout.LayoutControlGroup mainLayoutControlGroup;
         private DevExpress.XtraGrid.GridControl mainGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView mainGridView;
         private DevExpress.XtraEditors.SimpleButton editButton;
         private DevExpress.XtraEditors.SimpleButton addButton;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraLayout.LayoutControlItem addLayoutControlItem;
+        private DevExpress.XtraLayout.LayoutControlItem editLayoutControlItem;
         private DevExpress.XtraLayout.EmptySpaceItem buttonsEmptySpaceItem;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
-        private System.Windows.Forms.BindingSource bindingSource1;
+        private DevExpress.XtraLayout.LayoutControlItem gridLayoutControlItem;
+        private System.Windows.Forms.BindingSource mainBindingSource;
         private DevExpress.XtraGrid.Columns.GridColumn colFirstName;
         private DevExpress.XtraGrid.Columns.GridColumn colMiddleName;
         private DevExpress.XtraGrid.Columns.GridColumn colLastName;

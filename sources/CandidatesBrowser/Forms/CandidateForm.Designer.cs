@@ -686,7 +686,6 @@
             this.Controls.Add(this.rootLayout);
             this.Name = "CandidateForm";
             this.Text = "Cnadidate";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CandidateForm_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.rootLayout)).EndInit();
             this.rootLayout.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.urlTextEdit.Properties)).EndInit();
