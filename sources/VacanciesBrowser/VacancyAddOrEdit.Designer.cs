@@ -1,4 +1,4 @@
-﻿namespace WindowsForms
+﻿namespace VacanciesBrowser
 {
     partial class VacancyAddOrEdit
     {
