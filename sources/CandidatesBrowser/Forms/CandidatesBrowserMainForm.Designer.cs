@@ -112,7 +112,7 @@
             // 
             // coID
             // 
-            this.coID.Caption = "ID";
+            this.coID.Caption = "Id";
             this.coID.FieldName = "Id";
             this.coID.Name = "coID";
             this.coID.Visible = true;

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.rootLayout = new DevExpress.XtraLayout.LayoutControl();
+            this.genderComboBox = new DevExpress.XtraEditors.ComboBoxEdit();
             this.contactInformationLabel = new DevExpress.XtraEditors.LabelControl();
             this.generalInforLabel = new DevExpress.XtraEditors.LabelControl();
             this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
@@ -77,13 +78,13 @@
             this.spaceAtGeneralInfoBottom = new DevExpress.XtraLayout.EmptySpaceItem();
             this.generalInfoLabelLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.spaceBetweenEnglishAndGender = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.genderLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.cancelButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.spaceAtFormBottom = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.genderComboBox = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.genderLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.rootLayout)).BeginInit();
             this.rootLayout.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.genderComboBox.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.urlTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emailTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.skypeTextEdit.Properties)).BeginInit();
@@ -126,11 +127,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.spaceAtGeneralInfoBottom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalInfoLabelLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spaceBetweenEnglishAndGender)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.genderLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelButtonLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spaceAtFormBottom)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.genderComboBox.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.genderLayoutControlItem)).BeginInit();
             this.SuspendLayout();
             // 
             // rootLayout
@@ -174,6 +174,16 @@
             this.rootLayout.Size = new System.Drawing.Size(806, 481);
             this.rootLayout.TabIndex = 0;
             this.rootLayout.Text = "layoutControl1";
+            // 
+            // genderComboBox
+            // 
+            this.genderComboBox.Location = new System.Drawing.Point(222, 94);
+            this.genderComboBox.Name = "genderComboBox";
+            this.genderComboBox.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.genderComboBox.Size = new System.Drawing.Size(273, 20);
+            this.genderComboBox.StyleController = this.rootLayout;
+            this.genderComboBox.TabIndex = 24;
             // 
             // contactInformationLabel
             // 
@@ -633,6 +643,15 @@
             this.spaceBetweenEnglishAndGender.Size = new System.Drawing.Size(343, 10);
             this.spaceBetweenEnglishAndGender.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // genderLayoutControlItem
+            // 
+            this.genderLayoutControlItem.Control = this.genderComboBox;
+            this.genderLayoutControlItem.Location = new System.Drawing.Point(151, 89);
+            this.genderLayoutControlItem.Name = "genderLayoutControlItem";
+            this.genderLayoutControlItem.Size = new System.Drawing.Size(343, 24);
+            this.genderLayoutControlItem.Text = "Gender:";
+            this.genderLayoutControlItem.TextSize = new System.Drawing.Size(63, 13);
+            // 
             // saveButtonLayoutControlItem
             // 
             this.saveButtonLayoutControlItem.Control = this.saveButton;
@@ -659,25 +678,6 @@
             this.spaceAtFormBottom.Size = new System.Drawing.Size(668, 26);
             this.spaceAtFormBottom.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // genderComboBox
-            // 
-            this.genderComboBox.Location = new System.Drawing.Point(222, 94);
-            this.genderComboBox.Name = "genderComboBox";
-            this.genderComboBox.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.genderComboBox.Size = new System.Drawing.Size(273, 20);
-            this.genderComboBox.StyleController = this.rootLayout;
-            this.genderComboBox.TabIndex = 24;
-            // 
-            // genderLayoutControlItem
-            // 
-            this.genderLayoutControlItem.Control = this.genderComboBox;
-            this.genderLayoutControlItem.Location = new System.Drawing.Point(151, 89);
-            this.genderLayoutControlItem.Name = "genderLayoutControlItem";
-            this.genderLayoutControlItem.Size = new System.Drawing.Size(343, 24);
-            this.genderLayoutControlItem.Text = "Gender:";
-            this.genderLayoutControlItem.TextSize = new System.Drawing.Size(63, 13);
-            // 
             // CandidateForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -685,9 +685,10 @@
             this.ClientSize = new System.Drawing.Size(806, 481);
             this.Controls.Add(this.rootLayout);
             this.Name = "CandidateForm";
-            this.Text = "Cnadidate";
+            this.Text = "Candidate";
             ((System.ComponentModel.ISupportInitialize)(this.rootLayout)).EndInit();
             this.rootLayout.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.genderComboBox.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.urlTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emailTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.skypeTextEdit.Properties)).EndInit();
@@ -730,11 +731,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.spaceAtGeneralInfoBottom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalInfoLabelLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spaceBetweenEnglishAndGender)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.genderLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelButtonLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spaceAtFormBottom)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.genderComboBox.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.genderLayoutControlItem)).EndInit();
             this.ResumeLayout(false);
 
         }
