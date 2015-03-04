@@ -8,7 +8,7 @@ namespace HumanResourcesLibrary.DataClasses
 {
     public class UniqueItem
     {
-        public Guid Id { get; set; }
+        public Guid Id { get; private set; }
 
         public UniqueItem()
         {

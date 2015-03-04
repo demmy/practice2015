@@ -6,14 +6,11 @@ using System.Threading.Tasks;
 
 namespace HumanResourcesLibrary.DataClasses
 {
-    public enum EnglishLevel
+    public enum SocialNetworkType
     {
-        Beginner,
-        Elementary,
-        PreIntermediate,
-        Intermediate,
-        UpperIntermediate,
-        Advanced,
-        Proficiency
+        LinkedIn,
+        Facebook,
+        VKontakte,
+        GooglePlus
     }
 }
