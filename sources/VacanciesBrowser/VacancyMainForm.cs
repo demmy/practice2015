@@ -18,13 +18,13 @@ namespace WindowsFormsApplication1
 
         private void AddVacancy_Click(object sender, EventArgs e)
         {
-            Form2 frm2 = new Form2();
+            VacancyAddOrEdit frm2 = new VacancyAddOrEdit();
             frm2.Show();
         }
 
         private void EditVacancy_Click(object sender, EventArgs e)
         {
-            Form2 frm2 = new Form2();
+            VacancyAddOrEdit frm2 = new VacancyAddOrEdit();
             frm2.Show();
         }
 
@@ -35,13 +35,13 @@ namespace WindowsFormsApplication1
 
         private void barButtonItem_AddVacancy_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Form2 frm2 = new Form2();
+            VacancyAddOrEdit frm2 = new VacancyAddOrEdit();
             frm2.Show();
         }
 
         private void barButtonItem_EditVacancy_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Form2 frm2 = new Form2();
+            VacancyAddOrEdit frm2 = new VacancyAddOrEdit();
             frm2.Show();
         }
 

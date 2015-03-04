@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApplication1
 {
-    partial class Form2
+    partial class VacancyAddOrEdit
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VacancyAddOrEdit));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.DescriptionVacancy = new DevExpress.XtraEditors.MemoEdit();
             this.ListSkills = new DevExpress.XtraEditors.MemoEdit();
@@ -488,7 +488,6 @@
             this.ClientSize = new System.Drawing.Size(598, 584);
             this.Controls.Add(this.layoutControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Информация о вакансии";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();

@@ -381,7 +381,6 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "ListVacancy";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Список вакансий";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
