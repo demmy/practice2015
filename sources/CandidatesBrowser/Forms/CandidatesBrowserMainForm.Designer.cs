@@ -84,7 +84,6 @@
             // 
             // mainGridControl
             // 
-            this.mainGridControl.DataSource = this.mainBindingSource;
             this.mainGridControl.Location = new System.Drawing.Point(12, 38);
             this.mainGridControl.MainView = this.mainGridView;
             this.mainGridControl.Name = "mainGridControl";
