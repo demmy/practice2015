@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Class
+namespace HumanResourcesLibrary.DataClasses
 {
-    public class Comment
+    public class City
     {
-        private DateTime dateTime;
-        private string comment;
-    }
+        private string cityName { get; set; }   
+    } 
 }

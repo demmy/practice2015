@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication1
+﻿namespace WindowsForms
 {
     partial class VacancyAddOrEdit
     {

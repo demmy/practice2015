@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Class;
 
-namespace WindowsFormsApplication1
+namespace WindowsForms
 {
     public partial class VacancyAddOrEdit : Form
     {

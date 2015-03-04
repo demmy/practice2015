@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Class
+namespace HumanResourcesLibrary.DataClasses
 {
-    public class ResponsiblePerson
+    public enum Status
     {
-        private string responsiblePersonName;
+        Open,
+        Closed
     }
 }
