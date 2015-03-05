@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.rootLayout = new DevExpress.XtraLayout.LayoutControl();
             this.genderComboBox = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.candidateBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.contactInformationLabel = new DevExpress.XtraEditors.LabelControl();
             this.generalInforLabel = new DevExpress.XtraEditors.LabelControl();
             this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
@@ -85,6 +87,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.rootLayout)).BeginInit();
             this.rootLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.genderComboBox.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.candidateBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.urlTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emailTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.skypeTextEdit.Properties)).BeginInit();
@@ -177,6 +180,7 @@
             // 
             // genderComboBox
             // 
+            this.genderComboBox.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.candidateBindingSource, "Gender", true));
             this.genderComboBox.Location = new System.Drawing.Point(222, 94);
             this.genderComboBox.Name = "genderComboBox";
             this.genderComboBox.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -184,6 +188,10 @@
             this.genderComboBox.Size = new System.Drawing.Size(273, 20);
             this.genderComboBox.StyleController = this.rootLayout;
             this.genderComboBox.TabIndex = 24;
+            // 
+            // candidateBindingSource
+            // 
+            this.candidateBindingSource.DataSource = typeof(HumanResourcesLibrary.DataClasses.Candidate);
             // 
             // contactInformationLabel
             // 
@@ -215,6 +223,7 @@
             this.cancelButton.StyleController = this.rootLayout;
             this.cancelButton.TabIndex = 21;
             this.cancelButton.Text = "Cancel";
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // saveButton
             // 
@@ -260,6 +269,7 @@
             // 
             // urlTextEdit
             // 
+            this.urlTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.candidateBindingSource, "SiteURL", true));
             this.urlTextEdit.Location = new System.Drawing.Point(571, 70);
             this.urlTextEdit.Name = "urlTextEdit";
             this.urlTextEdit.Size = new System.Drawing.Size(230, 20);
@@ -268,6 +278,7 @@
             // 
             // emailTextEdit
             // 
+            this.emailTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.candidateBindingSource, "Email", true));
             this.emailTextEdit.Location = new System.Drawing.Point(571, 46);
             this.emailTextEdit.Name = "emailTextEdit";
             this.emailTextEdit.Size = new System.Drawing.Size(230, 20);
@@ -276,6 +287,7 @@
             // 
             // skypeTextEdit
             // 
+            this.skypeTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.candidateBindingSource, "Skype", true));
             this.skypeTextEdit.Location = new System.Drawing.Point(571, 22);
             this.skypeTextEdit.Name = "skypeTextEdit";
             this.skypeTextEdit.Size = new System.Drawing.Size(230, 20);
@@ -332,6 +344,7 @@
             // 
             // dobDateEdit
             // 
+            this.dobDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.candidateBindingSource, "DOB", true));
             this.dobDateEdit.EditValue = null;
             this.dobDateEdit.Location = new System.Drawing.Point(222, 128);
             this.dobDateEdit.Name = "dobDateEdit";
@@ -345,6 +358,7 @@
             // 
             // relocationCheckEdit
             // 
+            this.relocationCheckEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.candidateBindingSource, "RelocationAgreement", true));
             this.relocationCheckEdit.Location = new System.Drawing.Point(156, 186);
             this.relocationCheckEdit.Name = "relocationCheckEdit";
             this.relocationCheckEdit.Properties.Caption = "Relocation agreement";
@@ -354,6 +368,7 @@
             // 
             // englishLevelComboBox
             // 
+            this.englishLevelComboBox.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.candidateBindingSource, "EnglishLevel", true));
             this.englishLevelComboBox.Location = new System.Drawing.Point(222, 152);
             this.englishLevelComboBox.Name = "englishLevelComboBox";
             this.englishLevelComboBox.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -364,6 +379,7 @@
             // 
             // lastNameTextEdit
             // 
+            this.lastNameTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.candidateBindingSource, "LastName", true));
             this.lastNameTextEdit.Location = new System.Drawing.Point(222, 70);
             this.lastNameTextEdit.Name = "lastNameTextEdit";
             this.lastNameTextEdit.Size = new System.Drawing.Size(273, 20);
@@ -372,6 +388,7 @@
             // 
             // middleNameTextEdit
             // 
+            this.middleNameTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.candidateBindingSource, "MiddleName", true));
             this.middleNameTextEdit.Location = new System.Drawing.Point(222, 46);
             this.middleNameTextEdit.Name = "middleNameTextEdit";
             this.middleNameTextEdit.Size = new System.Drawing.Size(273, 20);
@@ -380,6 +397,7 @@
             // 
             // firstNameTextEdit
             // 
+            this.firstNameTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.candidateBindingSource, "FirstName", true));
             this.firstNameTextEdit.Location = new System.Drawing.Point(222, 22);
             this.firstNameTextEdit.Name = "firstNameTextEdit";
             this.firstNameTextEdit.Size = new System.Drawing.Size(273, 20);
@@ -692,6 +710,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.rootLayout)).EndInit();
             this.rootLayout.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.genderComboBox.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.candidateBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.urlTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emailTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.skypeTextEdit.Properties)).EndInit();
@@ -798,6 +817,7 @@
         private DevExpress.XtraLayout.LayoutControlItem contactInformationLabelLayoutControlItem;
         private DevExpress.XtraEditors.ComboBoxEdit genderComboBox;
         private DevExpress.XtraLayout.LayoutControlItem genderLayoutControlItem;
+        private System.Windows.Forms.BindingSource candidateBindingSource;
 
 
     }
