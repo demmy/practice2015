@@ -84,6 +84,16 @@
             this.saveButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.cancelButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.spaceAtFormBottom = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.contactsListBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.colType = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colComment = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.socialNetworksListBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.colType1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLink = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.phonesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.colPhoneNumber = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colType2 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.rootLayout)).BeginInit();
             this.rootLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.genderComboBox.Properties)).BeginInit();
@@ -134,6 +144,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelButtonLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spaceAtFormBottom)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contactsListBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.socialNetworksListBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.phonesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // rootLayout
@@ -296,6 +309,7 @@
             // 
             // socialNetworksGrid
             // 
+            this.socialNetworksGrid.DataSource = this.socialNetworksListBindingSource;
             this.socialNetworksGrid.Location = new System.Drawing.Point(505, 270);
             this.socialNetworksGrid.MainView = this.socialNetworksGridView;
             this.socialNetworksGrid.Name = "socialNetworksGrid";
@@ -306,12 +320,16 @@
             // 
             // socialNetworksGridView
             // 
+            this.socialNetworksGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colType1,
+            this.colLink});
             this.socialNetworksGridView.GridControl = this.socialNetworksGrid;
             this.socialNetworksGridView.Name = "socialNetworksGridView";
             this.socialNetworksGridView.OptionsView.ShowGroupPanel = false;
             // 
             // commentsGrid
             // 
+            this.commentsGrid.DataSource = this.contactsListBindingSource;
             this.commentsGrid.Location = new System.Drawing.Point(5, 242);
             this.commentsGrid.MainView = this.commentsGridView;
             this.commentsGrid.Name = "commentsGrid";
@@ -322,12 +340,17 @@
             // 
             // commentsGridView
             // 
+            this.commentsGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colType,
+            this.colDate,
+            this.colComment});
             this.commentsGridView.GridControl = this.commentsGrid;
             this.commentsGridView.Name = "commentsGridView";
             this.commentsGridView.OptionsView.ShowGroupPanel = false;
             // 
             // phonesGrid
             // 
+            this.phonesGrid.DataSource = this.phonesBindingSource;
             this.phonesGrid.Location = new System.Drawing.Point(505, 111);
             this.phonesGrid.MainView = this.phonesGridView;
             this.phonesGrid.Name = "phonesGrid";
@@ -338,6 +361,9 @@
             // 
             // phonesGridView
             // 
+            this.phonesGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colPhoneNumber,
+            this.colType2});
             this.phonesGridView.GridControl = this.phonesGrid;
             this.phonesGridView.Name = "phonesGridView";
             this.phonesGridView.OptionsView.ShowGroupPanel = false;
@@ -699,6 +725,70 @@
             this.spaceAtFormBottom.Size = new System.Drawing.Size(668, 26);
             this.spaceAtFormBottom.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // contactsListBindingSource
+            // 
+            this.contactsListBindingSource.DataMember = "ContactsList";
+            this.contactsListBindingSource.DataSource = this.candidateBindingSource;
+            // 
+            // colType
+            // 
+            this.colType.FieldName = "Type";
+            this.colType.Name = "colType";
+            this.colType.Visible = true;
+            this.colType.VisibleIndex = 0;
+            // 
+            // colDate
+            // 
+            this.colDate.FieldName = "Date";
+            this.colDate.Name = "colDate";
+            this.colDate.Visible = true;
+            this.colDate.VisibleIndex = 1;
+            // 
+            // colComment
+            // 
+            this.colComment.FieldName = "Comment";
+            this.colComment.Name = "colComment";
+            this.colComment.Visible = true;
+            this.colComment.VisibleIndex = 2;
+            // 
+            // socialNetworksListBindingSource
+            // 
+            this.socialNetworksListBindingSource.DataMember = "SocialNetworksList";
+            this.socialNetworksListBindingSource.DataSource = this.candidateBindingSource;
+            // 
+            // colType1
+            // 
+            this.colType1.FieldName = "Type";
+            this.colType1.Name = "colType1";
+            this.colType1.Visible = true;
+            this.colType1.VisibleIndex = 0;
+            // 
+            // colLink
+            // 
+            this.colLink.FieldName = "Link";
+            this.colLink.Name = "colLink";
+            this.colLink.Visible = true;
+            this.colLink.VisibleIndex = 1;
+            // 
+            // phonesBindingSource
+            // 
+            this.phonesBindingSource.DataMember = "Phones";
+            this.phonesBindingSource.DataSource = this.candidateBindingSource;
+            // 
+            // colPhoneNumber
+            // 
+            this.colPhoneNumber.FieldName = "PhoneNumber";
+            this.colPhoneNumber.Name = "colPhoneNumber";
+            this.colPhoneNumber.Visible = true;
+            this.colPhoneNumber.VisibleIndex = 0;
+            // 
+            // colType2
+            // 
+            this.colType2.FieldName = "Type";
+            this.colType2.Name = "colType2";
+            this.colType2.Visible = true;
+            this.colType2.VisibleIndex = 1;
+            // 
             // CandidateForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -757,6 +847,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelButtonLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spaceAtFormBottom)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contactsListBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.socialNetworksListBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.phonesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -818,6 +911,16 @@
         private DevExpress.XtraEditors.ComboBoxEdit genderComboBox;
         private DevExpress.XtraLayout.LayoutControlItem genderLayoutControlItem;
         private System.Windows.Forms.BindingSource candidateBindingSource;
+        private System.Windows.Forms.BindingSource socialNetworksListBindingSource;
+        private DevExpress.XtraGrid.Columns.GridColumn colType1;
+        private DevExpress.XtraGrid.Columns.GridColumn colLink;
+        private System.Windows.Forms.BindingSource contactsListBindingSource;
+        private DevExpress.XtraGrid.Columns.GridColumn colType;
+        private DevExpress.XtraGrid.Columns.GridColumn colDate;
+        private DevExpress.XtraGrid.Columns.GridColumn colComment;
+        private System.Windows.Forms.BindingSource phonesBindingSource;
+        private DevExpress.XtraGrid.Columns.GridColumn colPhoneNumber;
+        private DevExpress.XtraGrid.Columns.GridColumn colType2;
 
 
     }
