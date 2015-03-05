@@ -46,7 +46,7 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.SearchButton = new DevExpress.XtraEditors.SimpleButton();
             this.CandidateSoname = new DevExpress.XtraEditors.TextEdit();
-            this.CandidateTelephone = new DevExpress.XtraEditors.TextEdit();
+            this.CandidatePhone = new DevExpress.XtraEditors.TextEdit();
             this.CandidateName = new DevExpress.XtraEditors.TextEdit();
             this.CandidateFromDate = new DevExpress.XtraEditors.DateEdit();
             this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
@@ -91,7 +91,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CandidateEnglishLevel.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CandidateSoname.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CandidateTelephone.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CandidatePhone.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CandidateName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CandidateFromDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CandidateFromDate.Properties)).BeginInit();
@@ -165,7 +165,7 @@
             this.layoutControl1.Controls.Add(this.labelControl1);
             this.layoutControl1.Controls.Add(this.SearchButton);
             this.layoutControl1.Controls.Add(this.CandidateSoname);
-            this.layoutControl1.Controls.Add(this.CandidateTelephone);
+            this.layoutControl1.Controls.Add(this.CandidatePhone);
             this.layoutControl1.Controls.Add(this.CandidateCity);
             this.layoutControl1.Controls.Add(this.CandidateName);
             this.layoutControl1.Controls.Add(this.CandidateFromDate);
@@ -312,13 +312,13 @@
             this.CandidateSoname.StyleController = this.layoutControl1;
             this.CandidateSoname.TabIndex = 15;
             // 
-            // CandidateTelephone
+            // CandidatePhone
             // 
-            this.CandidateTelephone.Location = new System.Drawing.Point(12, 213);
-            this.CandidateTelephone.Name = "CandidateTelephone";
-            this.CandidateTelephone.Size = new System.Drawing.Size(129, 20);
-            this.CandidateTelephone.StyleController = this.layoutControl1;
-            this.CandidateTelephone.TabIndex = 16;
+            this.CandidatePhone.Location = new System.Drawing.Point(12, 213);
+            this.CandidatePhone.Name = "CandidatePhone";
+            this.CandidatePhone.Size = new System.Drawing.Size(129, 20);
+            this.CandidatePhone.StyleController = this.layoutControl1;
+            this.CandidatePhone.TabIndex = 16;
             // 
             // CandidateName
             // 
@@ -393,7 +393,7 @@
             // 
             // Телефон
             // 
-            this.Телефон.Control = this.CandidateTelephone;
+            this.Телефон.Control = this.CandidatePhone;
             this.Телефон.Location = new System.Drawing.Point(0, 185);
             this.Телефон.Name = "Телефон";
             this.Телефон.Size = new System.Drawing.Size(133, 40);
@@ -657,7 +657,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CandidateEnglishLevel.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CandidateSoname.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CandidateTelephone.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CandidatePhone.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CandidateName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CandidateFromDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CandidateFromDate.Properties)).EndInit();
@@ -709,7 +709,7 @@
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
-        private DevExpress.XtraEditors.TextEdit CandidateTelephone;
+        private DevExpress.XtraEditors.TextEdit CandidatePhone;
         private DevExpress.XtraLayout.LayoutControlItem Фамилия;
         private DevExpress.XtraLayout.LayoutControlItem Город;
         private DevExpress.XtraLayout.LayoutControlItem Телефон;

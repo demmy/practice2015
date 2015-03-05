@@ -20,14 +20,14 @@ namespace CandidatesSearcher
 
         public CandidateSearchVievModel()
         {
-            //searchComand = ViewModelSource.Create(() => new CandidateSearchCommand(this));
+           // searchComand = ViewModelSource.Create(() => new CandidateSearchCommand(this));
             searchComand = new CandidateSearchCommand(this);
             
         }
 
         #region BindingFields
 
-        private string candidateName = "";
+        public string candidateName = "";
         public string CandidateName
         {
             get { return candidateName; }
@@ -36,7 +36,7 @@ namespace CandidatesSearcher
                 if (value != candidateName)
                 {
                     candidateName = value;
-                    RaisePropertiesChanged("CandidateName");
+                    RaisePropertyChanged("CandidateName");
                 }
             }
         }

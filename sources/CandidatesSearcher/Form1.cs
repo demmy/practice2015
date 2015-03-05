@@ -33,9 +33,9 @@ namespace CandidatesSearcher
             bindingSource.DataSource = vm;
             CandidateName.DataBindings.Add("CandidateName", bindingSource, "CandidateName");
             CandidateSoname.DataBindings.Add("CandidateSoname", bindingSource, "CandidateSoname");
-            CandidateName.DataBindings.Add("CandidatePhone", bindingSource, "CandidatePhone");
-            CandidateSoname.DataBindings.Add("CandidateCity", bindingSource, "CandidateCity");
-            CandidateSoname.DataBindings.Add("CandidateEnglishLevel", bindingSource, "CandidateEnglishLevel");
+            CandidatePhone.DataBindings.Add("CandidatePhone", bindingSource, "CandidatePhone");
+            CandidateCity.DataBindings.Add("CandidateCity", bindingSource, "CandidateCity");
+            CandidateEnglishLevel.DataBindings.Add("CandidateEnglishLevel", bindingSource, "CandidateEnglishLevel");
             
            // CandidateName.DataBindings.Add("",);
         }

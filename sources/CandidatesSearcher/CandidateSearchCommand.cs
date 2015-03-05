@@ -71,7 +71,8 @@ namespace CandidatesSearcher
 
         public Dictionary<string, object> GetFormInformation
         {
-            get {
+            get 
+            {
                 return FormInfo;
             }
         }
