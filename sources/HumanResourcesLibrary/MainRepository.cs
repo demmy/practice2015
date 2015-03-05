@@ -40,10 +40,73 @@ namespace HumanResourcesLibrary
         /// Use this method to get list of candidates which correspond to given criteria
         /// </summary>
         /// <returns>list of candidates</returns>
-        public List<Candidate> GetCandidates(/* here search criteria go */)
+        public List<Candidate> GetCandidates(Dictionary<string,object> candidate_criteria)
         {
-            return candidates.FindAll((c) => { return true; /* here search criteria go */ }).ConvertAll((c) => { return c.CreateDeepCopy(); });
-        }
+                List<Candidate> returns_candidate = candidates;
+                
+                foreach (var t in candidate_criteria)
+                {
+
+                    if (t.Value is string)
+                    {
+                        if (t.Key == "Name")
+                            for (int i = 0; i < returns_candidate.Count; i++)
+                            {
+                                if ((string)t.Value != candidates[i].FirstName)
+                                    returns_candidate.Remove(returns_candidate[i]);
+                            }
+
+                        if (t.Key == "Soname")
+                            for (int i = 0; i < returns_candidate.Count; i++)
+                            {
+                                if ((string)t.Value != returns_candidate[i].LastName)
+                                    returns_candidate.Remove(returns_candidate[i]);
+                            }
+
+                        if (t.Key == "Phone")
+                            for (int i = 0; i < returns_candidate.Count; i++)
+                            {
+                                if ((string)t.Value != returns_candidate[i].Phones[i].PhoneNumber)
+                                    returns_candidate.Remove(returns_candidate[i]);
+                            }
+
+                        if (t.Key == "City")
+                            for (int i = 0; i < returns_candidate.Count; i++)
+                            {
+                                if ((string)t.Value != returns_candidate[i].City)
+                                    returns_candidate.Remove(returns_candidate[i]);
+                            }
+                    }
+
+                    if ((t.Value is bool) && t.Key == "AgreeToRelocate")
+                        for (int i = 0; i < returns_candidate.Count; i++)
+                        {
+                            if ((bool)t.Value != returns_candidate[i].RelocationAgreement)
+                                returns_candidate.Remove(returns_candidate[i]);
+                        }
+
+
+                    if (t.Value is DateTime)
+                    {
+                        if (t.Key == "FromData")
+                            for (int i = 0; i < returns_candidate.Count; i++)
+                            {
+                                if ((DateTime)t.Value > returns_candidate[i].DOB)
+                                    returns_candidate.Remove(returns_candidate[i]);
+                            }
+                        if (t.Key == "ToData")
+                            for (int i = 0; i < returns_candidate.Count; i++)
+                            {
+                                if ((DateTime)t.Value < returns_candidate[i].DOB)
+                                    returns_candidate.Remove(returns_candidate[i]);
+                            }
+                    }
+                    
+                }
+                return returns_candidate;
+            }
+                
+        
 
         /// <summary>
         /// Use this method to update the vacancy information, or to add newly created vacancy

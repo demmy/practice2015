@@ -11,7 +11,7 @@ namespace HumanResourcesLibrary
     {
         List<Vacancy> GetAllVacancies();
         List<Candidate> GetAllCandidates();
-        List<Candidate> GetCandidates(/* here search criteria go */);
+        List<Candidate> GetCandidates(Dictionary<string, object> candidate_criteria);
         void SaveVacancy(Vacancy v);
         void SaveCandidate(Candidate c);
     }
