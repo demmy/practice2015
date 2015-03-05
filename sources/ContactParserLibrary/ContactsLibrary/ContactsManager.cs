@@ -13,7 +13,7 @@ namespace ContactParserLibrary.ContactsLibrary
         ContactsStorage storage;
         public void Read(string path)
         {
-            if (path[path.Length - 1] == 't' && path[path.Length - 2] == 'x' && path[path.Length - 3] == 't')
+            if (path.Substring(path.Length-3,3) == "txt")
             {
                 ReadTxt(path);
             }
@@ -65,6 +65,46 @@ namespace ContactParserLibrary.ContactsLibrary
             foreach (var item in (storage.GetContactsByType(ContactType.WebSite)))
             {
                 webSites.Add(new KeyValuePair<string, bool>(item.Value, item.IsChosen));
+            }
+            return webSites;
+        }
+        public List<Contact> GetSkypeContacts()
+        {
+            List<Contact> skypes = new List<Contact>();
+
+            foreach (Contact item in (storage.GetContactsByType(ContactType.Skype)))
+            {
+                skypes.Add(item);
+            }
+            return skypes;
+        }
+        public List<Contact> GetEmailContacts()
+        {
+            List<Contact> emails = new List<Contact>();
+
+            foreach (Contact item in (storage.GetContactsByType(ContactType.Email)))
+            {
+                emails.Add(item);
+            }
+            return emails;
+        }
+        public List<Contact> GetPhoneNumberContacts()
+        {
+            List<Contact> phones = new List<Contact>();
+
+            foreach (Contact item in (storage.GetContactsByType(ContactType.PhoneNumber)))
+            {
+                phones.Add(item);
+            }
+            return phones;
+        }
+        public List<Contact> GetWebSiteContacts()
+        {
+            List<Contact> webSites = new List<Contact>();
+
+            foreach (Contact item in (storage.GetContactsByType(ContactType.WebSite)))
+            {
+                webSites.Add(item);
             }
             return webSites;
         }
