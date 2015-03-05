@@ -14,11 +14,7 @@ namespace CandidatesBrowser.Forms
 {
     public partial class CandidateForm : Form
     {
-        /// <summary>
-        /// Create a new CandidateForm binded to a Candidate item.
-        /// </summary>
-        /// <param name="candidate"> A Candidate item that is binded to the form's controls. </param>
-        public CandidateForm(Candidate candidate)
+        public CandidateForm()
         {
             InitializeComponent();
         }
