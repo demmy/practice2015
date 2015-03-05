@@ -13,16 +13,11 @@ namespace CandidatesBrowser.Forms
 {
     public partial class CandidateForm : Form
     {
-        private Candidate myCandidate;
+        public Candidate FormCandidate { get; set; }
 
         public CandidateForm()
         {
-            InitializeComponent();
-        }
-
-        public CandidateForm(Candidate myCandidate)
-        {
-            this.myCandidate = myCandidate;
+            FormCandidate = null;
 
             InitializeComponent();
         }

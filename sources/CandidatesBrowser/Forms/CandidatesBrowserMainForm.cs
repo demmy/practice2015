@@ -20,16 +20,20 @@ namespace CandidatesBrowser.Forms
     public partial class CandidatesBrowserMainForm : Form
     {
         private bool editEnabled = false;
+        private CandidateForm candidateForm = null;
 
         public CandidatesBrowserMainForm()
         {
-            mainGridControl.DataSource = RepositoryService.Repository.GetAllCandidates();
+            candidateForm = new CandidateForm();
+
             InitializeComponent();
+            mainBindingSource.DataSource = RepositoryService.Repository.GetAllCandidates();
         }
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            //this.AddOwnedForm(new CandidateForm(
+            candidateForm.FormCandidate = new Candidate();
+            candidateForm.ShowDialog();
         }
 
         private void editButton_Click(object sender, EventArgs e)
@@ -41,14 +45,16 @@ namespace CandidatesBrowser.Forms
         {
             if (editEnabled)
             {
-                //this.AddOwnedForm(new CandidateForm(
+                editEnabled = false;
+                candidateForm.FormCandidate = (Candidate)((GridView)sender).GetRow(e.RowHandle);
+                candidateForm.ShowDialog();
             }
         }
 
         private void mainGridView_DoubleClick(object sender, EventArgs e)
         {
-            //this.AddOwnedForm(new CandidateForm(
-            ((GridView)sender).GetRow(((GridView)sender).FocusedRowHandle);//GetDataRow
+            candidateForm.FormCandidate = (Candidate)((GridView)sender).GetRow(((GridView)sender).FocusedRowHandle);
+            candidateForm.ShowDialog();
         }
     }
 }

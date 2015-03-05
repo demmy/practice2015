@@ -21,7 +21,7 @@ namespace HumanResourcesLibrary
                 FirstName = "Konstantin",
                 MiddleName = "Veniaminovich",
                 LastName = "Prihodko",
-                DOB = new DateTime(24, 04, 1994),
+                DOB = new DateTime(1994, 04, 24),
                 Gender = Gender.Male,
                 Country = "Ukraine",
                 City = "Kharkov",
@@ -42,13 +42,13 @@ namespace HumanResourcesLibrary
                 {
                     new ContactWithCandidate() 
                     { 
-                        Date = new DateTime(15, 02, 2015, 17, 00, 00), 
+                        Date = new DateTime(2015, 02, 15, 17, 00, 00), 
                         Type = ContactTypes.Meet,
                         Comment = "its ok"
                     },
                     new ContactWithCandidate() 
                     { 
-                        Date = new DateTime(17, 02, 2015, 12, 05, 00), 
+                        Date = new DateTime(2015, 02, 17, 12, 05, 00), 
                         Type = ContactTypes.Meet,
                         Comment = "all"
                     }
@@ -59,7 +59,7 @@ namespace HumanResourcesLibrary
             {
                 FirstName = "Konstancia",
                 LastName = "Simicolon",
-                DOB = new DateTime(15, 12, 1985),
+                DOB = new DateTime(1985, 12, 19),
                 Gender = Gender.Female,
                 Country = "Great Britain",
                 City = "London",
@@ -79,13 +79,13 @@ namespace HumanResourcesLibrary
                 {
                     new ContactWithCandidate() 
                     { 
-                        Date = new DateTime(24, 01, 2015, 13, 30, 00), 
+                        Date = new DateTime(2015, 01, 24, 13, 30, 00), 
                         Type = ContactTypes.Meet,
                         Comment = "its ok"
                     },
                     new ContactWithCandidate() 
                     { 
-                        Date = new DateTime(17, 02, 2015, 19, 25, 00), 
+                        Date = new DateTime(2015, 02, 17, 19, 25, 00), 
                         Type = ContactTypes.Meet,
                         Comment = "all"
                     }
@@ -97,7 +97,7 @@ namespace HumanResourcesLibrary
                 FirstName = "Лешка",
                 MiddleName = "Алексеевич",
                 LastName = "Гидропоник",
-                DOB = new DateTime(12, 12, 1974),
+                DOB = new DateTime(1974, 12, 15),
                 Gender = Gender.Male,
                 Country = "Россия",
                 City = "Москва",
@@ -118,13 +118,13 @@ namespace HumanResourcesLibrary
                 {
                     new ContactWithCandidate() 
                     { 
-                        Date = new DateTime(24, 01, 2015, 13, 30, 00), 
+                        Date = new DateTime(2015, 01, 24, 13, 30, 00), 
                         Type = ContactTypes.Meet,
                         Comment = "its ok"
                     },
                     new ContactWithCandidate() 
                     { 
-                        Date = new DateTime(17, 02, 2015, 19, 25, 00), 
+                        Date = new DateTime(2015, 02, 17, 19, 25, 00), 
                         Type = ContactTypes.Meet,
                         Comment = "all"
                     }
@@ -136,7 +136,7 @@ namespace HumanResourcesLibrary
                 FirstName = "Машка",
                 MiddleName = "Петровна",
                 LastName = "Гупергун",
-                DOB = new DateTime(02, 07, 1965),
+                DOB = new DateTime(1965, 07, 02),
                 Gender = Gender.Female,
                 Country = "Россия",
                 City = "Волгоград",
@@ -157,13 +157,13 @@ namespace HumanResourcesLibrary
                 {
                     new ContactWithCandidate() 
                     { 
-                        Date = new DateTime(24, 01, 2012, 13, 30, 00), 
+                        Date = new DateTime(2012, 01, 24, 13, 30, 00), 
                         Type = ContactTypes.Meet,
                         Comment = "its ok"
                     },
                     new ContactWithCandidate() 
                     { 
-                        Date = new DateTime(17, 02, 2014, 19, 25, 00), 
+                        Date = new DateTime(2014, 02, 17, 19, 25, 00), 
                         Type = ContactTypes.Meet,
                         Comment = "all"
                     }
@@ -175,7 +175,7 @@ namespace HumanResourcesLibrary
                 FirstName = "Валентин",
                 MiddleName = "Гуоргиевич",
                 LastName = "Набойко",
-                DOB = new DateTime(30, 11, 1986),
+                DOB = new DateTime(1986, 11, 20),
                 Gender = Gender.Female,
                 Country = "Белоруссия",
                 City = "Смоленск",
@@ -196,7 +196,7 @@ namespace HumanResourcesLibrary
                 {
                     new ContactWithCandidate() 
                     { 
-                        Date = new DateTime(24, 01, 2014, 16, 50, 00), 
+                        Date = new DateTime(2014, 01, 24, 16, 50, 00), 
                         Type = ContactTypes.Meet,
                         Comment = "its ok"
                     },
@@ -208,7 +208,7 @@ namespace HumanResourcesLibrary
                 FirstName = "Августина",
                 MiddleName = "Вячеславовна",
                 LastName = "Красношапкова",
-                DOB = new DateTime(02, 07, 1965),
+                DOB = new DateTime(1965, 07, 02),
                 Gender = Gender.Male,
                 Country = "Россия",
                 City = "Москва",
@@ -225,13 +225,13 @@ namespace HumanResourcesLibrary
                 {
                     new ContactWithCandidate() 
                     { 
-                        Date = new DateTime(24, 02, 2013, 13, 30, 00), 
+                        Date = new DateTime(2013, 02, 24, 13, 30, 00), 
                         Type = ContactTypes.Meet,
                         Comment = "its ok"
                     },
                     new ContactWithCandidate() 
                     { 
-                        Date = new DateTime(17, 02, 2014, 19, 25, 00), 
+                        Date = new DateTime(2014, 02, 17, 19, 25, 00), 
                         Type = ContactTypes.Meet,
                         Comment = "all"
                     }
