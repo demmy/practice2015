@@ -21,9 +21,21 @@ namespace CandidatesBrowser.Forms
         public CandidateForm(Candidate candidate)
         {
             InitializeComponent();
-            this.candidate = candidate;
-            candidateBindingSource.DataSource = candidate;
-            RenewPhoto();
+        }
+        
+        // TODO: you are free to change this name if you have a better one.
+        public Candidate FormCandidate
+        {
+            get
+            {
+                return this.candidate;
+            }
+            set 
+            {
+                this.candidate = value;
+                candidateBindingSource.DataSource = candidate;
+                RenewPhoto();
+            }
         }
 
         private void RenewPhoto()
