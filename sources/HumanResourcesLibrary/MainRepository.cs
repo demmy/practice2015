@@ -24,7 +24,7 @@ namespace HumanResourcesLibrary
                 DOB = new DateTime(24, 04, 1994),
                 Gender = Gender.Male,
                 Country = "Ukraine",
-                City = "Kharkov",
+                City = "Lviv",
                 RelocationAgreement = true,
                 Phones = new List<Phone>() 
                 { 
