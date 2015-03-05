@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace VacanciesBrowser
@@ -16,7 +15,7 @@ namespace VacanciesBrowser
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //TODO: uncomment when form will be ready: Application.Run(new VacanciesBrowserMainForm());
+            Application.Run(new ListVacancy());
         }
     }
 }
