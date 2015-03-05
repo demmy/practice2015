@@ -8,6 +8,16 @@ namespace HumanResourcesLibrary.DataClasses
 {
     public class City
     {
-        private string cityName { get; set; }   
+        private string cityName { get; set; }
+        private int cityId { get; set; }   
+        public City(int id, string name)
+        {
+            cityId = id;
+            cityName = name;
+        }
+        public string GetCityName()
+        {
+            return cityName;
+        }
     } 
 }

@@ -14,11 +14,14 @@ namespace HumanResourcesLibrary.DataClasses
         {
             Vacancy copy = new Vacancy();
             copy.Title = this.Title;
+            copy.Project = this.Project;
+            copy.City = this.City;
+            copy.Status = this.Status;
             return copy;
         }
-         public Vacancy()
+        public Vacancy()
         {
-            ProjectId = 0;
+            /*ProjectId = 0;
             CityId = 0;
             ResponsiblePersonId = 0;
             Title = System.String.Empty;
@@ -28,30 +31,36 @@ namespace HumanResourcesLibrary.DataClasses
             LevelEnglish = LevelEnglish.Beginner;
             Status = Status.Open;
             Description = System.String.Empty;
-            ListComment = new Dictionary<DateTime, string>();
+            ListComment = new Dictionary<DateTime, string>();*/
         }
-
-        public Vacancy(int projectId, int cityId, int responsiblePersonId, string name, DateTime dateStart, DateTime dateFinish, TypeEmployment typeEmployment, LevelEnglish levelEnglish, Status status, string description, Dictionary<DateTime, string> listComment, int vacancyId = -1)
+        public Vacancy(string name, Project project, City city, Status status)
+         {
+             Title = name;
+             Project = project.GetProjectName();
+             City = city.GetCityName();
+             Status = status;
+         }
+        public Vacancy(Project project, City city, int responsiblePersonId, string name, DateTime dateStart, DateTime dateFinish, TypeEmployment typeEmployment, LevelEnglish levelEnglish, Status status, string description, Dictionary<DateTime, string> listComment, int vacancyId = -1)
         {
-            this.ProjectId = projectId;
-            this.CityId = cityId;
-            this.ResponsiblePersonId = responsiblePersonId;
-            this.Title = name;
-            this.DateStart = dateStart;
-            this.DateFinish = dateFinish;
-            this.TypeEmployment = typeEmployment;
-            this.LevelEnglish = levelEnglish;
-            this.Status = status;
-            this.Description = description;
-            this.ListComment = listComment;
-            this.VacancyId = vacancyId;
+            Project = project.GetProjectName();
+            City = city.GetCityName();
+            ResponsiblePersonId = responsiblePersonId;
+            Title = name;
+            DateStart = dateStart;
+            DateFinish = dateFinish;
+            TypeEmployment = typeEmployment;
+            LevelEnglish = levelEnglish;
+            Status = status;
+            Description = description;
+            ListComment = listComment;
+            VacancyId = vacancyId;
         }
 
         public int VacancyId { get; private set; }
 
-        public int ProjectId{ get; set; }
+        public string Project{ get; set; }
 
-        public int CityId { get; set; }
+        public string City { get; set; }
 
         public int ResponsiblePersonId { get; set; }
 

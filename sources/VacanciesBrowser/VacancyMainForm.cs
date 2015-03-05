@@ -6,12 +6,14 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using HumanResourcesLibrary.DataClasses;
+using HumanResourcesLibrary;
 
 namespace VacanciesBrowser
 {
-    public partial class ListVacancy : Form
+    public partial class VacancyMainForm : Form
     {
-        public ListVacancy()
+        public VacancyMainForm()
         {
             InitializeComponent();
         }
@@ -55,7 +57,20 @@ namespace VacanciesBrowser
             MessageBox.Show("Version");
         }
 
+        private void VacancyMainForm_Load(object sender, EventArgs e)
+        { 
+            List<Vacancy> vacancyForPrint = new List<Vacancy>();
+            BindingList<Vacancy> listDataSource = new BindingList<Vacancy>();
+            IMainRepository repo = RepositoryService.Repository;
+            vacancyForPrint = repo.GetAllVacancies(); 
+            listDataSource.Add(vacancyForPrint[0]);
+            listDataSource.Add(vacancyForPrint[1]);
+            listDataSource.Add(vacancyForPrint[2]);
+            listDataSource.Add(vacancyForPrint[3]);
+            listDataSource.Add(vacancyForPrint[4]);
+            listDataSource.Add(vacancyForPrint[5]);
+            VacancyGridList.DataSource = listDataSource;
 
-
+        }
     }
 }

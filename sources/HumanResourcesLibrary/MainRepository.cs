@@ -14,7 +14,12 @@ namespace HumanResourcesLibrary
 
         public MainRepository()
         {
-            vacancies.Add(new Vacancy() { Title = "Super Vacancy 1" });
+            vacancies.Add(new Vacancy("Super Vacancy 1", new Project(1, "ISD"), new City(1, "Dnipro"), Status.Closed));
+            vacancies.Add(new Vacancy("Super Vacancy 2", new Project(2, "DataArt"), new City(3, "Lviv"), Status.Open));
+            vacancies.Add(new Vacancy("Super Vacancy 3", new Project(3, "SiteCore"), new City(2, "Kyiv"), Status.Open));
+            vacancies.Add(new Vacancy("Super Vacancy 4", new Project(2, "DataArt"), new City(1, "Dnipro"), Status.Closed));
+            vacancies.Add(new Vacancy("Super Vacancy 5", new Project(1, "ISD"), new City(1, "Dnipro"), Status.Open));
+            vacancies.Add(new Vacancy("Super Vacancy 6", new Project(1, "ISD"), new City(1, "Dnipro"), Status.Closed));
             candidates.Add(new Candidate() { LastName = "Ivanov", FirstName = "Ivan", Phones = new List<Phone>() });
         }
 
