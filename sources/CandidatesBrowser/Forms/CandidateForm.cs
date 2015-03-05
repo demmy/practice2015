@@ -7,14 +7,45 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using HumanResourcesLibrary.DataClasses; // for Candidate
 
 namespace CandidatesBrowser.Forms
 {
     public partial class CandidateForm : Form
     {
-        public CandidateForm()
+        /// <summary>
+        /// Create a new CandidateForm binded to a Candidate item.
+        /// </summary>
+        /// <param name="candidate"> A Candidate item that is binded to the form's controls. </param>
+        public CandidateForm(Candidate candidate)
         {
             InitializeComponent();
+            this.candidate = candidate;
+            candidateBindingSource.DataSource = candidate;
+            RenewPhoto();
         }
+
+        private void RenewPhoto()
+        {
+            if (candidate.Photo != null)
+            {
+                using (var stream = new MemoryStream(candidate.Photo))
+                {
+                    this.candidatePhoto.Image = Image.FromStream(stream);
+                }
+            }
+            else
+            {
+                // TODO: load the picture for the candidate who has no photo.
+            }
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private Candidate candidate;
     }
 }

@@ -22,7 +22,6 @@ namespace CandidatesBrowser.Forms
             SetMyUltraFlatPainter();
             InitializeComponent();
         }
-<<<<<<< HEAD
 
         private BindingList<Candidate> CreateData()
         {
@@ -104,14 +103,14 @@ namespace CandidatesBrowser.Forms
         private void addButton_Click(object sender, EventArgs e)
         {
             this.Enabled = false;
-            this.AddOwnedForm(new CandidateForm());
+            //this.AddOwnedForm(new CandidateForm());
             this.OwnedForms[0].Show();
         }
 
         private void editButton_Click(object sender, EventArgs e)
         {
             this.Enabled = false;
-            this.AddOwnedForm(new CandidateForm());
+            //this.AddOwnedForm(new CandidateForm());
             this.OwnedForms[0].Show();
         }
 
@@ -119,8 +118,6 @@ namespace CandidatesBrowser.Forms
         {
             if (e.RowHandle % 2 == 1)
                 e.Appearance.BackColor = System.Drawing.Color.FromArgb(209, 214, 217);
-        }
-=======
->>>>>>> origin/master
+        }		
     }
 }
