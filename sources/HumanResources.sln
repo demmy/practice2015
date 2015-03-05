@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio Express 2012 for Windows Desktop
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HumanResourcesLibrary", "HumanResourcesLibrary\HumanResourcesLibrary.csproj", "{6215DE6E-887F-46B6-A0EB-D023C4695F32}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactParserLibrary", "ContactParserLibrary\ContactParserLibrary.csproj", "{39F11A56-93CC-4A99-973D-4E3DA738B644}"
