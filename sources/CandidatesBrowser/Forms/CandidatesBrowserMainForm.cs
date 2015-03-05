@@ -22,6 +22,7 @@ namespace CandidatesBrowser.Forms
             SetMyUltraFlatPainter();
             InitializeComponent();
         }
+<<<<<<< HEAD
 
         private BindingList<Candidate> CreateData()
         {
@@ -119,5 +120,7 @@ namespace CandidatesBrowser.Forms
             if (e.RowHandle % 2 == 1)
                 e.Appearance.BackColor = System.Drawing.Color.FromArgb(209, 214, 217);
         }
+=======
+>>>>>>> origin/master
     }
 }
