@@ -296,6 +296,7 @@
             // 
             this.socialNetworksGridView.GridControl = this.socialNetworksGrid;
             this.socialNetworksGridView.Name = "socialNetworksGridView";
+            this.socialNetworksGridView.OptionsView.ShowGroupPanel = false;
             // 
             // commentsGrid
             // 
@@ -311,6 +312,7 @@
             // 
             this.commentsGridView.GridControl = this.commentsGrid;
             this.commentsGridView.Name = "commentsGridView";
+            this.commentsGridView.OptionsView.ShowGroupPanel = false;
             // 
             // phonesGrid
             // 
@@ -326,6 +328,7 @@
             // 
             this.phonesGridView.GridControl = this.phonesGrid;
             this.phonesGridView.Name = "phonesGridView";
+            this.phonesGridView.OptionsView.ShowGroupPanel = false;
             // 
             // dobDateEdit
             // 
