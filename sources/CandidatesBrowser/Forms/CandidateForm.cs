@@ -14,12 +14,8 @@ namespace CandidatesBrowser.Forms
 {
     public partial class CandidateForm : Form
     {
-        public Candidate FormCandidate { get; set; }
-
         public CandidateForm()
         {
-            FormCandidate = null;
-
             InitializeComponent();
         }
         
