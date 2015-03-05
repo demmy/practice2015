@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.mainLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.mainGridControl = new DevExpress.XtraGrid.GridControl();
-            this.mainBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mainGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.coID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFirstName = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -46,16 +45,17 @@
             this.editLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonsEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
             this.gridLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.mainBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.mainLayoutControl)).BeginInit();
             this.mainLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainGridControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mainBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsEmptySpaceItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // mainLayoutControl
@@ -92,10 +92,6 @@
             this.mainGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.mainGridView});
             // 
-            // mainBindingSource
-            // 
-            this.mainBindingSource.DataSource = typeof(HumanResourcesLibrary.DataClasses.Candidate);
-            // 
             // mainGridView
             // 
             this.mainGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -108,6 +104,8 @@
             this.mainGridView.GridControl = this.mainGridControl;
             this.mainGridView.Name = "mainGridView";
             this.mainGridView.OptionsView.ShowGroupPanel = false;
+            this.mainGridView.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.mainGridView_RowClick);
+            this.mainGridView.DoubleClick += new System.EventHandler(this.mainGridView_DoubleClick);
             // 
             // coID
             // 
@@ -162,6 +160,7 @@
             this.editButton.StyleController = this.mainLayoutControl;
             this.editButton.TabIndex = 5;
             this.editButton.Text = "Edit";
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
             // addButton
             // 
@@ -171,6 +170,7 @@
             this.addButton.StyleController = this.mainLayoutControl;
             this.addButton.TabIndex = 4;
             this.addButton.Text = "Add";
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // mainLayoutControlGroup
             // 
@@ -221,6 +221,10 @@
             this.gridLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.gridLayoutControlItem.TextVisible = false;
             // 
+            // mainBindingSource
+            // 
+            this.mainBindingSource.DataSource = typeof(HumanResourcesLibrary.DataClasses.Candidate);
+            // 
             // CandidatesBrowserMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -234,13 +238,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.mainLayoutControl)).EndInit();
             this.mainLayoutControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.mainGridControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mainBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.addLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsEmptySpaceItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
