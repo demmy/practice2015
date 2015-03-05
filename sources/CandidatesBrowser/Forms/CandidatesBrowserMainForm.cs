@@ -23,7 +23,7 @@ namespace CandidatesBrowser.Forms
 
         public CandidatesBrowserMainForm()
         {
-            //mainGridControl.DataSource = RepositoryService.Repository.GetAllCandidates();
+            mainGridControl.DataSource = RepositoryService.Repository.GetAllCandidates();
             InitializeComponent();
         }
 
@@ -48,7 +48,7 @@ namespace CandidatesBrowser.Forms
         private void mainGridView_DoubleClick(object sender, EventArgs e)
         {
             //this.AddOwnedForm(new CandidateForm(
-            //((GridView)sender).GetRow//GetDataRow(((GridView)sender).FocusedRowHandle);
+            ((GridView)sender).GetRow(((GridView)sender).FocusedRowHandle);//GetDataRow
         }
     }
 }

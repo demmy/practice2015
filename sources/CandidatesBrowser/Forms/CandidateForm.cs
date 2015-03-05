@@ -7,13 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using HumanResourcesLibrary.DataClasses;
 
 namespace CandidatesBrowser.Forms
 {
     public partial class CandidateForm : Form
     {
+        private Candidate myCandidate;
+
         public CandidateForm()
         {
+            InitializeComponent();
+        }
+
+        public CandidateForm(Candidate myCandidate)
+        {
+            this.myCandidate = myCandidate;
+
             InitializeComponent();
         }
     }
