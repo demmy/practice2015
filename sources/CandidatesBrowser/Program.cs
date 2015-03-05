@@ -18,7 +18,7 @@ namespace CandidatesBrowser
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Forms.CandidatesBrowserMainForm());
 
-            var candidate = new HumanResourcesLibrary.DataClasses.Candidate() { FirstName = "John", LastName = "Doe" };
+            var candidate = HumanResourcesLibrary.RepositoryService.Repository.GetAllCandidates()[1];
             var form = new Forms.CandidateForm() { FormCandidate = candidate };
             Application.Run(form);
         }
