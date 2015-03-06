@@ -38,15 +38,16 @@ namespace CandidatesBrowser.Forms
 
         private void RenewPhoto()
         {
-            if (candidate.Photo != null)
+            if (candidateCopy.Photo != null)
             {
-                using (var stream = new MemoryStream(candidate.Photo))
+                using (var stream = new MemoryStream(candidateCopy.Photo))
                 {
                     this.candidatePhoto.Image = Image.FromStream(stream);
                 }
             }
             else
             {
+                this.candidatePhoto.Image = null;
                 // TODO: load the picture for the candidate who has no photo.
             }
         }
@@ -159,7 +160,15 @@ namespace CandidatesBrowser.Forms
 
         private void candidatePhoto_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-
+            var dialog = new OpenFileDialog();            
+            if (dialog.ShowDialog(this) == DialogResult.OK)
+            {
+                using (var reader = new BinaryReader(File.Open(dialog.FileName, FileMode.Open)))
+                {
+                    candidateCopy.Photo = reader.ReadBytes((int)(new FileInfo(dialog.FileName).Length));
+                    RenewPhoto();
+                }
+            }
         }
     }
 }

@@ -512,6 +512,7 @@
             this.candidatePhoto.MaximumSize = new System.Drawing.Size(147, 200);
             this.candidatePhoto.MinimumSize = new System.Drawing.Size(147, 200);
             this.candidatePhoto.Name = "candidatePhoto";
+            this.candidatePhoto.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
             this.candidatePhoto.Size = new System.Drawing.Size(147, 200);
             this.candidatePhoto.StyleController = this.rootLayout;
             this.candidatePhoto.TabIndex = 4;

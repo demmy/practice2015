@@ -129,7 +129,9 @@ namespace HumanResourcesLibrary.DataClasses
                 result = false;
             else if (this.SiteURL != other.SiteURL)
                 result = false;
-            else if (!Array.Equals(this.Photo, other.Photo))
+            else if ((this.Photo == null && other.Photo != null) || (this.Photo != null && other.Photo == null))
+                result = false;
+            else if (this.Photo != null && !this.Photo.SequenceEqual(other.Photo))
                 result = false;
 
             return result;        
