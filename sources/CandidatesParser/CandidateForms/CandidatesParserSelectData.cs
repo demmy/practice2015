@@ -15,8 +15,10 @@ namespace CandidatesParser.CandidateForms
     public partial class CandidatesParserSelectData : DevExpress.XtraEditors.XtraForm
     {
 
-        public CandidatesParserSelectData()
+        //public CandidatesParserSelectData()
+        public CandidatesParserSelectData(CandidatesParserViewModel manager)
         {
+            InitManager(manager);
             InitializeComponent();
 
             /////////////////////////////////////////////////////////
@@ -30,22 +32,8 @@ namespace CandidatesParser.CandidateForms
             addSkypes();
             addEmails();
             addWebSites();
+            addPhoneNumbersToGrid();
             ////////////////////////////////////////////////////////////////
-
-            //gridColumn4 = gridView1.Columns.Add();
-            //gridColumn4.Caption = "1";
-            //GridControl.DataSource 
-            
-            DataTable table = new DataTable();
-            table.Columns.Add("Name");
-            table.Rows.Add("Hello");
-            table.Rows.Add("World");
-
-            //DataTable newTable = form2_gridControl_PhoneNumber.; 
-            
-            // DataSource
-            form2_gridControl_PhoneNumber.DataSource = table;
-
             
 
         }
@@ -54,14 +42,13 @@ namespace CandidatesParser.CandidateForms
         {
             CandidatesParserWriterDataBase ModalForm2 = new CandidatesParserWriterDataBase();
             ModalForm2.ShowDialog();
-
         }
 
 
         ////////////////////////////////////   FormResizeStyle      \\\\\\\\\\\\\\\\\\\\\\\\\++
         private void resizeBoxesCenter()
         {
-            form2_ComboBoxEdit_Skypes.Dock = DockStyle.Fill;
+            //form2_ComboBoxEdit_Skypes.Dock = DockStyle.Fill;
             //form2_ComboBoxEdit_Emails
             //form2_ComboBoxEdit_WebSites
 
@@ -84,7 +71,7 @@ namespace CandidatesParser.CandidateForms
         }
         ///////////////////////////////////////////////////////////////////////////////////////
     
-        
+
         /////////////////////////////////// ComboBoxes \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\++
         private void addSkypes()
         {
@@ -92,11 +79,9 @@ namespace CandidatesParser.CandidateForms
             coll.BeginUpdate();
             try
             {
-                //foreach()
+                foreach(var item in manager.GetSkypeContacts())
                 {
-                coll.Add("VasjaPupkin_Skype1");
-                coll.Add("VasjaPupkin_Skype2");
-                coll.Add("VasjaPupkin_Skype3");
+                coll.Add(item.Value);
                 }
             }
             finally
@@ -110,11 +95,9 @@ namespace CandidatesParser.CandidateForms
             coll.BeginUpdate();
             try
             {
-                //foreach()
+                foreach (var item in manager.GetEmailContacts())
                 {
-                    coll.Add("VasjaPupkin@mail.com1");
-                    coll.Add("VasjaPupkin@mail.com2");
-                    coll.Add("VasjaPupkin@mail.com3");
+                    coll.Add(item.Value);
                 }
             }
             finally
@@ -128,11 +111,9 @@ namespace CandidatesParser.CandidateForms
             coll.BeginUpdate();
             try
             {
-                //foreach()
+                foreach (var item in manager.GetWebSiteContacts())
                 {
-                    coll.Add("VasjaPupkin.com1");
-                    coll.Add("VasjaPupkin.com2");
-                    coll.Add("VasjaPupkin.com3");
+                    coll.Add(item.Value);
                 }
             }
             finally
@@ -140,6 +121,13 @@ namespace CandidatesParser.CandidateForms
                 coll.EndUpdate();
             }
         }
+
+        //////////////////////////// PhoneNumber Table(Grid) \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+        private void addPhoneNumbersToGrid()
+        {
+            form2_gridControl_PhoneNumber.DataSource = manager.GetPhoneNumberContacts();
+        }
+
 
         private void form2_ComboBoxEdit_Skypes_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -149,10 +137,26 @@ namespace CandidatesParser.CandidateForms
 
         private void form2_Button_CopySelectedToBuffer_Click(object sender, EventArgs e)
         {
-            string SelectedPhoneNumbers;
+            string SelectedPhoneNumbers = "";
 
-            //foreach() // как-то там заполнились
-            SelectedPhoneNumbers = "789 888 888, 888 888 888, 123 123 123";
+            bool FirstIteration = true;
+            foreach (var item in manager.GetPhoneNumberContacts())
+            {
+                
+                if (item.IsChosen == true)
+                {
+                    if (FirstIteration)
+                    {
+                        FirstIteration = false;
+                    }
+                    else
+                    {
+                        SelectedPhoneNumbers += "; ";
+                    }
+                    SelectedPhoneNumbers += item.Value;
+                    
+                }
+            }
 
 
             Clipboard.SetText(

@@ -26,6 +26,15 @@
             /// Required method for Designer support - do not modify
             /// the contents of this method with the code editor.
             /// </summary>
+            
+            //////////////////////////////////////////////////////////////////////////////// 
+            internal CandidatesParserViewModel manager = new CandidatesParserViewModel();
+            private void InitManager(CandidatesParserViewModel inputManager)
+            {
+                manager = inputManager;
+            }
+            ////////////////////////////////////////////////////////////////////////////////
+            
             private void InitializeComponent()
             {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CandidatesParserSelectData));
@@ -102,6 +111,7 @@
             // gridColumn3
             // 
             this.gridColumn3.Caption = "Телефон";
+            this.gridColumn3.FieldName = "Value";
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 0;
@@ -110,9 +120,8 @@
             // gridColumn4
             // 
             this.gridColumn4.Caption = "Выбранные";
-            this.gridColumn4.FieldName = "gridColumn4";
+            this.gridColumn4.FieldName = "IsChosen";
             this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.OptionsColumn.AllowEdit = false;
             this.gridColumn4.UnboundType = DevExpress.Data.UnboundColumnType.Boolean;
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 1;
@@ -208,7 +217,7 @@
             this.form2_ComboBoxEdit_Skypes.Name = "form2_ComboBoxEdit_Skypes";
             this.form2_ComboBoxEdit_Skypes.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.form2_ComboBoxEdit_Skypes.Size = new System.Drawing.Size(233, 20);
+            this.form2_ComboBoxEdit_Skypes.Size = new System.Drawing.Size(235, 20);
             this.form2_ComboBoxEdit_Skypes.StyleController = this.layoutControl1;
             this.form2_ComboBoxEdit_Skypes.TabIndex = 4;
             this.form2_ComboBoxEdit_Skypes.SelectedIndexChanged += new System.EventHandler(this.form2_ComboBoxEdit_Skypes_SelectedIndexChanged);
@@ -220,7 +229,7 @@
             this.form2_ComboBoxEdit_Emails.Name = "form2_ComboBoxEdit_Emails";
             this.form2_ComboBoxEdit_Emails.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.form2_ComboBoxEdit_Emails.Size = new System.Drawing.Size(233, 20);
+            this.form2_ComboBoxEdit_Emails.Size = new System.Drawing.Size(235, 20);
             this.form2_ComboBoxEdit_Emails.StyleController = this.layoutControl1;
             this.form2_ComboBoxEdit_Emails.TabIndex = 7;
             // 
@@ -231,7 +240,7 @@
             this.form2_ComboBoxEdit_WebSites.Name = "form2_ComboBoxEdit_WebSites";
             this.form2_ComboBoxEdit_WebSites.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.form2_ComboBoxEdit_WebSites.Size = new System.Drawing.Size(233, 20);
+            this.form2_ComboBoxEdit_WebSites.Size = new System.Drawing.Size(235, 20);
             this.form2_ComboBoxEdit_WebSites.StyleController = this.layoutControl1;
             this.form2_ComboBoxEdit_WebSites.TabIndex = 9;
             // 
@@ -280,7 +289,7 @@
             this.layout_ComboBoxEdit_Skype.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.layout_ComboBoxEdit_Skype.Location = new System.Drawing.Point(24, 0);
             this.layout_ComboBoxEdit_Skype.Name = "layout_ComboBoxEdit_Skype";
-            this.layout_ComboBoxEdit_Skype.Size = new System.Drawing.Size(237, 24);
+            this.layout_ComboBoxEdit_Skype.Size = new System.Drawing.Size(239, 24);
             this.layout_ComboBoxEdit_Skype.Text = "layout_ComboBoxEdit_Skype";
             this.layout_ComboBoxEdit_Skype.TextSize = new System.Drawing.Size(0, 0);
             this.layout_ComboBoxEdit_Skype.TextVisible = false;
@@ -291,7 +300,7 @@
             this.layout_ComboBoxEdit_Emails.CustomizationFormText = "layout_ComboBoxEdit_Emails";
             this.layout_ComboBoxEdit_Emails.Location = new System.Drawing.Point(24, 24);
             this.layout_ComboBoxEdit_Emails.Name = "layout_ComboBoxEdit_Emails";
-            this.layout_ComboBoxEdit_Emails.Size = new System.Drawing.Size(237, 24);
+            this.layout_ComboBoxEdit_Emails.Size = new System.Drawing.Size(239, 24);
             this.layout_ComboBoxEdit_Emails.Text = "layout_ComboBoxEdit_Emails";
             this.layout_ComboBoxEdit_Emails.TextSize = new System.Drawing.Size(0, 0);
             this.layout_ComboBoxEdit_Emails.TextVisible = false;
@@ -302,7 +311,7 @@
             this.layout_ComboBoxEdit_WebSite.CustomizationFormText = "layout_ComboBoxEdit_WebSite";
             this.layout_ComboBoxEdit_WebSite.Location = new System.Drawing.Point(24, 48);
             this.layout_ComboBoxEdit_WebSite.Name = "layout_ComboBoxEdit_WebSite";
-            this.layout_ComboBoxEdit_WebSite.Size = new System.Drawing.Size(237, 24);
+            this.layout_ComboBoxEdit_WebSite.Size = new System.Drawing.Size(239, 24);
             this.layout_ComboBoxEdit_WebSite.Text = "layout_ComboBoxEdit_WebSite";
             this.layout_ComboBoxEdit_WebSite.TextSize = new System.Drawing.Size(0, 0);
             this.layout_ComboBoxEdit_WebSite.TextVisible = false;
@@ -341,7 +350,7 @@
             this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem2";
             this.emptySpaceItem2.Location = new System.Drawing.Point(0, 72);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(261, 143);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(263, 143);
             this.emptySpaceItem2.Text = "emptySpaceItem2";
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -388,9 +397,9 @@
             // 
             this.splitterItem1.AllowHotTrack = true;
             this.splitterItem1.CustomizationFormText = "splitterItem1";
-            this.splitterItem1.Location = new System.Drawing.Point(261, 0);
+            this.splitterItem1.Location = new System.Drawing.Point(263, 0);
             this.splitterItem1.Name = "splitterItem1";
-            this.splitterItem1.Size = new System.Drawing.Size(7, 215);
+            this.splitterItem1.Size = new System.Drawing.Size(5, 215);
             // 
             // emptySpaceItem3
             // 
@@ -404,7 +413,7 @@
             this.emptySpaceItem3.Text = "emptySpaceItem3";
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // XtraForm2
+            // CandidatesParserSelectData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -412,7 +421,7 @@
             this.Controls.Add(this.layoutControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.ImeMode = System.Windows.Forms.ImeMode.Katakana;
-            this.Name = "XtraForm2";
+            this.Name = "CandidatesParserSelectData";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Adding Contacts v1.0";
             this.Resize += new System.EventHandler(this.resizeFormInside);

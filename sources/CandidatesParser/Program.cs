@@ -14,6 +14,8 @@ namespace CandidatesParser
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+        /// 
+        
         [STAThread]
         static void Main()
         {
@@ -24,6 +26,7 @@ namespace CandidatesParser
             DevExpress.UserSkins.BonusSkins.Register();
             UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
 
+            
             Application.Run(new CandidatesParserMainForm());
 
         }

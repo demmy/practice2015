@@ -9,8 +9,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 
+using System.IO;
+
 namespace CandidatesParser.CandidateForms
 {
+    
+
     public partial class CandidatesParserMainForm : DevExpress.XtraEditors.XtraForm
     {
         public CandidatesParserMainForm()
@@ -21,12 +25,22 @@ namespace CandidatesParser.CandidateForms
             form1OrigWidth = this.Width;
             form1MainLayoutOrigHeight = this.layoutControl1.Height;
             form1MainLayoutOrigWidth = this.layoutControl1.Width;
+
+            
         }
 
         private void Form1_Button_OK_Click(object sender, EventArgs e)
         {
-            CandidatesParserSelectData modalForm1 = new CandidatesParserSelectData();
-            modalForm1.ShowDialog();
+            if (File.Exists(Form1_TextField_FilePath.Text) == true)
+            {
+                manager.Read(Form1_TextField_FilePath.Text);
+                CandidatesParserSelectData modalForm1 = new CandidatesParserSelectData(manager);
+                modalForm1.ShowDialog();
+            }
+            else
+            {
+                showErrorMessage_FlieDoesNotExist();
+            }
         }
 
 
@@ -103,9 +117,31 @@ namespace CandidatesParser.CandidateForms
             {
                 Form1_TextField_FilePath.Text = openFileDialog1.FileName;
 
+
             }
             else
-            MessageBox.Show("Error: Could not read file from disk.");
+            {
+                showErrorMessage_FlieDoesNotExist();
+            }
+
+        }
+
+        private void showErrorMessage_FlieDoesNotExist()
+        {
+            MessageBox.Show("Ошибка: Невозможно считать файл с диска!!!");
+        }
+
+        private void Form1_TextField_FilePath_Leave(object sender, EventArgs e)
+        {
+            if (Form1_TextField_FilePath.Text == "")
+            {
+                Form1_TextField_FilePath.Text = "Путь к файлу...";
+            }
+        }
+
+        private void Form1_TextField_FilePath_MouseClick(object sender, EventArgs e)
+        {
+            Form1_TextField_FilePath.Text = "";
         }
         //////// Just Copy
         /*

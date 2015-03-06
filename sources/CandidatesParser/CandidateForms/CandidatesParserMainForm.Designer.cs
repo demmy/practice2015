@@ -35,27 +35,27 @@
             this.Form1_Button_FilePath = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.Form1_TextField_FilePath = new DevExpress.XtraEditors.TextEdit();
+            this.Form1_PictureBox = new System.Windows.Forms.PictureBox();
             this.Form1_Button_OK = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layout_TextField = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.Form1_PictureBox = new System.Windows.Forms.PictureBox();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Form1_TextField_FilePath.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Form1_PictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layout_TextField)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Form1_PictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             this.SuspendLayout();
             // 
             // defaultLookAndFeel1
@@ -107,6 +107,18 @@
             this.Form1_TextField_FilePath.Size = new System.Drawing.Size(179, 20);
             this.Form1_TextField_FilePath.StyleController = this.layoutControl1;
             this.Form1_TextField_FilePath.TabIndex = 12;
+            this.Form1_TextField_FilePath.Click += new System.EventHandler(this.Form1_TextField_FilePath_MouseClick);
+            this.Form1_TextField_FilePath.Leave += new System.EventHandler(this.Form1_TextField_FilePath_Leave);
+            // 
+            // Form1_PictureBox
+            // 
+            this.Form1_PictureBox.Image = global::CandidatesParser.Properties.Resources.Main_Ima;
+            this.Form1_PictureBox.Location = new System.Drawing.Point(12, 12);
+            this.Form1_PictureBox.Name = "Form1_PictureBox";
+            this.Form1_PictureBox.Size = new System.Drawing.Size(144, 128);
+            this.Form1_PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Form1_PictureBox.TabIndex = 10;
+            this.Form1_PictureBox.TabStop = false;
             // 
             // Form1_Button_OK
             // 
@@ -147,6 +159,19 @@
             this.Root.Size = new System.Drawing.Size(414, 152);
             this.Root.Text = "Root";
             this.Root.TextVisible = false;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.Form1_PictureBox;
+            this.layoutControlItem1.CustomizationFormText = "layout_Image";
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.MinSize = new System.Drawing.Size(104, 24);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(148, 132);
+            this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem1.Text = "layoutControlItem1";
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
             // 
             // emptySpaceItem1
             // 
@@ -216,51 +241,28 @@
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
-            // Form1_PictureBox
-            // 
-            this.Form1_PictureBox.Image = global::CandidatesParser.Properties.Resources.Main_Ima;
-            this.Form1_PictureBox.Location = new System.Drawing.Point(12, 12);
-            this.Form1_PictureBox.Name = "Form1_PictureBox";
-            this.Form1_PictureBox.Size = new System.Drawing.Size(144, 128);
-            this.Form1_PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Form1_PictureBox.TabIndex = 10;
-            this.Form1_PictureBox.TabStop = false;
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.Form1_PictureBox;
-            this.layoutControlItem1.CustomizationFormText = "layout_Image";
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.MinSize = new System.Drawing.Size(104, 24);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(148, 132);
-            this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem1.Text = "layoutControlItem1";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
-            // 
-            // XtraForm1
+            // CandidatesParserMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(414, 152);
             this.Controls.Add(this.layoutControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "XtraForm1";
+            this.Name = "CandidatesParserMainForm";
             this.Text = "Adding Contacts v1.0";
             this.ResizeEnd += new System.EventHandler(this.XtraForm1_ResizeEnd);
             this.SizeChanged += new System.EventHandler(this.resizeFormInside);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Form1_TextField_FilePath.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Form1_PictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layout_TextField)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Form1_PictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -287,5 +289,8 @@
         internal int form1MainLayoutOrigWidth = 0;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
+
+
+        public CandidatesParserViewModel manager = new CandidatesParserViewModel();
     }
 }
