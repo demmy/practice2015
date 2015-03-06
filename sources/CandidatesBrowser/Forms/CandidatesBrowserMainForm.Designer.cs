@@ -33,7 +33,6 @@
             this.mainGridControl = new DevExpress.XtraGrid.GridControl();
             this.mainBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mainGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.coID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFirstName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMiddleName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colLastName = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -84,10 +83,11 @@
             // 
             // mainGridControl
             // 
-            this.mainGridControl.Location = new System.Drawing.Point(12, 38);
+            this.mainGridControl.DataSource = this.mainBindingSource;
+            this.mainGridControl.Location = new System.Drawing.Point(5, 31);
             this.mainGridControl.MainView = this.mainGridView;
             this.mainGridControl.Name = "mainGridControl";
-            this.mainGridControl.Size = new System.Drawing.Size(760, 511);
+            this.mainGridControl.Size = new System.Drawing.Size(774, 525);
             this.mainGridControl.TabIndex = 6;
             this.mainGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.mainGridView});
@@ -99,7 +99,6 @@
             // mainGridView
             // 
             this.mainGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.coID,
             this.colFirstName,
             this.colMiddleName,
             this.colLastName,
@@ -107,36 +106,31 @@
             this.coLastContactComment});
             this.mainGridView.GridControl = this.mainGridControl;
             this.mainGridView.Name = "mainGridView";
+            this.mainGridView.OptionsBehavior.Editable = false;
+            this.mainGridView.OptionsDetail.EnableMasterViewMode = false;
             this.mainGridView.OptionsView.ShowGroupPanel = false;
-            // 
-            // coID
-            // 
-            this.coID.Caption = "Id";
-            this.coID.FieldName = "Id";
-            this.coID.Name = "coID";
-            this.coID.Visible = true;
-            this.coID.VisibleIndex = 0;
+            this.mainGridView.DoubleClick += new System.EventHandler(this.mainGridView_DoubleClick);
             // 
             // colFirstName
             // 
             this.colFirstName.FieldName = "FirstName";
             this.colFirstName.Name = "colFirstName";
             this.colFirstName.Visible = true;
-            this.colFirstName.VisibleIndex = 1;
+            this.colFirstName.VisibleIndex = 0;
             // 
             // colMiddleName
             // 
             this.colMiddleName.FieldName = "MiddleName";
             this.colMiddleName.Name = "colMiddleName";
             this.colMiddleName.Visible = true;
-            this.colMiddleName.VisibleIndex = 2;
+            this.colMiddleName.VisibleIndex = 1;
             // 
             // colLastName
             // 
             this.colLastName.FieldName = "LastName";
             this.colLastName.Name = "colLastName";
             this.colLastName.Visible = true;
-            this.colLastName.VisibleIndex = 3;
+            this.colLastName.VisibleIndex = 2;
             // 
             // coLastContactDate
             // 
@@ -144,7 +138,7 @@
             this.coLastContactDate.FieldName = "LastContact.Date";
             this.coLastContactDate.Name = "coLastContactDate";
             this.coLastContactDate.Visible = true;
-            this.coLastContactDate.VisibleIndex = 4;
+            this.coLastContactDate.VisibleIndex = 3;
             // 
             // coLastContactComment
             // 
@@ -152,25 +146,27 @@
             this.coLastContactComment.FieldName = "LastContact.Comment";
             this.coLastContactComment.Name = "coLastContactComment";
             this.coLastContactComment.Visible = true;
-            this.coLastContactComment.VisibleIndex = 5;
+            this.coLastContactComment.VisibleIndex = 4;
             // 
             // editButton
             // 
-            this.editButton.Location = new System.Drawing.Point(100, 12);
+            this.editButton.Location = new System.Drawing.Point(95, 5);
             this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(82, 22);
+            this.editButton.Size = new System.Drawing.Size(84, 22);
             this.editButton.StyleController = this.mainLayoutControl;
             this.editButton.TabIndex = 5;
             this.editButton.Text = "Edit";
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(12, 12);
+            this.addButton.Location = new System.Drawing.Point(5, 5);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(84, 22);
+            this.addButton.Size = new System.Drawing.Size(86, 22);
             this.addButton.StyleController = this.mainLayoutControl;
             this.addButton.TabIndex = 4;
             this.addButton.Text = "Add";
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // mainLayoutControlGroup
             // 
@@ -183,6 +179,7 @@
             this.gridLayoutControlItem});
             this.mainLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
             this.mainLayoutControlGroup.Name = "Root";
+            this.mainLayoutControlGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(3, 3, 3, 3);
             this.mainLayoutControlGroup.Size = new System.Drawing.Size(784, 561);
             this.mainLayoutControlGroup.TextVisible = false;
             // 
@@ -191,25 +188,25 @@
             this.addLayoutControlItem.Control = this.addButton;
             this.addLayoutControlItem.Location = new System.Drawing.Point(0, 0);
             this.addLayoutControlItem.Name = "addLayoutControlItem";
-            this.addLayoutControlItem.Size = new System.Drawing.Size(88, 26);
+            this.addLayoutControlItem.Size = new System.Drawing.Size(90, 26);
             this.addLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.addLayoutControlItem.TextVisible = false;
             // 
             // editLayoutControlItem
             // 
             this.editLayoutControlItem.Control = this.editButton;
-            this.editLayoutControlItem.Location = new System.Drawing.Point(88, 0);
+            this.editLayoutControlItem.Location = new System.Drawing.Point(90, 0);
             this.editLayoutControlItem.Name = "editLayoutControlItem";
-            this.editLayoutControlItem.Size = new System.Drawing.Size(86, 26);
+            this.editLayoutControlItem.Size = new System.Drawing.Size(88, 26);
             this.editLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.editLayoutControlItem.TextVisible = false;
             // 
             // buttonsEmptySpaceItem
             // 
             this.buttonsEmptySpaceItem.AllowHotTrack = false;
-            this.buttonsEmptySpaceItem.Location = new System.Drawing.Point(174, 0);
+            this.buttonsEmptySpaceItem.Location = new System.Drawing.Point(178, 0);
             this.buttonsEmptySpaceItem.Name = "buttonsEmptySpaceItem";
-            this.buttonsEmptySpaceItem.Size = new System.Drawing.Size(590, 26);
+            this.buttonsEmptySpaceItem.Size = new System.Drawing.Size(600, 26);
             this.buttonsEmptySpaceItem.TextSize = new System.Drawing.Size(0, 0);
             // 
             // gridLayoutControlItem
@@ -217,7 +214,7 @@
             this.gridLayoutControlItem.Control = this.mainGridControl;
             this.gridLayoutControlItem.Location = new System.Drawing.Point(0, 26);
             this.gridLayoutControlItem.Name = "gridLayoutControlItem";
-            this.gridLayoutControlItem.Size = new System.Drawing.Size(764, 515);
+            this.gridLayoutControlItem.Size = new System.Drawing.Size(778, 529);
             this.gridLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.gridLayoutControlItem.TextVisible = false;
             // 
@@ -261,7 +258,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colFirstName;
         private DevExpress.XtraGrid.Columns.GridColumn colMiddleName;
         private DevExpress.XtraGrid.Columns.GridColumn colLastName;
-        private DevExpress.XtraGrid.Columns.GridColumn coID;
         private DevExpress.XtraGrid.Columns.GridColumn coLastContactDate;
         private DevExpress.XtraGrid.Columns.GridColumn coLastContactComment;
     }
