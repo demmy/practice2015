@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HumanResourcesLibrary
 {
-    internal class MainRepository : IMainRepository
+    public class MainRepository : IMainRepository
     {
         private List<Vacancy> vacancies = new List<Vacancy>();
         private List<Candidate> candidates = new List<Candidate>();
@@ -16,6 +16,9 @@ namespace HumanResourcesLibrary
         {
             vacancies.Add(new Vacancy() { Title = "Super Vacancy 1" });
             candidates.Add(new Candidate() { LastName = "Ivanov", FirstName = "Ivan", Phones = new List<Phone>() });
+            candidates.Add(new Candidate() { LastName = "Coul", FirstName = "Petr", Phones = new List<Phone>(), EnglishLevel = EnglishLevel.Intermediate, DOB =DateTime.Today, City = "Dnepr" });
+            candidates.Add(new Candidate() { LastName = "Petrov", FirstName = "Tiran", Phones = new List<Phone>(), EnglishLevel = EnglishLevel.UpperIntermediate });
+            candidates.Add(new Candidate() { LastName = "Sidorov", FirstName = "Babai", Phones = new List<Phone>() });
         }
 
         /// <summary>
@@ -54,8 +57,9 @@ namespace HumanResourcesLibrary
                 .Where(candidateIsAgreeToRelocate => candidateIsAgreeToRelocate.RelocationAgreement == agreeToRelocate)
                 .Where(candidateEngLevel => candidateEngLevel.EnglishLevel == engLevel)
                 .Where(candidateFromDate => ((default(DateTime) != from) ? (candidateFromDate.DOB > from): true))
-                .Where(candidateToDate => ((default(DateTime) != to)?candidateToDate.DOB > to:true));
-            return filteredCandidates.ToList<Candidate>();
+                .Where(candidateToDate => ((default(DateTime) != to)?candidateToDate.DOB < to:true));
+           List <Candidate> tmp = filteredCandidates.ToList<Candidate>();
+           return tmp;
 
               /* if (t.Key == "Name" && !string.IsNullOrWhiteSpace((string)t.Value)) 
                 filteredCandidates = candidates.Where
