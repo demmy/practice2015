@@ -40,7 +40,7 @@ namespace CandidatesParser.CandidateForms
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
-            CandidatesParserWriterDataBase ModalForm2 = new CandidatesParserWriterDataBase();
+            CandidatesParserWriterDataBase ModalForm2 = new CandidatesParserWriterDataBase(manager);
             ModalForm2.ShowDialog();
         }
 
