@@ -246,6 +246,7 @@
             this.saveButton.StyleController = this.rootLayout;
             this.saveButton.TabIndex = 20;
             this.saveButton.Text = "Save";
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // socialNetworksLabel
             // 
@@ -330,7 +331,10 @@
             this.colLink});
             this.socialNetworksGridView.GridControl = this.socialNetworksGrid;
             this.socialNetworksGridView.Name = "socialNetworksGridView";
+            this.socialNetworksGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.socialNetworksGridView.OptionsView.ShowGroupPanel = false;
+            this.socialNetworksGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.socialNetworksGridView_InitNewRow);
+            this.socialNetworksGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.socialNetworksGridView_KeyDown);
             // 
             // colType1
             // 
@@ -370,7 +374,12 @@
             this.colComment});
             this.commentsGridView.GridControl = this.commentsGrid;
             this.commentsGridView.Name = "commentsGridView";
+            this.commentsGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.commentsGridView.OptionsView.ShowGroupPanel = false;
+            this.commentsGridView.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colType, DevExpress.Data.ColumnSortOrder.Ascending)});
+            this.commentsGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.commentsGridView_InitNewRow);
+            this.commentsGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.commentsGridView_KeyDown);
             // 
             // colType
             // 
@@ -416,7 +425,10 @@
             this.colType2});
             this.phonesGridView.GridControl = this.phonesGrid;
             this.phonesGridView.Name = "phonesGridView";
+            this.phonesGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.phonesGridView.OptionsView.ShowGroupPanel = false;
+            this.phonesGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.phonesGridView_InitNewRow);
+            this.phonesGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.phonesGridView_KeyDown);
             // 
             // colPhoneNumber
             // 
@@ -799,6 +811,7 @@
             this.Controls.Add(this.rootLayout);
             this.Name = "CandidateForm";
             this.Text = "Candidate";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CandidateForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.rootLayout)).EndInit();
             this.rootLayout.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.genderComboBox.Properties)).EndInit();

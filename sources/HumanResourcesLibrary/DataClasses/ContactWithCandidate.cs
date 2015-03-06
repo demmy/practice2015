@@ -12,7 +12,7 @@ namespace HumanResourcesLibrary.DataClasses
         Call
     }
 
-    public class ContactWithCandidate : IDeepCopy<ContactWithCandidate>
+    public class ContactWithCandidate : IDeepCopy<ContactWithCandidate>, IEquatable<ContactWithCandidate>
     {
         public ContactWithCandidate CreateDeepCopy()
         {
@@ -28,6 +28,9 @@ namespace HumanResourcesLibrary.DataClasses
         public string Comment { get; set; }
         public ContactWithCandidate() { }
 
-
+        public bool Equals(ContactWithCandidate other)
+        {
+            return this.Type == other.Type && this.Date == other.Date && this.Comment == other.Comment;
+        }
     }
 }
