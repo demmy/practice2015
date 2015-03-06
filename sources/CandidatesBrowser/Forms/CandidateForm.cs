@@ -99,7 +99,7 @@ namespace CandidatesBrowser.Forms
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            candidate = candidateCopy.CreateDeepCopy();
+            SaveCandidate();
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
@@ -117,7 +117,7 @@ namespace CandidatesBrowser.Forms
                 switch (result)
                 {
                     case DialogResult.Yes:
-                        candidate = candidateCopy; // WRONG
+                        SaveCandidate();
                         break;
 
                     case DialogResult.No:
@@ -128,6 +128,33 @@ namespace CandidatesBrowser.Forms
                         break;
                 }
             }
+        }
+
+        private void SaveCandidate()
+        {
+            HumanResourcesLibrary.RepositoryService.Repository.SaveCandidate(candidateCopy);
+            
+            candidate.LastName = candidateCopy.LastName;
+            candidate.MiddleName = candidateCopy.MiddleName;
+            candidate.FirstName = candidateCopy.FirstName;
+            candidate.DOB = candidateCopy.DOB;
+            candidate.Gender = candidateCopy.Gender;
+            candidate.Country = candidateCopy.Country;
+            candidate.City = candidateCopy.City;
+            candidate.RelocationAgreement = candidateCopy.RelocationAgreement;
+            candidate.Photo = null;
+            if (candidateCopy.Photo != null)
+            {
+                candidate.Photo = new byte[candidateCopy.Photo.Length];
+                Array.Copy(candidateCopy.Photo, candidate.Photo, candidateCopy.Photo.Length);
+            }
+            candidate.Email = candidateCopy.Email;
+            candidate.Skype = candidateCopy.Skype;
+            candidate.SiteURL = candidateCopy.SiteURL;
+            candidate.EnglishLevel = candidateCopy.EnglishLevel;
+            candidate.Phones = candidateCopy.Phones.ConvertAll(phone => phone.CreateDeepCopy());
+            candidate.ContactsList = candidateCopy.ContactsList.ConvertAll(contact => contact.CreateDeepCopy());
+            candidate.SocialNetworksList = candidateCopy.SocialNetworksList.ConvertAll(socNet => socNet.CreateDeepCopy());
         }
     }
 }
