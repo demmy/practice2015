@@ -81,6 +81,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CandidateForms\CandidatesParserWriterDataBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CandidateForms\CandidatesParserWriterDataBase.Designer.cs">
+      <DependentUpon>CandidatesParserWriterDataBase.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\CandidatesParserViewModel.cs" />
     <Compile Include="CandidateForms\CandidatesParserMainForm.cs">
       <SubType>Form</SubType>
@@ -94,12 +100,6 @@
     <Compile Include="CandidateForms\CandidatesParserSelectData.Designer.cs">
       <DependentUpon>CandidatesParserSelectData.cs</DependentUpon>
     </Compile>
-    <Compile Include="CandidateForms\CandidatesParserDataBaseWriter.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CandidateForms\CandidatesParserDataBaseWriter.Designer.cs">
-      <DependentUpon>CandidatesParserDataBaseWriter.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CandidateForms\CandidatesParserMainForm.resx">
@@ -108,8 +108,8 @@
     <EmbeddedResource Include="CandidateForms\CandidatesParserSelectData.resx">
       <DependentUpon>CandidatesParserSelectData.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CandidateForms\CandidatesParserDataBaseWriter.resx">
-      <DependentUpon>CandidatesParserDataBaseWriter.cs</DependentUpon>
+    <EmbeddedResource Include="CandidateForms\CandidatesParserWriterDataBase.resx">
+      <DependentUpon>CandidatesParserWriterDataBase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
