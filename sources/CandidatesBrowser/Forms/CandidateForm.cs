@@ -55,7 +55,7 @@ namespace CandidatesBrowser.Forms
 
         private void commentsGridView_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
         {
-            var newContact = (ContactWithCandidate)commentsGridView.GetRow(e.RowHandle);
+            var newContact = (ContactWithCandidate)((GridView)sender).GetRow(e.RowHandle);
             newContact.Date = DateTime.Now;
             newContact.Type = ContactTypes.Call;
             newContact.Comment = "";            
@@ -73,11 +73,11 @@ namespace CandidatesBrowser.Forms
             RowsDeletion(sender, e);
         }
 
-        private void phonesGridView_InitNewRow(object sender, InitNewRowEventArgs e)
+        private void phonesGridView_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
         {
-            var newPhone = (Phone)commentsGridView.GetRow(e.RowHandle);
-            newPhone.PhoneNumber = "";
+            var newPhone = (Phone)((GridView)sender).GetRow(e.RowHandle);
             newPhone.Type = PhoneType.Mobile;
+            newPhone.PhoneNumber = "";
         }
 
         private void phonesGridView_KeyDown(object sender, KeyEventArgs e)
@@ -87,9 +87,9 @@ namespace CandidatesBrowser.Forms
 
         private void socialNetworksGridView_InitNewRow(object sender, InitNewRowEventArgs e)
         {
-            var newSocNetowrk = (SocialNetwork)commentsGridView.GetRow(e.RowHandle);
-            newSocNetowrk.Link = "";
+            var newSocNetowrk = (SocialNetwork)((GridView)sender).GetRow(e.RowHandle);
             newSocNetowrk.Type = SocialNetworkType.Facebook;
+            newSocNetowrk.Link = "";
         }
 
         private void socialNetworksGridView_KeyDown(object sender, KeyEventArgs e)

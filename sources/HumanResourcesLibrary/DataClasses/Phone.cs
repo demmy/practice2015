@@ -18,6 +18,7 @@ namespace HumanResourcesLibrary.DataClasses
 
         public string PhoneNumber { get; set; }
         public PhoneType Type { get; set; }
+        public Phone() { }
 
         public bool Equals(Phone other)
         {
