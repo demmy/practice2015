@@ -18,6 +18,8 @@ namespace CandidatesBrowser.Forms
         public CandidateForm()
         {
             InitializeComponent();
+            englishLevelComboBox.Properties.Items.AddRange(typeof (HumanResourcesLibrary.DataClasses.EnglishLevel).GetEnumValues());
+            genderComboBox.Properties.Items.AddRange(typeof(HumanResourcesLibrary.DataClasses.Gender).GetEnumValues());
         }
         
         // TODO: you are free to change this name if you have a better one.

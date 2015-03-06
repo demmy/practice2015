@@ -30,8 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.rootLayout = new DevExpress.XtraLayout.LayoutControl();
-            this.genderComboBox = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.englishLevelComboBox = new DevExpress.XtraEditors.ComboBoxEdit();
             this.candidateBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.genderComboBox = new DevExpress.XtraEditors.ComboBoxEdit();
             this.contactInformationLabel = new DevExpress.XtraEditors.LabelControl();
             this.generalInforLabel = new DevExpress.XtraEditors.LabelControl();
             this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
@@ -60,7 +61,6 @@
             this.colType2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dobDateEdit = new DevExpress.XtraEditors.DateEdit();
             this.relocationCheckEdit = new DevExpress.XtraEditors.CheckEdit();
-            this.englishLevelComboBox = new DevExpress.XtraEditors.ComboBoxEdit();
             this.lastNameTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.middleNameTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.firstNameTextEdit = new DevExpress.XtraEditors.TextEdit();
@@ -84,20 +84,21 @@
             this.firstNameLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.middleNameLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.lastNameLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.englishLevelLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.dobLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.spaceBetweenNameAndDob = new DevExpress.XtraLayout.EmptySpaceItem();
             this.generalInfoLabelLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.spaceBetweenEnglishAndGender = new DevExpress.XtraLayout.EmptySpaceItem();
             this.genderLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.spaceBetweenEnglishAndGender = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.englishLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.cancelButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.spaceAtFormBottom = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.rootLayout)).BeginInit();
             this.rootLayout.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.genderComboBox.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.englishLevelComboBox.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.candidateBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.genderComboBox.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.urlTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emailTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.skypeTextEdit.Properties)).BeginInit();
@@ -113,7 +114,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dobDateEdit.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dobDateEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.relocationCheckEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.englishLevelComboBox.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lastNameTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.middleNameTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.firstNameTextEdit.Properties)).BeginInit();
@@ -137,12 +137,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.firstNameLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.middleNameLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lastNameLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.englishLevelLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dobLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spaceBetweenNameAndDob)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalInfoLabelLayoutControlItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spaceBetweenEnglishAndGender)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.genderLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spaceBetweenEnglishAndGender)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.englishLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelButtonLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spaceAtFormBottom)).BeginInit();
@@ -151,6 +151,7 @@
             // 
             // rootLayout
             // 
+            this.rootLayout.Controls.Add(this.englishLevelComboBox);
             this.rootLayout.Controls.Add(this.genderComboBox);
             this.rootLayout.Controls.Add(this.contactInformationLabel);
             this.rootLayout.Controls.Add(this.generalInforLabel);
@@ -167,7 +168,6 @@
             this.rootLayout.Controls.Add(this.phonesGrid);
             this.rootLayout.Controls.Add(this.dobDateEdit);
             this.rootLayout.Controls.Add(this.relocationCheckEdit);
-            this.rootLayout.Controls.Add(this.englishLevelComboBox);
             this.rootLayout.Controls.Add(this.lastNameTextEdit);
             this.rootLayout.Controls.Add(this.middleNameTextEdit);
             this.rootLayout.Controls.Add(this.firstNameTextEdit);
@@ -191,6 +191,21 @@
             this.rootLayout.TabIndex = 0;
             this.rootLayout.Text = "layoutControl1";
             // 
+            // englishLevelComboBox
+            // 
+            this.englishLevelComboBox.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.candidateBindingSource, "EnglishLevel", true));
+            this.englishLevelComboBox.Location = new System.Drawing.Point(222, 152);
+            this.englishLevelComboBox.Name = "englishLevelComboBox";
+            this.englishLevelComboBox.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.englishLevelComboBox.Size = new System.Drawing.Size(273, 20);
+            this.englishLevelComboBox.StyleController = this.rootLayout;
+            this.englishLevelComboBox.TabIndex = 25;
+            // 
+            // candidateBindingSource
+            // 
+            this.candidateBindingSource.DataSource = typeof(HumanResourcesLibrary.DataClasses.Candidate);
+            // 
             // genderComboBox
             // 
             this.genderComboBox.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.candidateBindingSource, "Gender", true));
@@ -201,10 +216,6 @@
             this.genderComboBox.Size = new System.Drawing.Size(273, 20);
             this.genderComboBox.StyleController = this.rootLayout;
             this.genderComboBox.TabIndex = 24;
-            // 
-            // candidateBindingSource
-            // 
-            this.candidateBindingSource.DataSource = typeof(HumanResourcesLibrary.DataClasses.Candidate);
             // 
             // contactInformationLabel
             // 
@@ -468,17 +479,6 @@
             this.relocationCheckEdit.StyleController = this.rootLayout;
             this.relocationCheckEdit.TabIndex = 9;
             // 
-            // englishLevelComboBox
-            // 
-            this.englishLevelComboBox.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.candidateBindingSource, "EnglishLevel", true));
-            this.englishLevelComboBox.Location = new System.Drawing.Point(222, 152);
-            this.englishLevelComboBox.Name = "englishLevelComboBox";
-            this.englishLevelComboBox.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.englishLevelComboBox.Size = new System.Drawing.Size(273, 20);
-            this.englishLevelComboBox.StyleController = this.rootLayout;
-            this.englishLevelComboBox.TabIndex = 8;
-            // 
             // lastNameTextEdit
             // 
             this.lastNameTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.candidateBindingSource, "LastName", true));
@@ -662,12 +662,12 @@
             this.firstNameLayout,
             this.middleNameLayout,
             this.lastNameLayout,
-            this.englishLevelLayout,
             this.dobLayout,
             this.spaceBetweenNameAndDob,
             this.generalInfoLabelLayoutControlItem,
+            this.genderLayoutControlItem,
             this.spaceBetweenEnglishAndGender,
-            this.genderLayoutControlItem});
+            this.englishLayoutControlItem});
             this.generalInfoLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.generalInfoLayoutGroup.Name = "generalInfoLayoutGroup";
             this.generalInfoLayoutGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
@@ -719,15 +719,6 @@
             this.lastNameLayout.Text = "Last name:";
             this.lastNameLayout.TextSize = new System.Drawing.Size(63, 13);
             // 
-            // englishLevelLayout
-            // 
-            this.englishLevelLayout.Control = this.englishLevelComboBox;
-            this.englishLevelLayout.Location = new System.Drawing.Point(151, 147);
-            this.englishLevelLayout.Name = "englishLevelLayout";
-            this.englishLevelLayout.Size = new System.Drawing.Size(343, 24);
-            this.englishLevelLayout.Text = "English level:";
-            this.englishLevelLayout.TextSize = new System.Drawing.Size(63, 13);
-            // 
             // dobLayout
             // 
             this.dobLayout.Control = this.dobDateEdit;
@@ -754,14 +745,6 @@
             this.generalInfoLabelLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.generalInfoLabelLayoutControlItem.TextVisible = false;
             // 
-            // spaceBetweenEnglishAndGender
-            // 
-            this.spaceBetweenEnglishAndGender.AllowHotTrack = false;
-            this.spaceBetweenEnglishAndGender.Location = new System.Drawing.Point(151, 171);
-            this.spaceBetweenEnglishAndGender.Name = "spaceBetweenEnglishAndGender";
-            this.spaceBetweenEnglishAndGender.Size = new System.Drawing.Size(343, 10);
-            this.spaceBetweenEnglishAndGender.TextSize = new System.Drawing.Size(0, 0);
-            // 
             // genderLayoutControlItem
             // 
             this.genderLayoutControlItem.Control = this.genderComboBox;
@@ -770,6 +753,23 @@
             this.genderLayoutControlItem.Size = new System.Drawing.Size(343, 24);
             this.genderLayoutControlItem.Text = "Gender:";
             this.genderLayoutControlItem.TextSize = new System.Drawing.Size(63, 13);
+            // 
+            // spaceBetweenEnglishAndGender
+            // 
+            this.spaceBetweenEnglishAndGender.AllowHotTrack = false;
+            this.spaceBetweenEnglishAndGender.Location = new System.Drawing.Point(151, 171);
+            this.spaceBetweenEnglishAndGender.Name = "spaceBetweenEnglishAndGender";
+            this.spaceBetweenEnglishAndGender.Size = new System.Drawing.Size(343, 10);
+            this.spaceBetweenEnglishAndGender.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // englishLayoutControlItem
+            // 
+            this.englishLayoutControlItem.Control = this.englishLevelComboBox;
+            this.englishLayoutControlItem.Location = new System.Drawing.Point(151, 147);
+            this.englishLayoutControlItem.Name = "englishLayoutControlItem";
+            this.englishLayoutControlItem.Size = new System.Drawing.Size(343, 24);
+            this.englishLayoutControlItem.Text = "English level:";
+            this.englishLayoutControlItem.TextSize = new System.Drawing.Size(63, 13);
             // 
             // saveButtonLayoutControlItem
             // 
@@ -816,8 +816,9 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CandidateForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.rootLayout)).EndInit();
             this.rootLayout.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.genderComboBox.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.englishLevelComboBox.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.candidateBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.genderComboBox.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.urlTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emailTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.skypeTextEdit.Properties)).EndInit();
@@ -833,7 +834,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dobDateEdit.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dobDateEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.relocationCheckEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.englishLevelComboBox.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lastNameTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.middleNameTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.firstNameTextEdit.Properties)).EndInit();
@@ -857,12 +857,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.firstNameLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.middleNameLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lastNameLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.englishLevelLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dobLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spaceBetweenNameAndDob)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalInfoLabelLayoutControlItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spaceBetweenEnglishAndGender)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.genderLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spaceBetweenEnglishAndGender)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.englishLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelButtonLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spaceAtFormBottom)).EndInit();
@@ -885,7 +885,6 @@
         private DevExpress.XtraGrid.Views.Grid.GridView phonesGridView;
         private DevExpress.XtraEditors.DateEdit dobDateEdit;
         private DevExpress.XtraEditors.CheckEdit relocationCheckEdit;
-        private DevExpress.XtraEditors.ComboBoxEdit englishLevelComboBox;
         private DevExpress.XtraEditors.TextEdit lastNameTextEdit;
         private DevExpress.XtraEditors.TextEdit middleNameTextEdit;
         private DevExpress.XtraEditors.TextEdit firstNameTextEdit;
@@ -905,7 +904,6 @@
         private DevExpress.XtraLayout.LayoutControlItem firstNameLayout;
         private DevExpress.XtraLayout.LayoutControlItem middleNameLayout;
         private DevExpress.XtraLayout.LayoutControlItem lastNameLayout;
-        private DevExpress.XtraLayout.LayoutControlItem englishLevelLayout;
         private DevExpress.XtraLayout.LayoutControlItem dobLayout;
         private DevExpress.XtraLayout.EmptySpaceItem spaceBetweenNameAndDob;
         private DevExpress.XtraEditors.LabelControl socialNetworksLabel;
@@ -938,6 +936,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn colPhoneNumber;
         private DevExpress.XtraGrid.Columns.GridColumn colType2;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private DevExpress.XtraEditors.ComboBoxEdit englishLevelComboBox;
+        private DevExpress.XtraLayout.LayoutControlItem englishLayoutControlItem;
 
 
     }
