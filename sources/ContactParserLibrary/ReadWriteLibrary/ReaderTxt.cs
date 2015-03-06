@@ -40,7 +40,7 @@ namespace ContactParserLibrary.ReadWriteLibrary
             words = str.Split(' ');
             for (int i = 0; i < words.Length; i++)
             {
-                if (words[i] != " " && (!IsMask(words[i])))
+                if (words[i] != " " && (!IsMask(words[i])) && words[i] != "")
                     templist.Add(words[i]);
             }
 

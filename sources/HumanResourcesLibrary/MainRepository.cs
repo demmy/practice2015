@@ -33,6 +33,228 @@ namespace HumanResourcesLibrary
                            Status.Closed, new ResponsiblePerson(1, "She"), new DateTime(2015, 1, 22), new DateTime(2015, 1, 22),
                               HumanResourcesLibrary.DataClasses.TypeEmployment.PartTime, LevelEnglish.Pre_Intermediate, "dsfdsg", "ldsfmckjdsn"));
             candidates.Add(new Candidate() { LastName = "Ivanov", FirstName = "Ivan", Phones = new List<Phone>() });
+            candidates.Add(new Candidate()
+            {
+                FirstName = "Konstantin",
+                MiddleName = "Veniaminovich",
+                LastName = "Prihodko",
+                DOB = new DateTime(1994, 04, 24),
+                Gender = Gender.Male,
+                Country = "Ukraine",
+                City = "Kharkov",
+                RelocationAgreement = true,
+                Phones = new List<Phone>() 
+                { 
+                    new Phone() { PhoneNumber = "0931594895", Type = PhoneType.Mobile },
+                    new Phone() { PhoneNumber = "05685952215", Type = PhoneType.Mobile },
+                    new Phone() { PhoneNumber = "7495619", Type = PhoneType.Home }
+                },
+                Skype = "Kostya94",
+                EnglishLevel = EnglishLevel.Proficiency,
+                SocialNetworksList = new List<SocialNetwork>()
+                {
+                    new SocialNetwork() {Type = SocialNetworkType.VKontakte, Link =" http://vk.com/id236999968 "}
+                },
+                ContactsList = new List<ContactWithCandidate>()
+                {
+                    new ContactWithCandidate() 
+                    { 
+                        Date = new DateTime(2015, 02, 15, 17, 00, 00), 
+                        Type = ContactTypes.Meet,
+                        Comment = "its ok"
+                    },
+                    new ContactWithCandidate() 
+                    { 
+                        Date = new DateTime(2015, 02, 17, 12, 05, 00), 
+                        Type = ContactTypes.Meet,
+                        Comment = "all"
+                    }
+
+                }
+            });
+            candidates.Add(new Candidate()
+            {
+                FirstName = "Konstancia",
+                LastName = "Simicolon",
+                DOB = new DateTime(1985, 12, 19),
+                Gender = Gender.Female,
+                Country = "Great Britain",
+                City = "London",
+                RelocationAgreement = false,
+                Phones = new List<Phone>() 
+                { 
+                    new Phone() { PhoneNumber = "7854944822", Type = PhoneType.Mobile },
+
+                },
+                Skype = "SweetFlower",
+                EnglishLevel = EnglishLevel.Proficiency,
+                SocialNetworksList = new List<SocialNetwork>()
+                {
+                    new SocialNetwork() {Type = SocialNetworkType.Facebook, Link ="https://www.facebook.com/misx.rosered"}
+                },
+                ContactsList = new List<ContactWithCandidate>()
+                {
+                    new ContactWithCandidate() 
+                    { 
+                        Date = new DateTime(2015, 01, 24, 13, 30, 00), 
+                        Type = ContactTypes.Meet,
+                        Comment = "its ok"
+                    },
+                    new ContactWithCandidate() 
+                    { 
+                        Date = new DateTime(2015, 02, 17, 19, 25, 00), 
+                        Type = ContactTypes.Meet,
+                        Comment = "all"
+                    }
+
+                }
+            });
+            candidates.Add(new Candidate()
+            {
+                FirstName = "Лешка",
+                MiddleName = "Алексеевич",
+                LastName = "Гидропоник",
+                DOB = new DateTime(1974, 12, 15),
+                Gender = Gender.Male,
+                Country = "Россия",
+                City = "Москва",
+                RelocationAgreement = false,
+                Phones = new List<Phone>() 
+                { 
+                    new Phone() { PhoneNumber = "2124588646", Type = PhoneType.Mobile },
+                    new Phone() { PhoneNumber = "7854944822", Type = PhoneType.Mobile },
+
+                },
+                Skype = "SweetLesha",
+                EnglishLevel = EnglishLevel.Proficiency,
+                SocialNetworksList = new List<SocialNetwork>()
+                {
+                    new SocialNetwork() {Type = SocialNetworkType.Facebook, Link ="https://www.facebook.com/misx.rosered"}
+                },
+                ContactsList = new List<ContactWithCandidate>()
+                {
+                    new ContactWithCandidate() 
+                    { 
+                        Date = new DateTime(2015, 01, 24, 13, 30, 00), 
+                        Type = ContactTypes.Meet,
+                        Comment = "its ok"
+                    },
+                    new ContactWithCandidate() 
+                    { 
+                        Date = new DateTime(2015, 02, 17, 19, 25, 00), 
+                        Type = ContactTypes.Meet,
+                        Comment = "all"
+                    }
+
+                }
+            });
+            candidates.Add(new Candidate()
+            {
+                FirstName = "Машка",
+                MiddleName = "Петровна",
+                LastName = "Гупергун",
+                DOB = new DateTime(1965, 07, 02),
+                Gender = Gender.Female,
+                Country = "Россия",
+                City = "Волгоград",
+                RelocationAgreement = false,
+                Phones = new List<Phone>() 
+                { 
+                    new Phone() { PhoneNumber = "0358559665", Type = PhoneType.Mobile },
+                    new Phone() { PhoneNumber = "5885644822", Type = PhoneType.Mobile },
+
+                },
+                Skype = "Honey",
+                EnglishLevel = EnglishLevel.Proficiency,
+                SocialNetworksList = new List<SocialNetwork>()
+                {
+                    new SocialNetwork() {Type = SocialNetworkType.Facebook, Link ="https://www.facebook.com/sen.tokugawa.37"}
+                },
+                ContactsList = new List<ContactWithCandidate>()
+                {
+                    new ContactWithCandidate() 
+                    { 
+                        Date = new DateTime(2012, 01, 24, 13, 30, 00), 
+                        Type = ContactTypes.Meet,
+                        Comment = "its ok"
+                    },
+                    new ContactWithCandidate() 
+                    { 
+                        Date = new DateTime(2014, 02, 17, 19, 25, 00), 
+                        Type = ContactTypes.Meet,
+                        Comment = "all"
+                    }
+
+                }
+            });
+            candidates.Add(new Candidate()
+            {
+                FirstName = "Валентин",
+                MiddleName = "Гуоргиевич",
+                LastName = "Набойко",
+                DOB = new DateTime(1986, 11, 20),
+                Gender = Gender.Female,
+                Country = "Белоруссия",
+                City = "Смоленск",
+                RelocationAgreement = true,
+                Phones = new List<Phone>() 
+                { 
+                    new Phone() { PhoneNumber = "2124588645", Type = PhoneType.Mobile },
+                   
+
+                },
+                Skype = "Valysha",
+                EnglishLevel = EnglishLevel.Proficiency,
+                SocialNetworksList = new List<SocialNetwork>()
+                {
+                    new SocialNetwork() {Type = SocialNetworkType.Facebook, Link ="https://www.facebook.com/misx.rosered"}
+                },
+                ContactsList = new List<ContactWithCandidate>()
+                {
+                    new ContactWithCandidate() 
+                    { 
+                        Date = new DateTime(2014, 01, 24, 16, 50, 00), 
+                        Type = ContactTypes.Meet,
+                        Comment = "its ok"
+                    },
+
+                }
+            });
+            candidates.Add(new Candidate()
+            {
+                FirstName = "Августина",
+                MiddleName = "Вячеславовна",
+                LastName = "Красношапкова",
+                DOB = new DateTime(1965, 07, 02),
+                Gender = Gender.Male,
+                Country = "Россия",
+                City = "Москва",
+                RelocationAgreement = false,
+                Phones = new List<Phone>() 
+                { 
+                    new Phone() { PhoneNumber = "751845", Type = PhoneType.Home },
+                    new Phone() { PhoneNumber = "784445822", Type = PhoneType.Mobile },
+
+                },
+                Skype = "SweetAugust",
+                EnglishLevel = EnglishLevel.Proficiency,
+                ContactsList = new List<ContactWithCandidate>()
+                {
+                    new ContactWithCandidate() 
+                    { 
+                        Date = new DateTime(2013, 02, 24, 13, 30, 00), 
+                        Type = ContactTypes.Meet,
+                        Comment = "its ok"
+                    },
+                    new ContactWithCandidate() 
+                    { 
+                        Date = new DateTime(2014, 02, 17, 19, 25, 00), 
+                        Type = ContactTypes.Meet,
+                        Comment = "all"
+                    }
+
+                }
+            });
         }
 
         /// <summary>
