@@ -33,6 +33,7 @@ namespace CandidatesSearcher
             updater.Add(new ComboBoxAdd(EnglishLevel.UpperIntermediate, "UpperIntermediate"));
             updater.Add(new ComboBoxAdd(EnglishLevel.Proficiency, "Proficiency"));
             updater.EndUpdate();
+            
            //updater.SelectedIndex = -1;
            
         }
@@ -49,16 +50,32 @@ namespace CandidatesSearcher
             CandidateSoname.DataBindings.Add("EditValue", bindingSource, "CandidateSoname");
             CandidatePhone.DataBindings.Add("EditValue", bindingSource, "CandidatePhone");
             CandidateCity.DataBindings.Add("EditValue", bindingSource, "CandidateCity");
-            //CandidateEnglishLevel.DataBindings.Add("EditValue", bindingSource, "CandidateEnglishLevel");    
-            CandidateFromDate.DataBindings.Add("EditValue", bindingSource, "CandidateFromDate");
-            CandidateToDate.DataBindings.Add("EditValue", bindingSource, "CandidateToDate");
-            AgreeToRelocate.DataBindings.Add("EditValue", bindingSource, "AgreeToRelocate");
+            bindingSource.DataSource = command;
+            //CandidateTable.
+           // CandidateTable.DataBindings.Add("EditValue",bindingSource,
+          //  CandidateEnglishLevel.DataBindings.Add("EditValue", bindingSource, "CandidateEnglishLevel");    
+          //  CandidateFromDate.DataBindings.Add("EditValue", bindingSource, "CandidateFromDate");
+           // CandidateToDate.DataBindings.Add("EditValue", bindingSource, "CandidateToDate");
+           // AgreeToRelocate.DataBindings.Add("EditValue", bindingSource, "AgreeToRelocate");
+          // DataGridView.DataSou
         }
         
             class ComboBoxAdd
             {
-                EnglishLevel level;
                 string name;
+                EnglishLevel level;
+                public EnglishLevel Level
+                {
+                    get
+                    {return level;}
+                    set
+                    {
+                        if(value != level)
+                            level = value;
+                    }
+                }
+                
+                
                 public ComboBoxAdd(EnglishLevel level, string name)
                 {
                     this.level = level;
@@ -70,10 +87,7 @@ namespace CandidatesSearcher
                     return name;
                 }
 
-                public EnglishLevel GetLevel()
-                {
-                    return level;
-                }
+                
             }
         
 
@@ -81,8 +95,39 @@ namespace CandidatesSearcher
 
       private void CandidateEnglishLevel_EditValueChanged(object sender, EventArgs e)
       {
-         // ComboBoxAdd p = ((sender as ComboBoxEdit).SelectedItem as ComboBoxAdd);
+         /* var edit = sender as ComboBoxEdit;
+          var editValue = (ComboBoxAdd)edit.SelectedItem;
+         // vm.EngLevel = editValue.
+
+          ComboBoxAdd p = (ComboBoxAdd)CandidateEnglishLevel.EditValue;*/
+
+          var editValue = (ComboBoxAdd)CandidateEnglishLevel.EditValue;
+          vm.EngLevel = editValue.Level;
       }
+
+      private void CandidateFromDate_EditValueChanged(object sender, EventArgs e)
+      {
+          //vm.FromDate = (DateTime)CandidateFromDate.EditValue;
+          
+          vm.FromDate = (DateTime)CandidateFromDate.EditValue;
+      }
+
+      private void CandidateToDat_EditValueChanged(object sender, EventArgs e)
+      {
+          vm.ToDate = (DateTime)CandidateToDat.EditValue;
+      }
+
+      private void AgreeToRelocate_EditValueChanged(object sender, EventArgs e)
+      {
+          vm.AgreeToRelocate = (bool)AgreeToRelocate.EditValue;
+      }
+
+      private void CandidateTable_Click(object sender, EventArgs e)
+      {
+
+      }
+
+
 
 
 
