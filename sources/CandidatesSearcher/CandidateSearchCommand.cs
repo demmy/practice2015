@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using HumanResourcesLibrary;
 
 namespace CandidatesSearcher
 {
@@ -13,7 +14,7 @@ namespace CandidatesSearcher
         //RepositoryService repository;
         private CandidateSearchVievModel viewModel;
 
-        Dictionary<string, object> FormInfo = new Dictionary<string, object>();
+        //Dictionary<string, object> FormInfo = new Dictionary<string, object>();
 
         public bool CanExecuteCnanged()
         {
@@ -27,7 +28,11 @@ namespace CandidatesSearcher
         #region Candidate Search Command members
         public void Execute()
         {
-            if (!string.IsNullOrWhiteSpace(viewModel.CandidateName))
+
+            HumanResourcesLibrary.MainRepository repo = new HumanResourcesLibrary.MainRepository();
+            repo.GetCandidates(viewModel.CandidateName, viewModel.CandidateSoname, viewModel.CandidatePhone, viewModel.CandidateCity,
+                viewModel.AgreeToRelocate, viewModel.EngLevel, viewModel.FromDate, viewModel.ToDate);
+            /*if (!string.IsNullOrWhiteSpace(viewModel.CandidateName))
             { 
                 FormInfo.Add("Name", viewModel.CandidateName);
             }
@@ -65,17 +70,17 @@ namespace CandidatesSearcher
             if (viewModel.ToDate != default(DateTime))
             {
                 FormInfo.Add("ToDate", viewModel.ToDate);
-            }
+            }*/
         }
 
 
-        public Dictionary<string, object> GetFormInformation
+        /*public Dictionary<string, object> GetFormInformation
         {
             get 
             {
                 return FormInfo;
             }
-        }
+        }*/
 
         public bool CanExecute(object o)
         {
