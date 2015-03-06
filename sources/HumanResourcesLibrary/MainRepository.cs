@@ -40,9 +40,59 @@ namespace HumanResourcesLibrary
         /// Use this method to get list of candidates which correspond to given criteria
         /// </summary>
         /// <returns>list of candidates</returns>
-        public List<Candidate> GetCandidates(Dictionary<string,object> candidate_criteria)
+        public List<Candidate> GetCandidates(string name, string soname, string candidate_phone, string city,
+                                                bool agreeToRelocate,
+                                                EnglishLevel engLevel,
+                                                DateTime from, DateTime to)
         {
-                List<Candidate> returns_candidate = candidates;
+            
+            IEnumerable<Candidate> filteredCandidates = new List<Candidate>();
+            filteredCandidates = candidates.Where
+                (candidateName => (!string.IsNullOrWhiteSpace(name) ? candidateName.FirstName == name : true))
+                .Where(candidateSoname => (!string.IsNullOrWhiteSpace(soname) ? candidateSoname.LastName == soname : true))
+                .Where(candidateCity => (!string.IsNullOrWhiteSpace(soname) ? candidateCity.City == city : true))
+                .Where(candidateIsAgreeToRelocate => candidateIsAgreeToRelocate.RelocationAgreement == agreeToRelocate)
+                .Where(candidateEngLevel => candidateEngLevel.EnglishLevel == engLevel)
+                .Where(candidateFromDate => ((default(DateTime) != from) ? (candidateFromDate.DOB > from): true))
+                .Where(candidateToDate => ((default(DateTime) != to)?candidateToDate.DOB > to:true));
+            return filteredCandidates.ToList<Candidate>();
+
+              /* if (t.Key == "Name" && !string.IsNullOrWhiteSpace((string)t.Value)) 
+                filteredCandidates = candidates.Where
+                    (x => x.FirstName == t.Value);
+               else filteredCandidates = candidates;
+
+               if (t.Key == "Soname" && !string.IsNullOrWhiteSpace((string)t.Value))
+                   filteredCandidates = filteredCandidates.Where
+                       (x => x.LastName == t.Value);
+               if (t.Key == "Phone" && !string.IsNullOrWhiteSpace((string)t.Value))
+                   filteredCandidates = filteredCandidates.Where
+                       (x => x.Phones == t.Value);
+               if (t.Key == "City" && !string.IsNullOrWhiteSpace((string)t.Value))
+                   filteredCandidates = filteredCandidates.Where
+                       (x => x.City == t.Value);
+               if (t.Key == "AgreeToRelocate")
+                   filteredCandidates = filteredCandidates.Where
+                       (x => x.RelocationAgreement == (bool)t.Value);
+               if (t.Key == "FromDate" && (DateTime)t.Value != default(DateTime))
+                   filteredCandidates = filteredCandidates.Where
+                       (x => x.DOB >= (DateTime)t.Value);
+               if (t.Key == "ToDate" && (DateTime)t.Value != default(DateTime))
+                   filteredCandidates = filteredCandidates.Where
+                       (x => x.DOB <= (DateTime)t.Value);
+                   
+            }
+            return filteredCandidates.ToList<Candidate>();
+        }
+
+                /*filteredCandidates = candidates.Where
+                    (item => !string.IsNullOrWhiteSpace(candidate_criteria["FirstName"] as string)
+                        ? (item.FirstName == candidate_criteria["FirstName"])
+                        : true);*/
+            
+        
+
+            /*  List<Candidate> returns_candidate = candidates;
                 
                 foreach (var t in candidate_criteria)
                 {
@@ -103,7 +153,7 @@ namespace HumanResourcesLibrary
                     }
                     
                 }
-                return returns_candidate;
+                */
             }
                 
         
