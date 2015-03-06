@@ -1,6 +1,6 @@
 ﻿namespace CandidatesSearcher
 {
-    partial class Form1
+    partial class SearchCandidateMainForm
     {
         /// <summary>
         /// Требуется переменная конструктора.
@@ -653,7 +653,7 @@
             this.Name = "Form1";
             this.Text = "Поиск кандидатов";
             this.TransparencyKey = System.Drawing.Color.Aqua;
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.SearchCandidateMainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.recentlyUsedItemsComboBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.designRepositoryItemComboBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CandidateCity.Properties)).EndInit();

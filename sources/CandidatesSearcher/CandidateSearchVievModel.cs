@@ -8,6 +8,7 @@ using DevExpress.Mvvm.POCO;
 using HumanResourcesLibrary;
 using System.Windows.Input;
 using HumanResourcesLibrary.DataClasses;
+using System.Collections.ObjectModel;
 
 namespace CandidatesSearcher
 {
@@ -15,9 +16,10 @@ namespace CandidatesSearcher
     {
         
         private readonly CandidateSearchCommand searchComand;
+        public  SearchCandidateMainForm View;
 
-        public IList<Candidate> SortedCandidate { get; set; }
-
+        public ObservableCollection<Candidate> SortedCandidate;
+        
 
         public CandidateSearchVievModel()
         {
@@ -154,5 +156,7 @@ namespace CandidatesSearcher
         }
 
 
+
+       
     }
 }

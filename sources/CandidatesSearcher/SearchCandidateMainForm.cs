@@ -15,15 +15,16 @@ using DevExpress.XtraGrid.Views.Base;
 
 namespace CandidatesSearcher
 {
-    public partial class Form1 : Form
+    public partial class SearchCandidateMainForm : Form
     {
         CandidateSearchVievModel vm;
         CandidateSearchCommand command;
 
-        public Form1()
+        public SearchCandidateMainForm()
         {
             InitializeComponent();
             vm = new CandidateSearchVievModel();
+            vm.View = this; 
             command = new CandidateSearchCommand(vm);
             ComboBoxItemCollection updater = CandidateEnglishLevel.Properties.Items;
             updater.BeginUpdate();
@@ -33,26 +34,15 @@ namespace CandidatesSearcher
             updater.Add(new ComboBoxAdd(EnglishLevel.PreIntermediate, "PreIntermediate"));
             updater.Add(new ComboBoxAdd(EnglishLevel.UpperIntermediate, "UpperIntermediate"));
             updater.Add(new ComboBoxAdd(EnglishLevel.Proficiency, "Proficiency"));
-            updater.EndUpdate();
-            
-            
-           
-           
+            updater.EndUpdate();      
         }
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            command.Execute();
-            ColumnView View = CandidateTable.MainView as ColumnView;
-            int rowHandle = View.FocusedRowHandle;
-            if (rowHandle < 0) return;
-            Candidate row = View.GetRow(rowHandle) as Candidate;
-            row.City = "slodkfsfm";
-            CandidateTable.RefreshDataSource();
-            CandidateTable.Refresh();
+            command.Execute();  
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void SearchCandidateMainForm_Load(object sender, EventArgs e)
         {
             bindingSource.DataSource = vm;
             CandidateName.DataBindings.Add("EditValue", bindingSource, "CandidateName");
@@ -60,6 +50,7 @@ namespace CandidatesSearcher
             CandidatePhone.DataBindings.Add("EditValue", bindingSource, "CandidatePhone");
             CandidateCity.DataBindings.Add("EditValue", bindingSource, "CandidateCity");
             CandidateTable.DataSource = vm.SortedCandidate;
+            
 
            // bindingSource.DataSource = command;
             //CandidateTable.
@@ -133,8 +124,13 @@ namespace CandidatesSearcher
           vm.AgreeToRelocate = (bool)AgreeToRelocate.EditValue;
       }
 
-     
 
+      public void Refresher()
+      {
+          CandidateTable.DataSource = vm.SortedCandidate;
+          CandidateTable.RefreshDataSource();
+          CandidateTable.Refresh();
+      }
 
 
 

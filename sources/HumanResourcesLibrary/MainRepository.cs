@@ -49,7 +49,7 @@ namespace HumanResourcesLibrary
                                                 DateTime from, DateTime to)
         {
             
-            IEnumerable<Candidate> filteredCandidates = new List<Candidate>();
+           IEnumerable<Candidate> filteredCandidates = new List<Candidate>();
             filteredCandidates = candidates.Where
                 (candidateName => (!string.IsNullOrWhiteSpace(name) ? candidateName.FirstName == name : true))
                 .Where(candidateSoname => (!string.IsNullOrWhiteSpace(soname) ? candidateSoname.LastName == soname : true))
@@ -58,8 +58,9 @@ namespace HumanResourcesLibrary
                 .Where(candidateEngLevel => candidateEngLevel.EnglishLevel == engLevel)
                 .Where(candidateFromDate => ((default(DateTime) != from) ? (candidateFromDate.DOB > from): true))
                 .Where(candidateToDate => ((default(DateTime) != to)?candidateToDate.DOB < to:true));
-           List <Candidate> tmp = filteredCandidates.ToList<Candidate>();
-           return tmp;
+           
+           return filteredCandidates.ToList<Candidate>();
+        
 
               /* if (t.Key == "Name" && !string.IsNullOrWhiteSpace((string)t.Value)) 
                 filteredCandidates = candidates.Where

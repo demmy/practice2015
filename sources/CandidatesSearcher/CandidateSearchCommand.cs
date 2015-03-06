@@ -1,6 +1,8 @@
 ﻿using HumanResourcesLibrary;
+using HumanResourcesLibrary.DataClasses;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,10 +12,10 @@ namespace CandidatesSearcher
 {
    public class CandidateSearchCommand : ICommand
     {
-        //RepositoryService repository;
+        
         private CandidateSearchVievModel viewModel;
 
-        //Dictionary<string, object> FormInfo = new Dictionary<string, object>();
+      
 
         public bool CanExecuteCnanged()
         {
@@ -29,8 +31,12 @@ namespace CandidatesSearcher
         {
 
             HumanResourcesLibrary.MainRepository repo = new HumanResourcesLibrary.MainRepository();
-            viewModel.SortedCandidate = repo.GetCandidates(viewModel.CandidateName, viewModel.CandidateSoname, viewModel.CandidatePhone, viewModel.CandidateCity,
+            var value= repo.GetCandidates(viewModel.CandidateName, viewModel.CandidateSoname, viewModel.CandidatePhone, viewModel.CandidateCity,
                 viewModel.AgreeToRelocate, viewModel.EngLevel, viewModel.FromDate, viewModel.ToDate);
+
+            viewModel.SortedCandidate = new ObservableCollection<Candidate>(value);
+            viewModel.View.Refresher();
+            
             /*if (!string.IsNullOrWhiteSpace(viewModel.CandidateName))
             { 
                 FormInfo.Add("Name", viewModel.CandidateName);
