@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HumanResourcesLibrary.DataClasses
 {
-    public class Phone : IDeepCopy<Phone>
+    public class Phone : IDeepCopy<Phone>, IEquatable<Phone>
     {
         public Phone CreateDeepCopy()
         {
@@ -18,5 +18,10 @@ namespace HumanResourcesLibrary.DataClasses
 
         public string PhoneNumber { get; set; }
         public PhoneType Type { get; set; }
+
+        public bool Equals(Phone other)
+        {
+            return this.Type == other.Type && this.PhoneNumber == other.PhoneNumber;
+        }
     }
 }

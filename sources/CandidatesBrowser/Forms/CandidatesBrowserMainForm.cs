@@ -19,7 +19,6 @@ namespace CandidatesBrowser.Forms
 {
     public partial class CandidatesBrowserMainForm : Form
     {
-        private bool editEnabled = false;
         private CandidateForm candidateForm = null;
 
         public CandidatesBrowserMainForm()
@@ -34,21 +33,13 @@ namespace CandidatesBrowser.Forms
         {
             candidateForm.FormCandidate = new Candidate();
             candidateForm.ShowDialog();
+            mainBindingSource.DataSource = RepositoryService.Repository.GetAllCandidates();
         }
 
         private void editButton_Click(object sender, EventArgs e)
         {
-            editEnabled = !editEnabled;
-        }
-
-        private void mainGridView_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
-        {
-            if (editEnabled)
-            {
-                editEnabled = false;
-                candidateForm.FormCandidate = (Candidate)((GridView)sender).GetRow(e.RowHandle);
-                candidateForm.ShowDialog();
-            }
+            if (mainGridView.SelectedRowsCount == 1)
+                this.mainGridView_DoubleClick(mainGridView, e);
         }
 
         private void mainGridView_DoubleClick(object sender, EventArgs e)
