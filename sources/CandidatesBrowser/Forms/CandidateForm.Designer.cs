@@ -515,6 +515,7 @@
             this.candidatePhoto.Size = new System.Drawing.Size(147, 200);
             this.candidatePhoto.StyleController = this.rootLayout;
             this.candidatePhoto.TabIndex = 4;
+            this.candidatePhoto.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.candidatePhoto_MouseDoubleClick);
             // 
             // rootLayoutGroup
             // 

@@ -132,8 +132,6 @@ namespace CandidatesBrowser.Forms
 
         private void SaveCandidate()
         {
-            HumanResourcesLibrary.RepositoryService.Repository.SaveCandidate(candidateCopy);
-            
             candidate.LastName = candidateCopy.LastName;
             candidate.MiddleName = candidateCopy.MiddleName;
             candidate.FirstName = candidateCopy.FirstName;
@@ -155,6 +153,13 @@ namespace CandidatesBrowser.Forms
             candidate.Phones = candidateCopy.Phones.ConvertAll(phone => phone.CreateDeepCopy());
             candidate.ContactsList = candidateCopy.ContactsList.ConvertAll(contact => contact.CreateDeepCopy());
             candidate.SocialNetworksList = candidateCopy.SocialNetworksList.ConvertAll(socNet => socNet.CreateDeepCopy());
+
+            HumanResourcesLibrary.RepositoryService.Repository.SaveCandidate(candidate);
+        }
+
+        private void candidatePhoto_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+
         }
     }
 }

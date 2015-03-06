@@ -34,6 +34,7 @@ namespace CandidatesBrowser.Forms
         {
             candidateForm.FormCandidate = new Candidate();
             candidateForm.ShowDialog();
+            mainBindingSource.DataSource = RepositoryService.Repository.GetAllCandidates();
         }
 
         private void editButton_Click(object sender, EventArgs e)
