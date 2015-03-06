@@ -36,12 +36,12 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.AgreeToRelocate = new DevExpress.XtraEditors.CheckEdit();
             this.CandidateTable = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.NameCandidate = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Soname = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Telephone = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.EnglishLevel = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Date = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.CandidateGridview = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.NameCandidateColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.CandidateSonameColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.CandidatePhoneColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.CandidateEnglishLevelColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.CandidateDateColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.CandidateEnglishLevel = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.SearchButton = new DevExpress.XtraEditors.SimpleButton();
@@ -49,7 +49,7 @@
             this.CandidatePhone = new DevExpress.XtraEditors.TextEdit();
             this.CandidateName = new DevExpress.XtraEditors.TextEdit();
             this.CandidateFromDate = new DevExpress.XtraEditors.DateEdit();
-            this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
+            this.CandidateToDat = new DevExpress.XtraEditors.DateEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.Город = new DevExpress.XtraLayout.LayoutControlItem();
             this.Телефон = new DevExpress.XtraLayout.LayoutControlItem();
@@ -88,15 +88,15 @@
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AgreeToRelocate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CandidateTable)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CandidateGridview)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CandidateEnglishLevel.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CandidateSoname.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CandidatePhone.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CandidateName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CandidateFromDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CandidateFromDate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CandidateToDat.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CandidateToDat.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Город)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Телефон)).BeginInit();
@@ -169,7 +169,7 @@
             this.layoutControl1.Controls.Add(this.CandidateCity);
             this.layoutControl1.Controls.Add(this.CandidateName);
             this.layoutControl1.Controls.Add(this.CandidateFromDate);
-            this.layoutControl1.Controls.Add(this.dateEdit1);
+            this.layoutControl1.Controls.Add(this.CandidateToDat);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
@@ -218,62 +218,66 @@
             this.AgreeToRelocate.Size = new System.Drawing.Size(129, 19);
             this.AgreeToRelocate.StyleController = this.layoutControl1;
             this.AgreeToRelocate.TabIndex = 35;
+            this.AgreeToRelocate.EditValueChanged += new System.EventHandler(this.AgreeToRelocate_EditValueChanged);
             // 
             // CandidateTable
             // 
             this.CandidateTable.Location = new System.Drawing.Point(150, 12);
-            this.CandidateTable.MainView = this.gridView1;
+            this.CandidateTable.MainView = this.CandidateGridview;
             this.CandidateTable.Name = "CandidateTable";
             this.CandidateTable.Size = new System.Drawing.Size(822, 643);
             this.CandidateTable.TabIndex = 34;
             this.CandidateTable.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.CandidateGridview});
             // 
-            // gridView1
+            // CandidateGridview
             // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.NameCandidate,
-            this.Soname,
-            this.Telephone,
-            this.EnglishLevel,
-            this.Date});
-            this.gridView1.GridControl = this.CandidateTable;
-            this.gridView1.Name = "gridView1";
+            this.CandidateGridview.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.NameCandidateColumn,
+            this.CandidateSonameColumn,
+            this.CandidatePhoneColumn,
+            this.CandidateEnglishLevelColumn,
+            this.CandidateDateColumn});
+            this.CandidateGridview.GridControl = this.CandidateTable;
+            this.CandidateGridview.Name = "CandidateGridview";
             // 
-            // NameCandidate
+            // NameCandidateColumn
             // 
-            this.NameCandidate.Caption = "Имя";
-            this.NameCandidate.Name = "NameCandidate";
-            this.NameCandidate.Visible = true;
-            this.NameCandidate.VisibleIndex = 0;
+            this.NameCandidateColumn.Caption = "Имя";
+            this.NameCandidateColumn.FieldName = "FirstName";
+            this.NameCandidateColumn.Name = "NameCandidateColumn";
+            this.NameCandidateColumn.UnboundType = DevExpress.Data.UnboundColumnType.String;
+            this.NameCandidateColumn.Visible = true;
+            this.NameCandidateColumn.VisibleIndex = 0;
             // 
-            // Soname
+            // CandidateSonameColumn
             // 
-            this.Soname.Caption = "Фамилия";
-            this.Soname.Name = "Soname";
-            this.Soname.Visible = true;
-            this.Soname.VisibleIndex = 1;
+            this.CandidateSonameColumn.Caption = "Фамилия";
+            this.CandidateSonameColumn.FieldName = "LastName";
+            this.CandidateSonameColumn.Name = "CandidateSonameColumn";
+            this.CandidateSonameColumn.Visible = true;
+            this.CandidateSonameColumn.VisibleIndex = 1;
             // 
-            // Telephone
+            // CandidatePhoneColumn
             // 
-            this.Telephone.Caption = "Телефон";
-            this.Telephone.Name = "Telephone";
-            this.Telephone.Visible = true;
-            this.Telephone.VisibleIndex = 2;
+            this.CandidatePhoneColumn.Caption = "Телефон";
+            this.CandidatePhoneColumn.Name = "CandidatePhoneColumn";
+            this.CandidatePhoneColumn.Visible = true;
+            this.CandidatePhoneColumn.VisibleIndex = 2;
             // 
-            // EnglishLevel
+            // CandidateEnglishLevelColumn
             // 
-            this.EnglishLevel.Caption = "Уровень английского";
-            this.EnglishLevel.Name = "EnglishLevel";
-            this.EnglishLevel.Visible = true;
-            this.EnglishLevel.VisibleIndex = 3;
+            this.CandidateEnglishLevelColumn.Caption = "Уровень английского";
+            this.CandidateEnglishLevelColumn.Name = "CandidateEnglishLevelColumn";
+            this.CandidateEnglishLevelColumn.Visible = true;
+            this.CandidateEnglishLevelColumn.VisibleIndex = 3;
             // 
-            // Date
+            // CandidateDateColumn
             // 
-            this.Date.Caption = "Дата";
-            this.Date.Name = "Date";
-            this.Date.Visible = true;
-            this.Date.VisibleIndex = 4;
+            this.CandidateDateColumn.Caption = "Дата";
+            this.CandidateDateColumn.Name = "CandidateDateColumn";
+            this.CandidateDateColumn.Visible = true;
+            this.CandidateDateColumn.VisibleIndex = 4;
             // 
             // CandidateEnglishLevel
             // 
@@ -284,6 +288,7 @@
             this.CandidateEnglishLevel.Size = new System.Drawing.Size(129, 20);
             this.CandidateEnglishLevel.StyleController = this.layoutControl1;
             this.CandidateEnglishLevel.TabIndex = 33;
+            this.CandidateEnglishLevel.EditValueChanged += new System.EventHandler(this.CandidateEnglishLevel_EditValueChanged);
             // 
             // labelControl1
             // 
@@ -340,19 +345,21 @@
             this.CandidateFromDate.Size = new System.Drawing.Size(84, 20);
             this.CandidateFromDate.StyleController = this.layoutControl1;
             this.CandidateFromDate.TabIndex = 18;
+            this.CandidateFromDate.EditValueChanged += new System.EventHandler(this.CandidateFromDate_EditValueChanged);
             // 
-            // dateEdit1
+            // CandidateToDat
             // 
-            this.dateEdit1.EditValue = null;
-            this.dateEdit1.Location = new System.Drawing.Point(44, 367);
-            this.dateEdit1.Name = "dateEdit1";
-            this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.CandidateToDat.EditValue = null;
+            this.CandidateToDat.Location = new System.Drawing.Point(44, 367);
+            this.CandidateToDat.Name = "CandidateToDat";
+            this.CandidateToDat.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.CandidateToDat.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Size = new System.Drawing.Size(85, 20);
-            this.dateEdit1.StyleController = this.layoutControl1;
-            this.dateEdit1.TabIndex = 18;
+            this.CandidateToDat.Size = new System.Drawing.Size(85, 20);
+            this.CandidateToDat.StyleController = this.layoutControl1;
+            this.CandidateToDat.TabIndex = 18;
+            this.CandidateToDat.EditValueChanged += new System.EventHandler(this.CandidateToDat_EditValueChanged);
             // 
             // layoutControlGroup1
             // 
@@ -509,7 +516,7 @@
             // 
             // CandidateToDate
             // 
-            this.CandidateToDate.Control = this.dateEdit1;
+            this.CandidateToDate.Control = this.CandidateToDat;
             this.CandidateToDate.CustomizationFormText = "С";
             this.CandidateToDate.Location = new System.Drawing.Point(20, 24);
             this.CandidateToDate.Name = "С1";
@@ -605,7 +612,7 @@
             // 
             // С1
             // 
-            this.С1.Control = this.dateEdit1;
+            this.С1.Control = this.CandidateToDat;
             this.С1.CustomizationFormText = "С";
             this.С1.Location = new System.Drawing.Point(0, 24);
             this.С1.Name = "С1";
@@ -654,15 +661,15 @@
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.AgreeToRelocate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CandidateTable)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CandidateGridview)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CandidateEnglishLevel.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CandidateSoname.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CandidatePhone.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CandidateName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CandidateFromDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CandidateFromDate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CandidateToDat.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CandidateToDat.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Город)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Телефон)).EndInit();
@@ -732,20 +739,20 @@
         private DevExpress.XtraLayout.LayoutControlGroup Дата;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.GridControl CandidateTable;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Views.Grid.GridView CandidateGridview;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
-        private DevExpress.XtraGrid.Columns.GridColumn NameCandidate;
-        private DevExpress.XtraGrid.Columns.GridColumn Soname;
-        private DevExpress.XtraGrid.Columns.GridColumn Telephone;
-        private DevExpress.XtraGrid.Columns.GridColumn EnglishLevel;
-        private DevExpress.XtraGrid.Columns.GridColumn Date;
+        private DevExpress.XtraGrid.Columns.GridColumn NameCandidateColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn CandidateSonameColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn CandidatePhoneColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn CandidateEnglishLevelColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn CandidateDateColumn;
         private DevExpress.XtraEditors.CheckEdit AgreeToRelocate;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem7;
         private DevExpress.XtraEditors.DateEdit CandidateFromDate;
         private DevExpress.XtraLayout.LayoutControlItem С;
-        private DevExpress.XtraEditors.DateEdit dateEdit1;
+        private DevExpress.XtraEditors.DateEdit CandidateToDat;
         private DevExpress.XtraLayout.LayoutControlItem С1;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl2;

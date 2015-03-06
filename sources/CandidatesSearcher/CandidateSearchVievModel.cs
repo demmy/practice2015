@@ -15,7 +15,8 @@ namespace CandidatesSearcher
     {
         
         private readonly CandidateSearchCommand searchComand;
-       
+
+        public IList<Candidate> SortedCandidate { get; set; }
 
 
         public CandidateSearchVievModel()
@@ -126,7 +127,7 @@ namespace CandidatesSearcher
              }
          }
 
-         private bool agreeToRelocate; //Как отслеживать таинствевнное 3е состояние?
+         private bool agreeToRelocate = default (bool); //Как отслеживать таинствевнное 3е состояние?
          public bool AgreeToRelocate 
          {
              get { return agreeToRelocate; }

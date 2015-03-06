@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using HumanResourcesLibrary;
 
 namespace CandidatesSearcher
 {
@@ -30,7 +29,7 @@ namespace CandidatesSearcher
         {
 
             HumanResourcesLibrary.MainRepository repo = new HumanResourcesLibrary.MainRepository();
-            repo.GetCandidates(viewModel.CandidateName, viewModel.CandidateSoname, viewModel.CandidatePhone, viewModel.CandidateCity,
+            viewModel.SortedCandidate = repo.GetCandidates(viewModel.CandidateName, viewModel.CandidateSoname, viewModel.CandidatePhone, viewModel.CandidateCity,
                 viewModel.AgreeToRelocate, viewModel.EngLevel, viewModel.FromDate, viewModel.ToDate);
             /*if (!string.IsNullOrWhiteSpace(viewModel.CandidateName))
             { 
