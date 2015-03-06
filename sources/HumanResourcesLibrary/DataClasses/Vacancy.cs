@@ -14,11 +14,21 @@ namespace HumanResourcesLibrary.DataClasses
         {
             Vacancy copy = new Vacancy();
             copy.Title = this.Title;
+            copy.Project = this.Project;
+            copy.City = this.City;
+            copy.Status = this.Status;
+            copy.Skills = this.Skills;
+            copy.ResponsiblePerson = this.ResponsiblePerson;
+            copy.LevelEnglish = this.LevelEnglish;
+            copy.TypeEmployment = this.TypeEmployment;
+            copy.DateFinish = this.DateFinish;
+            copy.DateStart = this.DateStart;
+            copy.Description = this.Description;
             return copy;
         }
-         public Vacancy()
+        public Vacancy()
         {
-            ProjectId = 0;
+            /*ProjectId = 0;
             CityId = 0;
             ResponsiblePersonId = 0;
             Title = System.String.Empty;
@@ -28,32 +38,33 @@ namespace HumanResourcesLibrary.DataClasses
             LevelEnglish = LevelEnglish.Beginner;
             Status = Status.Open;
             Description = System.String.Empty;
-            ListComment = new Dictionary<DateTime, string>();
+            ListComment = new Dictionary<DateTime, string>();*/
         }
-
-        public Vacancy(int projectId, int cityId, int responsiblePersonId, string name, DateTime dateStart, DateTime dateFinish, TypeEmployment typeEmployment, LevelEnglish levelEnglish, Status status, string description, Dictionary<DateTime, string> listComment, int vacancyId = -1)
+        public Vacancy(string name, Project project, City city, Status status, ResponsiblePerson responsiblePerson, DateTime dateStart, DateTime dateFinish, 
+            TypeEmployment typeEmployment, LevelEnglish levelEnglish, string skills, string description)
         {
-            this.ProjectId = projectId;
-            this.CityId = cityId;
-            this.ResponsiblePersonId = responsiblePersonId;
-            this.Title = name;
-            this.DateStart = dateStart;
-            this.DateFinish = dateFinish;
-            this.TypeEmployment = typeEmployment;
-            this.LevelEnglish = levelEnglish;
-            this.Status = status;
-            this.Description = description;
-            this.ListComment = listComment;
-            this.VacancyId = vacancyId;
+            Project = project.GetProjectName();
+            City = city.GetCityName();
+            ResponsiblePerson = responsiblePerson.GetResponsiblePersonName();
+            Title = name;
+            DateStart = dateStart;
+            DateFinish = dateFinish;
+            TypeEmployment = typeEmployment;
+            LevelEnglish = levelEnglish;
+            Status = status;
+            Skills = skills;
+            Description = description;
+            //ListComment = listComment;
+            //VacancyId = vacancyId;
         }
 
-        public int VacancyId { get; private set; }
+     //   public int VacancyId { get; set; }
 
-        public int ProjectId{ get; set; }
+        public string Project { get; set; }
 
-        public int CityId { get; set; }
+        public string City { get; set; }
 
-        public int ResponsiblePersonId { get; set; }
+        public string ResponsiblePerson { get; set; }
 
         public DateTime DateStart { get; set; }
 
@@ -64,6 +75,8 @@ namespace HumanResourcesLibrary.DataClasses
         public LevelEnglish LevelEnglish { get; set; }
 
         public Status Status { get; set; }
+
+        public string Skills { get; set; }
 
         public string Description { get; set; }
 

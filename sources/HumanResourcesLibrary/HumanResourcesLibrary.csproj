@@ -49,6 +49,7 @@
     <Compile Include="DataClasses\SocialNetworkType.cs" />
     <Compile Include="DataClasses\UniqueItem.cs" />
     <Compile Include="DataClasses\Vacancy.cs" />
+    <Compile Include="DataClasses\VacancyProject.cs" />
     <Compile Include="IMainRepository.cs" />
     <Compile Include="MainRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

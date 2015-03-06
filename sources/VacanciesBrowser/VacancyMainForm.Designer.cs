@@ -1,6 +1,6 @@
 ﻿namespace VacanciesBrowser
 {
-    partial class ListVacancy
+    partial class VacancyMainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListVacancy));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VacancyMainForm));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.EditVacancy = new DevExpress.XtraEditors.SimpleButton();
             this.AddVacancy = new DevExpress.XtraEditors.SimpleButton();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.Name = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.VacancyGridList = new DevExpress.XtraGrid.GridControl();
+            this.VacancyGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.VacancyName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Project = new DevExpress.XtraGrid.Columns.GridColumn();
             this.City = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Status = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -64,8 +64,8 @@
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VacancyGridList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VacancyGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
@@ -81,7 +81,7 @@
             // 
             this.layoutControl1.Controls.Add(this.EditVacancy);
             this.layoutControl1.Controls.Add(this.AddVacancy);
-            this.layoutControl1.Controls.Add(this.gridControl1);
+            this.layoutControl1.Controls.Add(this.VacancyGridList);
             this.layoutControl1.Location = new System.Drawing.Point(6, 23);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(432, 115, 250, 350);
@@ -120,66 +120,79 @@
             this.AddVacancy.Text = "Создать вакансию";
             this.AddVacancy.Click += new System.EventHandler(this.AddVacancy_Click);
             // 
-            // gridControl1
+            // VacancyGridList
             // 
-            this.gridControl1.Location = new System.Drawing.Point(12, 12);
-            this.gridControl1.MainView = this.gridView3;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(716, 285);
-            this.gridControl1.TabIndex = 0;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView3,
+            this.VacancyGridList.Location = new System.Drawing.Point(12, 12);
+            this.VacancyGridList.MainView = this.VacancyGridView;
+            this.VacancyGridList.Name = "VacancyGridList";
+            this.VacancyGridList.Size = new System.Drawing.Size(716, 285);
+            this.VacancyGridList.TabIndex = 0;
+            this.VacancyGridList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.VacancyGridView,
             this.gridView1,
             this.gridView2});
+            this.VacancyGridList.DoubleClick += new System.EventHandler(this.VacancyGridList_DoubleClick);
             // 
-            // gridView3
+            // VacancyGridView
             // 
-            this.gridView3.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.Name,
+            this.VacancyGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.VacancyName,
             this.Project,
             this.City,
             this.Status});
-            this.gridView3.GridControl = this.gridControl1;
-            this.gridView3.Name = "gridView3";
+            this.VacancyGridView.GridControl = this.VacancyGridList;
+            this.VacancyGridView.Name = "VacancyGridView";
             // 
-            // Name
+            // VacancyName
             // 
-            this.Name.Caption = "Название";
-            this.Name.Name = "Name";
-            this.Name.Visible = true;
-            this.Name.VisibleIndex = 0;
+            this.VacancyName.Caption = "Название";
+            this.VacancyName.FieldName = "Title";
+            this.VacancyName.Name = "VacancyName";
+            this.VacancyName.OptionsColumn.AllowEdit = false;
+            this.VacancyName.OptionsColumn.ReadOnly = true;
+            this.VacancyName.Visible = true;
+            this.VacancyName.VisibleIndex = 0;
             // 
             // Project
             // 
             this.Project.Caption = "Проект";
+            this.Project.FieldName = "Project";
             this.Project.Name = "Project";
+            this.Project.OptionsColumn.AllowEdit = false;
+            this.Project.OptionsColumn.ReadOnly = true;
             this.Project.Visible = true;
             this.Project.VisibleIndex = 1;
             // 
             // City
             // 
             this.City.Caption = "Город";
+            this.City.FieldName = "City";
             this.City.Name = "City";
+            this.City.OptionsColumn.AllowEdit = false;
+            this.City.OptionsColumn.ReadOnly = true;
             this.City.Visible = true;
             this.City.VisibleIndex = 2;
             // 
             // Status
             // 
             this.Status.Caption = "Статус";
+            this.Status.FieldName = "Status";
             this.Status.Name = "Status";
+            this.Status.OptionsColumn.AllowEdit = false;
+            this.Status.OptionsColumn.ReadOnly = true;
             this.Status.Visible = true;
             this.Status.VisibleIndex = 3;
             // 
             // gridView1
             // 
-            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.GridControl = this.VacancyGridList;
             this.gridView1.Name = "gridView1";
             // 
             // gridView2
             // 
             this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn1});
-            this.gridView2.GridControl = this.gridControl1;
+            this.gridView2.GridControl = this.VacancyGridList;
             this.gridView2.Name = "gridView2";
             // 
             // gridColumn1
@@ -205,7 +218,7 @@
             // 
             // layoutControlItem1
             // 
-            this.layoutControlItem1.Control = this.gridControl1;
+            this.layoutControlItem1.Control = this.VacancyGridList;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(720, 289);
@@ -370,7 +383,7 @@
             this.barDockControlRight.Location = new System.Drawing.Point(752, 22);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 350);
             // 
-            // ListVacancy
+            // VacancyMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -381,12 +394,15 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "VacancyMainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Список вакансий";
+            this.Activated += new System.EventHandler(this.VacancyMainForm_Activated);
+            this.Load += new System.EventHandler(this.VacancyMainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VacancyGridList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VacancyGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
@@ -404,9 +420,9 @@
 
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
-        private DevExpress.XtraGrid.Columns.GridColumn Name;
+        private DevExpress.XtraGrid.GridControl VacancyGridList;
+        private DevExpress.XtraGrid.Views.Grid.GridView VacancyGridView;
+        private DevExpress.XtraGrid.Columns.GridColumn VacancyName;
         private DevExpress.XtraGrid.Columns.GridColumn Project;
         private DevExpress.XtraGrid.Columns.GridColumn City;
         private DevExpress.XtraGrid.Columns.GridColumn Status;
