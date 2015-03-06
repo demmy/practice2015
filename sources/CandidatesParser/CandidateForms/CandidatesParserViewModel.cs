@@ -75,5 +75,33 @@ namespace CandidatesParser
         {
             return repository.GetAllCandidates();
         }
+
+        public void SaveCandidate(
+            HumanResourcesLibrary.DataClasses.Candidate candidate,
+            string sSkype,
+            string sEmail,
+            string sWebSite,
+            List<Contact> lPhones
+            )
+        {
+            candidate.Skype = sSkype;
+            candidate.Email = sEmail;
+            candidate.SiteURL = sWebSite;
+
+            HumanResourcesLibrary.DataClasses.Phone tempPhone;
+
+            foreach (var item in lPhones)
+            {
+                
+                if (item.IsChosen == true)
+                {
+                    tempPhone = new HumanResourcesLibrary.DataClasses.Phone();
+                    tempPhone.PhoneNumber = item.Value;
+                    //tempPhones.Type = HumanResourcesLibrary.DataClasses.PhoneType.
+                    candidate.Phones.Add(tempPhone);
+                }
+            }
+            repository.SaveCandidate(candidate);
+        }
     }
 }
