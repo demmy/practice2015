@@ -11,15 +11,27 @@ namespace HumanResourcesLibrary
     {
         private List<Vacancy> vacancies = new List<Vacancy>();
         private List<Candidate> candidates = new List<Candidate>();
-
+        
         public MainRepository()
         {
-            vacancies.Add(new Vacancy("Super Vacancy 1", new Project(1, "ISD"), new City(1, "Dnipro"), Status.Closed));
-            vacancies.Add(new Vacancy("Super Vacancy 2", new Project(2, "DataArt"), new City(3, "Lviv"), Status.Open));
-            vacancies.Add(new Vacancy("Super Vacancy 3", new Project(3, "SiteCore"), new City(2, "Kyiv"), Status.Open));
-            vacancies.Add(new Vacancy("Super Vacancy 4", new Project(2, "DataArt"), new City(1, "Dnipro"), Status.Closed));
-            vacancies.Add(new Vacancy("Super Vacancy 5", new Project(1, "ISD"), new City(1, "Dnipro"), Status.Open));
-            vacancies.Add(new Vacancy("Super Vacancy 6", new Project(1, "ISD"), new City(1, "Dnipro"), Status.Closed));
+            vacancies.Add(new Vacancy("Super Vacancy 1", new Project(1, "ISD"), new City(1, "Dnipro"), 
+                            Status.Closed, new ResponsiblePerson(1, "She"), new DateTime(2015,1,22), new DateTime(2015,1,22),  
+                               HumanResourcesLibrary.DataClasses.TypeEmployment.Internsip, LevelEnglish.Beginner, "dsfdsg", "ldsfmckjdsn"));
+            vacancies.Add(new Vacancy("Super Vacancy 2", new Project(2, "DataArt"), new City(2, "Lviv"),
+                           Status.Closed, new ResponsiblePerson(2, "They"), new DateTime(2015, 1, 22), new DateTime(2015, 1, 22),
+                              HumanResourcesLibrary.DataClasses.TypeEmployment.Practice, LevelEnglish.Intermediate, "dsfdsg", "ldsfmckjdsn"));
+            vacancies.Add(new Vacancy("Super Vacancy 3", new Project(1, "ISD"), new City(1, "Dnipro"),
+                           Status.Open, new ResponsiblePerson(1, "She"), new DateTime(2015, 1, 22), new DateTime(2015, 1, 22),
+                              HumanResourcesLibrary.DataClasses.TypeEmployment.Internsip, LevelEnglish.Beginner, "dsfdsg", "ldsfmckjdsn"));
+            vacancies.Add(new Vacancy("Super Vacancy 4", new Project(3, "SiteCore"), new City(3, "Kyiv"),
+                           Status.Closed, new ResponsiblePerson(3, "He"), new DateTime(2015, 1, 22), new DateTime(2015, 1, 22),
+                              HumanResourcesLibrary.DataClasses.TypeEmployment.FullEmployment, LevelEnglish.Proficiency, "dsfdsg", "ldsfmckjdsn"));
+            vacancies.Add(new Vacancy("Super Vacancy 5", new Project(1, "ISD"), new City(1, "Dnipro"),
+                           Status.Open, new ResponsiblePerson(2, "They"), new DateTime(2015, 1, 22), new DateTime(2015, 1, 22),
+                              HumanResourcesLibrary.DataClasses.TypeEmployment.Internsip, LevelEnglish.Beginner, "dsfdsg", "ldsfmckjdsn"));
+            vacancies.Add(new Vacancy("Super Vacancy 6", new Project(3, "SiteCore"), new City(3, "Kyiv"),
+                           Status.Closed, new ResponsiblePerson(1, "She"), new DateTime(2015, 1, 22), new DateTime(2015, 1, 22),
+                              HumanResourcesLibrary.DataClasses.TypeEmployment.PartTime, LevelEnglish.Pre_Intermediate, "dsfdsg", "ldsfmckjdsn"));
             candidates.Add(new Candidate() { LastName = "Ivanov", FirstName = "Ivan", Phones = new List<Phone>() });
         }
 

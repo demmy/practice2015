@@ -481,15 +481,17 @@
             this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem2.TextSize = new System.Drawing.Size(167, 13);
             // 
-            // Form2
+            // VacancyAddOrEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(598, 584);
             this.Controls.Add(this.layoutControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "VacancyAddOrEdit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Информация о вакансии";
+            this.Load += new System.EventHandler(this.VacancyAddOrEdit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DescriptionVacancy.Properties)).EndInit();

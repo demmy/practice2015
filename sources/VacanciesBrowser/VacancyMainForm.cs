@@ -17,16 +17,21 @@ namespace VacanciesBrowser
         {
             InitializeComponent();
         }
+        public BindingList<Vacancy> listDataSource;
+        public IMainRepository repo;
 
-        private void AddVacancy_Click(object sender, EventArgs e)
+        private void AddVacancy_Click(object sender, EventArgs e)//
         {
             VacancyAddOrEdit frm2 = new VacancyAddOrEdit();
+            frm2.isNew = true;
             frm2.Show();
         }
 
         private void EditVacancy_Click(object sender, EventArgs e)
         {
-            VacancyAddOrEdit frm2 = new VacancyAddOrEdit();
+            var vacancy = VacancyGridView.GetRow(VacancyGridView.FocusedRowHandle) as Vacancy;
+            VacancyAddOrEdit frm2 = new VacancyAddOrEdit(vacancy);
+            frm2.isNew = false;
             frm2.Show();
         }
 
@@ -43,7 +48,8 @@ namespace VacanciesBrowser
 
         private void barButtonItem_EditVacancy_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            VacancyAddOrEdit frm2 = new VacancyAddOrEdit();
+            var vacancy = VacancyGridView.GetRow(VacancyGridView.FocusedRowHandle) as Vacancy;
+            VacancyAddOrEdit frm2 = new VacancyAddOrEdit(vacancy);
             frm2.Show();
         }
 
@@ -60,17 +66,31 @@ namespace VacanciesBrowser
         private void VacancyMainForm_Load(object sender, EventArgs e)
         { 
             List<Vacancy> vacancyForPrint = new List<Vacancy>();
-            BindingList<Vacancy> listDataSource = new BindingList<Vacancy>();
-            IMainRepository repo = RepositoryService.Repository;
+            listDataSource = new BindingList<Vacancy>();
+            repo = RepositoryService.Repository;
             vacancyForPrint = repo.GetAllVacancies(); 
-            listDataSource.Add(vacancyForPrint[0]);
-            listDataSource.Add(vacancyForPrint[1]);
-            listDataSource.Add(vacancyForPrint[2]);
-            listDataSource.Add(vacancyForPrint[3]);
-            listDataSource.Add(vacancyForPrint[4]);
-            listDataSource.Add(vacancyForPrint[5]);
+            foreach(var vac in vacancyForPrint)
+            {
+                listDataSource.Add(vac);
+            }
             VacancyGridList.DataSource = listDataSource;
 
         }
+
+        private void VacancyGridList_DoubleClick(object sender, EventArgs e)
+        {
+            var vacancy = VacancyGridView.GetRow(VacancyGridView.FocusedRowHandle) as Vacancy;
+            VacancyAddOrEdit frm2 = new VacancyAddOrEdit(vacancy);
+            frm2.isNew = false;
+            frm2.Show();
+
+        }
+
+        private void VacancyMainForm_Activated(object sender, EventArgs e)
+        {
+            VacancyGridList.DataSource = repo.GetAllVacancies(); 
+        }
+
+        
     }
 }
