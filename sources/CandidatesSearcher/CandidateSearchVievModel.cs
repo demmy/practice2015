@@ -8,6 +8,7 @@ using DevExpress.Mvvm.POCO;
 using HumanResourcesLibrary;
 using System.Windows.Input;
 using HumanResourcesLibrary.DataClasses;
+using System.Collections.ObjectModel;
 
 namespace CandidatesSearcher
 {
@@ -15,8 +16,10 @@ namespace CandidatesSearcher
     {
         
         private readonly CandidateSearchCommand searchComand;
-       
+        public  SearchCandidateMainForm View;
 
+        public ObservableCollection<Candidate> SortedCandidate;
+        
 
         public CandidateSearchVievModel()
         {
@@ -126,7 +129,7 @@ namespace CandidatesSearcher
              }
          }
 
-         private bool agreeToRelocate; //Как отслеживать таинствевнное 3е состояние?
+         private bool agreeToRelocate = default (bool); //Как отслеживать таинствевнное 3е состояние?
          public bool AgreeToRelocate 
          {
              get { return agreeToRelocate; }
@@ -153,5 +156,7 @@ namespace CandidatesSearcher
         }
 
 
+
+       
     }
 }

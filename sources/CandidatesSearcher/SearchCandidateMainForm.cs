@@ -10,19 +10,21 @@ using System.Windows.Forms;
 using HumanResourcesLibrary.DataClasses;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.Xpf.Editors;
+using DevExpress.XtraGrid.Views.Base;
 
 
 namespace CandidatesSearcher
 {
-    public partial class Form1 : Form
+    public partial class SearchCandidateMainForm : Form
     {
         CandidateSearchVievModel vm;
         CandidateSearchCommand command;
 
-        public Form1()
+        public SearchCandidateMainForm()
         {
             InitializeComponent();
             vm = new CandidateSearchVievModel();
+            vm.View = this; 
             command = new CandidateSearchCommand(vm);
             ComboBoxItemCollection updater = CandidateEnglishLevel.Properties.Items;
             updater.BeginUpdate();
@@ -32,27 +34,27 @@ namespace CandidatesSearcher
             updater.Add(new ComboBoxAdd(EnglishLevel.PreIntermediate, "PreIntermediate"));
             updater.Add(new ComboBoxAdd(EnglishLevel.UpperIntermediate, "UpperIntermediate"));
             updater.Add(new ComboBoxAdd(EnglishLevel.Proficiency, "Proficiency"));
-            updater.EndUpdate();
-            
-           //updater.SelectedIndex = -1;
-           
+            updater.EndUpdate();      
         }
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            command.Execute();
+            command.Execute();  
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void SearchCandidateMainForm_Load(object sender, EventArgs e)
         {
             bindingSource.DataSource = vm;
             CandidateName.DataBindings.Add("EditValue", bindingSource, "CandidateName");
             CandidateSoname.DataBindings.Add("EditValue", bindingSource, "CandidateSoname");
             CandidatePhone.DataBindings.Add("EditValue", bindingSource, "CandidatePhone");
             CandidateCity.DataBindings.Add("EditValue", bindingSource, "CandidateCity");
-            bindingSource.DataSource = command;
+            CandidateTable.DataSource = vm.SortedCandidate;
+            
+
+           // bindingSource.DataSource = command;
             //CandidateTable.
-           // CandidateTable.DataBindings.Add("EditValue",bindingSource,
+          //  CandidateTable.DataBindings.Add("EditValue",bindingSource,
           //  CandidateEnglishLevel.DataBindings.Add("EditValue", bindingSource, "CandidateEnglishLevel");    
           //  CandidateFromDate.DataBindings.Add("EditValue", bindingSource, "CandidateFromDate");
            // CandidateToDate.DataBindings.Add("EditValue", bindingSource, "CandidateToDate");
@@ -122,11 +124,13 @@ namespace CandidatesSearcher
           vm.AgreeToRelocate = (bool)AgreeToRelocate.EditValue;
       }
 
-      private void CandidateTable_Click(object sender, EventArgs e)
+
+      public void Refresher()
       {
-
+          CandidateTable.DataSource = vm.SortedCandidate;
+          CandidateTable.RefreshDataSource();
+          CandidateTable.Refresh();
       }
-
 
 
 
