@@ -12,14 +12,40 @@ using DevExpress.LookAndFeel;
 using DevExpress.XtraGrid;
 using DevExpress.Utils.Drawing;
 using System.Reflection;
+using HumanResourcesLibrary;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace CandidatesBrowser.Forms
 {
     public partial class CandidatesBrowserMainForm : Form
     {
+        private CandidateForm candidateForm = null;
+
         public CandidatesBrowserMainForm()
         {
+            candidateForm = new CandidateForm();
+
             InitializeComponent();
+            mainBindingSource.DataSource = RepositoryService.Repository.GetAllCandidates();
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            candidateForm.FormCandidate = new Candidate();
+            candidateForm.ShowDialog();
+            mainBindingSource.DataSource = RepositoryService.Repository.GetAllCandidates();
+        }
+
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            if (mainGridView.SelectedRowsCount == 1)
+                this.mainGridView_DoubleClick(mainGridView, e);
+        }
+
+        private void mainGridView_DoubleClick(object sender, EventArgs e)
+        {
+            candidateForm.FormCandidate = (Candidate)((GridView)sender).GetRow(((GridView)sender).FocusedRowHandle);
+            candidateForm.ShowDialog();
         }
     }
 }
