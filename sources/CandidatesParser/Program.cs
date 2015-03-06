@@ -4,6 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using DevExpress.LookAndFeel;
+using CandidatesParser.CandidateForms;
+
 namespace CandidatesParser
 {
     static class Program
@@ -16,7 +19,13 @@ namespace CandidatesParser
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //TODO: uncomment when form will be ready: Application.Run(new CandidatesParserMainForm());
+
+            DevExpress.Skins.SkinManager.EnableFormSkins();
+            DevExpress.UserSkins.BonusSkins.Register();
+            UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
+
+            Application.Run(new CandidatesParserMainForm());
+
         }
     }
 }
