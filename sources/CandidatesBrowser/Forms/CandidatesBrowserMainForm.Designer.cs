@@ -109,7 +109,6 @@
             this.mainGridView.OptionsBehavior.Editable = false;
             this.mainGridView.OptionsDetail.EnableMasterViewMode = false;
             this.mainGridView.OptionsView.ShowGroupPanel = false;
-            this.mainGridView.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.mainGridView_RowClick);
             this.mainGridView.DoubleClick += new System.EventHandler(this.mainGridView_DoubleClick);
             // 
             // colFirstName

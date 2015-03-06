@@ -22,10 +22,7 @@ namespace CandidatesBrowser.Forms
         // TODO: you are free to change this name if you have a better one.
         public Candidate FormCandidate
         {
-            get
-            {
-                return this.candidate;
-            }
+            get { return this.candidate; }
             set 
             {
                 this.candidate = value;
