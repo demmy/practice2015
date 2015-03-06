@@ -81,13 +81,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CandidateForms\CandidatesParserViewModel.cs" />
     <Compile Include="CandidateForms\CandidatesParserWriterDataBase.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CandidateForms\CandidatesParserWriterDataBase.Designer.cs">
       <DependentUpon>CandidatesParserWriterDataBase.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\CandidatesParserViewModel.cs" />
     <Compile Include="CandidateForms\CandidatesParserMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
