@@ -144,18 +144,18 @@ namespace ContactParserLibrary.ContactsLibrary
                     continue;
                     j++;
                 }
-                storage.GetContactsByType(ContactType.PhoneNumber)[indexArray[j]].IsChosen = false;
+                storage.GetContactsByType(ContactType.PhoneNumber)[i].IsChosen = false;
             }
         }
         private void ResetUnselectedOtherContacts(ContactType contactType, int index)
         {
             for (int i = 0; i < storage.GetContactsByType(contactType).Count; i++)
             {
-                if (i == index)
+                if (i != index)
                 {
-                    continue;
+                    storage.GetContactsByType(contactType)[i].IsChosen = false;
                 }
-                storage.GetContactsByType(contactType)[index].IsChosen = false;
+                
             }
         }
     }

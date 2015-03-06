@@ -232,6 +232,7 @@
             this.form2_ComboBoxEdit_Emails.Size = new System.Drawing.Size(235, 20);
             this.form2_ComboBoxEdit_Emails.StyleController = this.layoutControl1;
             this.form2_ComboBoxEdit_Emails.TabIndex = 7;
+            this.form2_ComboBoxEdit_Emails.SelectedIndexChanged += new System.EventHandler(this.form2_ComboBoxEdit_Emails_SelectedIndexChanged);
             // 
             // form2_ComboBoxEdit_WebSites
             // 
@@ -243,6 +244,7 @@
             this.form2_ComboBoxEdit_WebSites.Size = new System.Drawing.Size(235, 20);
             this.form2_ComboBoxEdit_WebSites.StyleController = this.layoutControl1;
             this.form2_ComboBoxEdit_WebSites.TabIndex = 9;
+            this.form2_ComboBoxEdit_WebSites.SelectedIndexChanged += new System.EventHandler(this.form2_ComboBoxEdit_WebSites_SelectedIndexChanged);
             // 
             // Root
             // 
