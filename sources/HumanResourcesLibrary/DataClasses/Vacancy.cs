@@ -34,17 +34,17 @@ namespace HumanResourcesLibrary.DataClasses
             ListComment = new Dictionary<DateTime, string>();*/
         }
         public Vacancy(string name, Project project, City city, Status status)
-         {
-             Title = name;
-             Project = project.GetProjectName();
-             City = city.GetCityName();
-             Status = status;
-         }
-        public Vacancy(Project project, City city, int responsiblePersonId, string name, DateTime dateStart, DateTime dateFinish, TypeEmployment typeEmployment, LevelEnglish levelEnglish, Status status, string description, Dictionary<DateTime, string> listComment, int vacancyId = -1)
+        {
+            Title = name;
+            Project = project.GetProjectName();
+            City = city.GetCityName();
+            Status = status;
+        }
+        public Vacancy(Project project, City city, ResponsiblePerson responsiblePerson, string name, DateTime dateStart, DateTime dateFinish, TypeEmployment typeEmployment, LevelEnglish levelEnglish, Status status, string description, Dictionary<DateTime, string> listComment, int vacancyId = -1)
         {
             Project = project.GetProjectName();
             City = city.GetCityName();
-            ResponsiblePersonId = responsiblePersonId;
+            ResponsiblePersons = responsiblePerson.GetResponsiblePersonName();
             Title = name;
             DateStart = dateStart;
             DateFinish = dateFinish;
@@ -58,11 +58,11 @@ namespace HumanResourcesLibrary.DataClasses
 
         public int VacancyId { get; private set; }
 
-        public string Project{ get; set; }
+        public string Project { get; set; }
 
         public string City { get; set; }
 
-        public int ResponsiblePersonId { get; set; }
+        public string ResponsiblePersons { get; set; }
 
         public DateTime DateStart { get; set; }
 

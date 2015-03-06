@@ -49,12 +49,12 @@ namespace VacanciesBrowser
 
         private void barButtonItem_Version_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            MessageBox.Show("Version");
+            MessageBox.Show("Version №001", "Version");
         }
 
         private void barButtonItem_Licence_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            MessageBox.Show("Version");
+            MessageBox.Show("Лицензионное соглашение устанавливает условия использования программы для ЭВМ «Vacancy» и заключено между любым лицом, использующим Программу («Пользователь»), и Group_1, являющейся правообладателем исключительного права на Программу («Правообладатель»).\n1.1. Пользователь не имеет права воспроизводить и распространять Программу в коммерческих целях (в том числе за плату), в том числе в составе сборников программных продуктов, без письменного согласия Правообладателя.\n1.2. Программа должна использоваться под наименованием: «Vacancy».\n1.3. Программа предоставляется на условиях «как есть» (as is). Правообладатель не предоставляет никаких гарантий в отношении безошибочной и бесперебойной работы Программы.", "Лицензионное соглашение");
         }
 
         private void VacancyMainForm_Load(object sender, EventArgs e)
