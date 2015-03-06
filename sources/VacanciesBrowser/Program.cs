@@ -15,7 +15,7 @@ namespace VacanciesBrowser
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ListVacancy());
+            Application.Run(new VacancyMainForm());
         }
     }
 }

@@ -40,7 +40,7 @@ namespace CandidatesParser.CandidateForms
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
-            CandidatesParserWriterDataBase ModalForm2 = new CandidatesParserWriterDataBase();
+            CandidatesParserWriterDataBase ModalForm2 = new CandidatesParserWriterDataBase(manager);
             ModalForm2.ShowDialog();
         }
 
@@ -128,13 +128,32 @@ namespace CandidatesParser.CandidateForms
             form2_gridControl_PhoneNumber.DataSource = manager.GetPhoneNumberContacts();
         }
 
-
         private void form2_ComboBoxEdit_Skypes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int a = form2_ComboBoxEdit_Skypes.SelectedIndex;
-            string b = form2_ComboBoxEdit_Skypes.EditValue.ToString();
+            manager.SelectSkype(form2_ComboBoxEdit_Skypes.SelectedIndex);
         }
-
+        private void form2_ComboBoxEdit_Emails_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            manager.SelectEmail(form2_ComboBoxEdit_Emails.SelectedIndex);
+        }
+        private void form2_ComboBoxEdit_WebSites_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            manager.SelectWebSite(form2_ComboBoxEdit_WebSites.SelectedIndex);
+        }
+        /*
+         *         private void form2_ComboBoxEdit_Skypes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            manager.SelectSkype(form2_ComboBoxEdit_Skypes.SelectedIndex);
+        }
+        private void form2_ComboBoxEdit_Emails_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            manager.SelectEmail(form2_ComboBoxEdit_Emails.SelectedIndex);
+        }
+        private void form2_ComboBoxEdit_WebSites_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            manager.SelectWebSite(form2_ComboBoxEdit_WebSites.SelectedIndex);
+        }
+         */
         private void form2_Button_CopySelectedToBuffer_Click(object sender, EventArgs e)
         {
             string SelectedPhoneNumbers = "";

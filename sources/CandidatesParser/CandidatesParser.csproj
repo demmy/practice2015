@@ -140,6 +140,10 @@
       <Project>{39f11a56-93cc-4a99-973d-4e3da738b644}</Project>
       <Name>ContactParserLibrary</Name>
     </ProjectReference>
+    <ProjectReference Include="..\HumanResourcesLibrary\HumanResourcesLibrary.csproj">
+      <Project>{6215de6e-887f-46b6-a0eb-d023c4695f32}</Project>
+      <Name>HumanResourcesLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="CandidateForms\Style Res\14124762-Социальные-сети-anonymous-Аватары.jpg" />

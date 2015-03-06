@@ -1,0 +1,1 @@
+Txt file "TestFile" was created for "runtime" (in 1st Window (CandidatesParserMainForm) you can choose this file) testing program ContactParser.
