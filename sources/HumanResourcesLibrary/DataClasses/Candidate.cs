@@ -30,7 +30,18 @@ namespace HumanResourcesLibrary.DataClasses
         public EnglishLevel EnglishLevel { get; set; }
         public List<ContactWithCandidate> ContactsList { get; set; }
         public List<SocialNetwork> SocialNetworksList { get; set; }
-        public ContactWithCandidate LastContact { get ; set; }
+        public ContactWithCandidate LastContact 
+        {
+            get
+            {
+                var lastContact =
+                    from contact in ContactsList
+                    orderby contact.Date descending
+                    select contact;
+                return lastContact.FirstOrDefault();
+
+            }
+        }
 
         public Candidate()
         {
