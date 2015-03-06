@@ -66,7 +66,6 @@
       <DependentUpon>VacancyAddOrEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="VacancyMainForm.resx">
       <DependentUpon>VacancyMainForm.cs</DependentUpon>
     </EmbeddedResource>
