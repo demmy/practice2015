@@ -45,6 +45,7 @@ namespace HumanResourcesLibrary.DataClasses
 
         public Candidate()
         {
+            DOB = DateTime.Now;
             Phones = new List<Phone>();
             ContactsList = new List<ContactWithCandidate>();
             SocialNetworksList = new List<SocialNetwork>();
