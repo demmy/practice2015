@@ -19,6 +19,7 @@ namespace VacanciesBrowser
         public VacancyAddOrEdit()
         {
             InitializeComponent();
+			this.vacancy = new Vacancy();
         }
         public VacancyAddOrEdit(Vacancy vacancy)
         {
@@ -43,29 +44,25 @@ namespace VacanciesBrowser
         private void Save_Click(object sender, EventArgs e)
         {
             List<Vacancy> list = new List<Vacancy>();
-            repo = RepositoryService.Repository;
-            list = repo.GetAllVacancies();
-            Vacancy vacancy = new Vacancy();
-            vacancy.Title = NameVacancy.Text;
-            vacancy.Project = ListProject.Text;
-            vacancy.City = ListCity.Text;
-            vacancy.LevelEnglish = (LevelEnglish)Enum.Parse(typeof(LevelEnglish), ListLevelEnglish.Text.ToString());
-            vacancy.Status = (Status)Enum.Parse(typeof(Status), ListStatus.Text.ToString());
-            vacancy.Skills = ListSkills.Text;
-            vacancy.Description = DescriptionVacancy.Text;
-            vacancy.ResponsiblePerson = ListResponsiblePerson.Text;
-            vacancy.TypeEmployment = (TypeEmployment)Enum.Parse(typeof(TypeEmployment), ListTypeEmployment.Text.ToString());
-            vacancy.DateStart = (DateTime)StartDate.EditValue;
-            vacancy.DateFinish = (DateTime)FinishDate.EditValue;
-            /*if (isNew) 
-            {
-                vacancy.Id = Guid.NewGuid();
-            }
-            */
-            repo = RepositoryService.Repository;
-            repo.SaveVacancy(vacancy);     
-            MessageBox.Show("Вакансия сохранена");
-            this.Close();
+			repo = RepositoryService.Repository;
+			if (isNew)
+			{
+				vacancy = new Vacancy();
+				vacancy.Title = NameVacancy.Text;
+				vacancy.Project = ListProject.Text;
+				vacancy.City = ListCity.Text;
+				vacancy.LevelEnglish = (LevelEnglish)Enum.Parse(typeof(LevelEnglish), ListLevelEnglish.Text.ToString());
+				vacancy.Status = (Status)Enum.Parse(typeof(Status), ListStatus.Text.ToString());
+				vacancy.Skills = ListSkills.Text;
+				vacancy.Description = DescriptionVacancy.Text;
+				vacancy.ResponsiblePerson = ListResponsiblePerson.Text;
+				vacancy.TypeEmployment = (TypeEmployment)Enum.Parse(typeof(TypeEmployment), ListTypeEmployment.Text.ToString());
+				vacancy.DateStart = (DateTime)StartDate.EditValue;
+				vacancy.DateFinish = (DateTime)FinishDate.EditValue;
+			}
+			repo.SaveVacancy(vacancy);
+			MessageBox.Show("Вакансия сохранена");
+			this.Close();
         }
 
         private void VacancyAddOrEdit_Load(object sender, EventArgs e)
