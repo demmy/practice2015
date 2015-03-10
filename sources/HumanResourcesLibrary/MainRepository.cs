@@ -15,10 +15,10 @@ namespace HumanResourcesLibrary
         public MainRepository()
         {
             vacancies.Add(new Vacancy() { Title = "Super Vacancy 1" });
-            candidates.Add(new Candidate() { LastName = "Ivanov", FirstName = "Ivan", Phones = new List<Phone>() });
+            candidates.Add(new Candidate() { LastName = "Ivanov", FirstName = "Ivan", Phones = new List<Phone>(), EnglishLevel = EnglishLevel.Proficiency});
             candidates.Add(new Candidate() { LastName = "Coul", FirstName = "Petr", Phones = new List<Phone>(), EnglishLevel = EnglishLevel.Intermediate, DOB =DateTime.Today, City = "Dnepr" });
             candidates.Add(new Candidate() { LastName = "Petrov", FirstName = "Tiran", Phones = new List<Phone>(), EnglishLevel = EnglishLevel.UpperIntermediate });
-            candidates.Add(new Candidate() { LastName = "Sidorov", FirstName = "Babai", Phones = new List<Phone>() });
+            candidates.Add(new Candidate() { LastName = "Sidorov", FirstName = "Babai", Phones = new List<Phone>(), Email = "abrakadabra@mail.ru", EnglishLevel= EnglishLevel.Beginner});
         }
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace HumanResourcesLibrary
                 .Where(candidateSoname => (!string.IsNullOrWhiteSpace(soname) ? candidateSoname.LastName == soname : true))
                 .Where(candidateCity => (!string.IsNullOrWhiteSpace(soname) ? candidateCity.City == city : true))
                 .Where(candidateIsAgreeToRelocate => candidateIsAgreeToRelocate.RelocationAgreement == agreeToRelocate)
-                .Where(candidateEngLevel => candidateEngLevel.EnglishLevel == engLevel)
+                .Where(candidateEngLevel => (engLevel != EnglishLevel.Unknown ? candidateEngLevel.EnglishLevel == engLevel : true))
                 .Where(candidateFromDate => ((default(DateTime) != from) ? (candidateFromDate.DOB > from): true))
                 .Where(candidateToDate => ((default(DateTime) != to)?candidateToDate.DOB < to:true));
            

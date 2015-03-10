@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HumanResourcesLibrary.DataClasses;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -37,6 +38,19 @@ namespace CandidatesSearcher
             foreach(var item in vm.SortedCandidate[index].Phones)
             {
                 listCandidatePhones.Text = item.PhoneNumber + "\n";
+            }
+            linkCandidateLink.Text = vm.SortedCandidate[index].Email;
+
+            switch (vm.SortedCandidate[index].EnglishLevel)
+            {
+                case EnglishLevel.Beginner: { labelCandidateEnglLevel.Text = "Beginner"; break; }
+                case EnglishLevel.PreIntermediate:{ labelCandidateEnglLevel.Text = "Pre-intermediate"; break;}
+                case EnglishLevel.Intermediate: { labelCandidateEnglLevel.Text = "Intermediate"; break; }
+                case EnglishLevel.UpperIntermediate: { labelCandidateEnglLevel.Text = "Upper-intermediate"; break; }
+                case EnglishLevel.Advanced: { labelCandidateEnglLevel.Text = "Advanced"; break; }
+                case EnglishLevel.Proficiency: { labelCandidateEnglLevel.Text = "Proficience"; break; }
+                default: {labelCandidateEnglLevel.Text = "Unknown"; break;}
+
             }
             
         }
