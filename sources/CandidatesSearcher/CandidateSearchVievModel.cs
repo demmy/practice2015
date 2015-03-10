@@ -79,6 +79,9 @@ namespace CandidatesSearcher
              get { return candidatePhone; }
              set
              {
+                 if (value == null)
+                     candidatePhone = "";
+                 else
                  if (value != candidatePhone)
                  {
                      candidatePhone = value;
@@ -93,6 +96,9 @@ namespace CandidatesSearcher
              get { return engLevel; }
              set
              {
+                 if (value == null)
+                     engLevel = default(EnglishLevel);
+                 else
                  if (value != engLevel)
                  {
                      engLevel = value;

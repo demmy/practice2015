@@ -229,6 +229,7 @@
             this.CandidateTable.TabIndex = 34;
             this.CandidateTable.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.CandidateGridview});
+            this.CandidateTable.DoubleClick += new System.EventHandler(this.CandidateTable_DoubleClick);
             // 
             // CandidateGridview
             // 
@@ -246,6 +247,9 @@
             this.NameCandidateColumn.Caption = "Имя";
             this.NameCandidateColumn.FieldName = "FirstName";
             this.NameCandidateColumn.Name = "NameCandidateColumn";
+            this.NameCandidateColumn.OptionsColumn.ReadOnly = true;
+            this.NameCandidateColumn.OptionsEditForm.UseEditorColRowSpan = false;
+            this.NameCandidateColumn.OptionsEditForm.Visible = DevExpress.Utils.DefaultBoolean.False;
             this.NameCandidateColumn.UnboundType = DevExpress.Data.UnboundColumnType.String;
             this.NameCandidateColumn.Visible = true;
             this.NameCandidateColumn.VisibleIndex = 0;
@@ -255,6 +259,9 @@
             this.CandidateSonameColumn.Caption = "Фамилия";
             this.CandidateSonameColumn.FieldName = "LastName";
             this.CandidateSonameColumn.Name = "CandidateSonameColumn";
+            this.CandidateSonameColumn.OptionsColumn.ReadOnly = true;
+            this.CandidateSonameColumn.OptionsEditForm.UseEditorColRowSpan = false;
+            this.CandidateSonameColumn.OptionsEditForm.Visible = DevExpress.Utils.DefaultBoolean.False;
             this.CandidateSonameColumn.Visible = true;
             this.CandidateSonameColumn.VisibleIndex = 1;
             // 
@@ -262,6 +269,9 @@
             // 
             this.CandidatePhoneColumn.Caption = "Телефон";
             this.CandidatePhoneColumn.Name = "CandidatePhoneColumn";
+            this.CandidatePhoneColumn.OptionsColumn.ReadOnly = true;
+            this.CandidatePhoneColumn.OptionsEditForm.UseEditorColRowSpan = false;
+            this.CandidatePhoneColumn.OptionsEditForm.Visible = DevExpress.Utils.DefaultBoolean.False;
             this.CandidatePhoneColumn.Visible = true;
             this.CandidatePhoneColumn.VisibleIndex = 2;
             // 
@@ -269,6 +279,9 @@
             // 
             this.CandidateEnglishLevelColumn.Caption = "Уровень английского";
             this.CandidateEnglishLevelColumn.Name = "CandidateEnglishLevelColumn";
+            this.CandidateEnglishLevelColumn.OptionsColumn.ReadOnly = true;
+            this.CandidateEnglishLevelColumn.OptionsEditForm.UseEditorColRowSpan = false;
+            this.CandidateEnglishLevelColumn.OptionsEditForm.Visible = DevExpress.Utils.DefaultBoolean.False;
             this.CandidateEnglishLevelColumn.Visible = true;
             this.CandidateEnglishLevelColumn.VisibleIndex = 3;
             // 
@@ -276,6 +289,9 @@
             // 
             this.CandidateDateColumn.Caption = "Дата";
             this.CandidateDateColumn.Name = "CandidateDateColumn";
+            this.CandidateDateColumn.OptionsColumn.ReadOnly = true;
+            this.CandidateDateColumn.OptionsEditForm.UseEditorColRowSpan = false;
+            this.CandidateDateColumn.OptionsEditForm.Visible = DevExpress.Utils.DefaultBoolean.False;
             this.CandidateDateColumn.Visible = true;
             this.CandidateDateColumn.VisibleIndex = 4;
             // 
@@ -345,7 +361,7 @@
             this.CandidateFromDate.Size = new System.Drawing.Size(84, 20);
             this.CandidateFromDate.StyleController = this.layoutControl1;
             this.CandidateFromDate.TabIndex = 18;
-            this.CandidateFromDate.EditValueChanged += new System.EventHandler(this.CandidateFromDate_EditValueChanged);
+           // this.CandidateFromDate.EditValueChanged += new System.EventHandler(this.CandidateFromDate_EditValueChanged);
             // 
             // CandidateToDat
             // 
@@ -359,7 +375,7 @@
             this.CandidateToDat.Size = new System.Drawing.Size(85, 20);
             this.CandidateToDat.StyleController = this.layoutControl1;
             this.CandidateToDat.TabIndex = 18;
-            this.CandidateToDat.EditValueChanged += new System.EventHandler(this.CandidateToDat_EditValueChanged);
+            //this.CandidateToDat.EditValueChanged += new System.EventHandler(this.CandidateToDat_EditValueChanged);
             // 
             // layoutControlGroup1
             // 
@@ -642,7 +658,7 @@
             this.layoutControlItem6.Size = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextSize = new System.Drawing.Size(50, 20);
             // 
-            // Form1
+            // SearchCandidateMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -650,7 +666,7 @@
             this.ClientSize = new System.Drawing.Size(984, 667);
             this.Controls.Add(this.layoutControl1);
             this.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.Name = "Form1";
+            this.Name = "SearchCandidateMainForm";
             this.Text = "Поиск кандидатов";
             this.TransparencyKey = System.Drawing.Color.Aqua;
             this.Load += new System.EventHandler(this.SearchCandidateMainForm_Load);

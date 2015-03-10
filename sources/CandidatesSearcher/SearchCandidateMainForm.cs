@@ -11,6 +11,8 @@ using HumanResourcesLibrary.DataClasses;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.Xpf.Editors;
 using DevExpress.XtraGrid.Views.Base;
+using System.Collections.ObjectModel;
+using DevExpress.XtraGrid;
 
 
 namespace CandidatesSearcher
@@ -19,6 +21,7 @@ namespace CandidatesSearcher
     {
         CandidateSearchVievModel vm;
         CandidateSearchCommand command;
+        int index;
 
         public SearchCandidateMainForm()
         {
@@ -30,8 +33,8 @@ namespace CandidatesSearcher
             updater.BeginUpdate();
             updater.Add(new ComboBoxAdd(EnglishLevel.Beginner, "Beginer"));
             updater.Add(new ComboBoxAdd(EnglishLevel.Elementary, "Elementary"));
-            updater.Add(new ComboBoxAdd(EnglishLevel.Intermediate, "Intermediate"));
             updater.Add(new ComboBoxAdd(EnglishLevel.PreIntermediate, "PreIntermediate"));
+            updater.Add(new ComboBoxAdd(EnglishLevel.Intermediate, "Intermediate"));
             updater.Add(new ComboBoxAdd(EnglishLevel.UpperIntermediate, "UpperIntermediate"));
             updater.Add(new ComboBoxAdd(EnglishLevel.Proficiency, "Proficiency"));
             updater.EndUpdate();      
@@ -50,16 +53,6 @@ namespace CandidatesSearcher
             CandidatePhone.DataBindings.Add("EditValue", bindingSource, "CandidatePhone");
             CandidateCity.DataBindings.Add("EditValue", bindingSource, "CandidateCity");
             CandidateTable.DataSource = vm.SortedCandidate;
-            
-
-           // bindingSource.DataSource = command;
-            //CandidateTable.
-          //  CandidateTable.DataBindings.Add("EditValue",bindingSource,
-          //  CandidateEnglishLevel.DataBindings.Add("EditValue", bindingSource, "CandidateEnglishLevel");    
-          //  CandidateFromDate.DataBindings.Add("EditValue", bindingSource, "CandidateFromDate");
-           // CandidateToDate.DataBindings.Add("EditValue", bindingSource, "CandidateToDate");
-           // AgreeToRelocate.DataBindings.Add("EditValue", bindingSource, "AgreeToRelocate");
-          // DataGridView.DataSou
         }
         
             class ComboBoxAdd
@@ -91,18 +84,8 @@ namespace CandidatesSearcher
 
                 
             }
-        
-
-     
-
       private void CandidateEnglishLevel_EditValueChanged(object sender, EventArgs e)
       {
-         /* var edit = sender as ComboBoxEdit;
-          var editValue = (ComboBoxAdd)edit.SelectedItem;
-         // vm.EngLevel = editValue.
-
-          ComboBoxAdd p = (ComboBoxAdd)CandidateEnglishLevel.EditValue;*/
-
           var editValue = (ComboBoxAdd)CandidateEnglishLevel.EditValue;
           vm.EngLevel = editValue.Level;
       }
@@ -132,7 +115,21 @@ namespace CandidatesSearcher
           CandidateTable.Refresh();
       }
 
+      private void CandidateTable_DoubleClick(object sender, EventArgs e)
+      {
+          
+          SearchCandidatFullInfoForm testDialog = new SearchCandidatFullInfoForm(vm,1);
+          
 
+          if (testDialog.ShowDialog(this) == DialogResult.OK)
+          {
+                  
+          }
+          
+
+      }
+
+     
 
 
 
