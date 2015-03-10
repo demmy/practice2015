@@ -38,6 +38,7 @@ namespace CandidatesSearcher
             viewModel.View.Refresher();
         }
 
+        
         public bool CanExecute(object o)
         {
             return true;

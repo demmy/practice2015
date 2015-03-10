@@ -58,7 +58,6 @@ namespace HumanResourcesLibrary
                 .Where(candidateEngLevel => (engLevel != EnglishLevel.Unknown ? candidateEngLevel.EnglishLevel == engLevel : true))
                 .Where(candidateFromDate => ((default(DateTime) != from) ? (candidateFromDate.DOB > from): true))
                 .Where(candidateToDate => ((default(DateTime) != to)?candidateToDate.DOB < to:true));
-           
            return filteredCandidates.ToList<Candidate>();        
         }
                 

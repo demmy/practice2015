@@ -42,7 +42,7 @@
             this.CandidatePhoneColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.CandidateEnglishLevelColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.CandidateDateColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.CandidateEnglishLevel = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.candidateEnglishLevel = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.SearchButton = new DevExpress.XtraEditors.SimpleButton();
             this.CandidateSoname = new DevExpress.XtraEditors.TextEdit();
@@ -89,7 +89,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.AgreeToRelocate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CandidateTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CandidateGridview)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CandidateEnglishLevel.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.candidateEnglishLevel.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CandidateSoname.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CandidatePhone.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CandidateName.Properties)).BeginInit();
@@ -161,7 +161,7 @@
             this.layoutControl1.Controls.Add(this.labelControl2);
             this.layoutControl1.Controls.Add(this.AgreeToRelocate);
             this.layoutControl1.Controls.Add(this.CandidateTable);
-            this.layoutControl1.Controls.Add(this.CandidateEnglishLevel);
+            this.layoutControl1.Controls.Add(this.candidateEnglishLevel);
             this.layoutControl1.Controls.Add(this.labelControl1);
             this.layoutControl1.Controls.Add(this.SearchButton);
             this.layoutControl1.Controls.Add(this.CandidateSoname);
@@ -191,7 +191,7 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(24, 367);
+            this.labelControl3.Location = new System.Drawing.Point(24, 365);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(16, 13);
             this.labelControl3.StyleController = this.layoutControl1;
@@ -200,7 +200,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(24, 343);
+            this.labelControl2.Location = new System.Drawing.Point(24, 341);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(7, 13);
             this.labelControl2.StyleController = this.layoutControl1;
@@ -210,7 +210,7 @@
             // 
             // AgreeToRelocate
             // 
-            this.AgreeToRelocate.Location = new System.Drawing.Point(12, 413);
+            this.AgreeToRelocate.Location = new System.Drawing.Point(12, 411);
             this.AgreeToRelocate.Name = "AgreeToRelocate";
             this.AgreeToRelocate.Properties.Appearance.ForeColor = System.Drawing.SystemColors.ControlText;
             this.AgreeToRelocate.Properties.Appearance.Options.UseForeColor = true;
@@ -229,7 +229,6 @@
             this.CandidateTable.TabIndex = 34;
             this.CandidateTable.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.CandidateGridview});
-            this.CandidateTable.DoubleClick += new System.EventHandler(this.CandidateTable_DoubleClick);
             // 
             // CandidateGridview
             // 
@@ -241,6 +240,7 @@
             this.CandidateDateColumn});
             this.CandidateGridview.GridControl = this.CandidateTable;
             this.CandidateGridview.Name = "CandidateGridview";
+            this.CandidateGridview.DoubleClick += new System.EventHandler(this.CandidateGridview_DoubleClick);
             // 
             // NameCandidateColumn
             // 
@@ -278,6 +278,7 @@
             // CandidateEnglishLevelColumn
             // 
             this.CandidateEnglishLevelColumn.Caption = "Уровень английского";
+            this.CandidateEnglishLevelColumn.FieldName = "EnglishLevel";
             this.CandidateEnglishLevelColumn.Name = "CandidateEnglishLevelColumn";
             this.CandidateEnglishLevelColumn.OptionsColumn.ReadOnly = true;
             this.CandidateEnglishLevelColumn.OptionsEditForm.UseEditorColRowSpan = false;
@@ -288,6 +289,7 @@
             // CandidateDateColumn
             // 
             this.CandidateDateColumn.Caption = "Дата";
+            this.CandidateDateColumn.FieldName = "DOB";
             this.CandidateDateColumn.Name = "CandidateDateColumn";
             this.CandidateDateColumn.OptionsColumn.ReadOnly = true;
             this.CandidateDateColumn.OptionsEditForm.UseEditorColRowSpan = false;
@@ -295,20 +297,20 @@
             this.CandidateDateColumn.Visible = true;
             this.CandidateDateColumn.VisibleIndex = 4;
             // 
-            // CandidateEnglishLevel
+            // candidateEnglishLevel
             // 
-            this.CandidateEnglishLevel.Location = new System.Drawing.Point(12, 271);
-            this.CandidateEnglishLevel.Name = "CandidateEnglishLevel";
-            this.CandidateEnglishLevel.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.candidateEnglishLevel.Location = new System.Drawing.Point(12, 270);
+            this.candidateEnglishLevel.Name = "candidateEnglishLevel";
+            this.candidateEnglishLevel.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CandidateEnglishLevel.Size = new System.Drawing.Size(129, 20);
-            this.CandidateEnglishLevel.StyleController = this.layoutControl1;
-            this.CandidateEnglishLevel.TabIndex = 33;
-            this.CandidateEnglishLevel.EditValueChanged += new System.EventHandler(this.CandidateEnglishLevel_EditValueChanged);
+            this.candidateEnglishLevel.Size = new System.Drawing.Size(129, 20);
+            this.candidateEnglishLevel.StyleController = this.layoutControl1;
+            this.candidateEnglishLevel.TabIndex = 33;
+            this.candidateEnglishLevel.EditValueChanged += new System.EventHandler(this.CandidateEnglishLevel_EditValueChanged);
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(12, 254);
+            this.labelControl1.Location = new System.Drawing.Point(12, 253);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(109, 13);
             this.labelControl1.StyleController = this.layoutControl1;
@@ -317,7 +319,7 @@
             // 
             // SearchButton
             // 
-            this.SearchButton.Location = new System.Drawing.Point(78, 446);
+            this.SearchButton.Location = new System.Drawing.Point(78, 444);
             this.SearchButton.Name = "SearchButton";
             this.SearchButton.Size = new System.Drawing.Size(63, 22);
             this.SearchButton.StyleController = this.layoutControl1;
@@ -337,6 +339,8 @@
             // 
             this.CandidatePhone.Location = new System.Drawing.Point(12, 213);
             this.CandidatePhone.Name = "CandidatePhone";
+            this.CandidatePhone.Properties.Mask.EditMask = "(999) 000-0000";
+            this.CandidatePhone.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
             this.CandidatePhone.Size = new System.Drawing.Size(129, 20);
             this.CandidatePhone.StyleController = this.layoutControl1;
             this.CandidatePhone.TabIndex = 16;
@@ -352,7 +356,7 @@
             // CandidateFromDate
             // 
             this.CandidateFromDate.EditValue = null;
-            this.CandidateFromDate.Location = new System.Drawing.Point(45, 343);
+            this.CandidateFromDate.Location = new System.Drawing.Point(45, 341);
             this.CandidateFromDate.Name = "CandidateFromDate";
             this.CandidateFromDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -361,12 +365,11 @@
             this.CandidateFromDate.Size = new System.Drawing.Size(84, 20);
             this.CandidateFromDate.StyleController = this.layoutControl1;
             this.CandidateFromDate.TabIndex = 18;
-           // this.CandidateFromDate.EditValueChanged += new System.EventHandler(this.CandidateFromDate_EditValueChanged);
             // 
             // CandidateToDat
             // 
             this.CandidateToDat.EditValue = null;
-            this.CandidateToDat.Location = new System.Drawing.Point(44, 367);
+            this.CandidateToDat.Location = new System.Drawing.Point(44, 365);
             this.CandidateToDat.Name = "CandidateToDat";
             this.CandidateToDat.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -375,7 +378,6 @@
             this.CandidateToDat.Size = new System.Drawing.Size(85, 20);
             this.CandidateToDat.StyleController = this.layoutControl1;
             this.CandidateToDat.TabIndex = 18;
-            //this.CandidateToDat.EditValueChanged += new System.EventHandler(this.CandidateToDat_EditValueChanged);
             // 
             // layoutControlGroup1
             // 
@@ -442,9 +444,9 @@
             // emptySpaceItem4
             // 
             this.emptySpaceItem4.AllowHotTrack = false;
-            this.emptySpaceItem4.Location = new System.Drawing.Point(0, 283);
+            this.emptySpaceItem4.Location = new System.Drawing.Point(0, 282);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(133, 17);
+            this.emptySpaceItem4.Size = new System.Drawing.Size(133, 16);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem5
@@ -452,13 +454,13 @@
             this.emptySpaceItem5.AllowHotTrack = false;
             this.emptySpaceItem5.Location = new System.Drawing.Point(0, 225);
             this.emptySpaceItem5.Name = "emptySpaceItem5";
-            this.emptySpaceItem5.Size = new System.Drawing.Size(133, 17);
+            this.emptySpaceItem5.Size = new System.Drawing.Size(133, 16);
             this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.labelControl1;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 242);
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 241);
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Size = new System.Drawing.Size(133, 17);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
@@ -466,8 +468,8 @@
             // 
             // layoutControlItem5
             // 
-            this.layoutControlItem5.Control = this.CandidateEnglishLevel;
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 259);
+            this.layoutControlItem5.Control = this.candidateEnglishLevel;
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 258);
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.Size = new System.Drawing.Size(133, 24);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
@@ -526,7 +528,7 @@
             this.layoutControlItem8,
             this.layoutControlItem9,
             this.emptySpaceItem9});
-            this.Дата.Location = new System.Drawing.Point(0, 300);
+            this.Дата.Location = new System.Drawing.Point(0, 298);
             this.Дата.Name = "Дата";
             this.Дата.Size = new System.Drawing.Size(133, 91);
             // 
@@ -579,15 +581,15 @@
             // emptySpaceItem6
             // 
             this.emptySpaceItem6.AllowHotTrack = false;
-            this.emptySpaceItem6.Location = new System.Drawing.Point(0, 460);
+            this.emptySpaceItem6.Location = new System.Drawing.Point(0, 458);
             this.emptySpaceItem6.Name = "emptySpaceItem6";
-            this.emptySpaceItem6.Size = new System.Drawing.Size(133, 187);
+            this.emptySpaceItem6.Size = new System.Drawing.Size(133, 189);
             this.emptySpaceItem6.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem8
             // 
             this.emptySpaceItem8.AllowHotTrack = false;
-            this.emptySpaceItem8.Location = new System.Drawing.Point(0, 424);
+            this.emptySpaceItem8.Location = new System.Drawing.Point(0, 422);
             this.emptySpaceItem8.Name = "emptySpaceItem8";
             this.emptySpaceItem8.Size = new System.Drawing.Size(133, 10);
             this.emptySpaceItem8.TextSize = new System.Drawing.Size(0, 0);
@@ -595,7 +597,7 @@
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.AgreeToRelocate;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 401);
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 399);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(133, 23);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
@@ -604,7 +606,7 @@
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.SearchButton;
-            this.layoutControlItem1.Location = new System.Drawing.Point(66, 434);
+            this.layoutControlItem1.Location = new System.Drawing.Point(66, 432);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(67, 26);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
@@ -613,7 +615,7 @@
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 391);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 389);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
             this.emptySpaceItem1.Size = new System.Drawing.Size(133, 10);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
@@ -621,7 +623,7 @@
             // emptySpaceItem7
             // 
             this.emptySpaceItem7.AllowHotTrack = false;
-            this.emptySpaceItem7.Location = new System.Drawing.Point(0, 434);
+            this.emptySpaceItem7.Location = new System.Drawing.Point(0, 432);
             this.emptySpaceItem7.Name = "emptySpaceItem7";
             this.emptySpaceItem7.Size = new System.Drawing.Size(66, 26);
             this.emptySpaceItem7.TextSize = new System.Drawing.Size(0, 0);
@@ -678,7 +680,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.AgreeToRelocate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CandidateTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CandidateGridview)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CandidateEnglishLevel.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.candidateEnglishLevel.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CandidateSoname.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CandidatePhone.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CandidateName.Properties)).EndInit();
@@ -746,7 +748,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
-        private DevExpress.XtraEditors.ComboBoxEdit CandidateEnglishLevel;
+        private DevExpress.XtraEditors.ComboBoxEdit candidateEnglishLevel;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraReports.UserDesigner.RecentlyUsedItemsComboBox recentlyUsedItemsComboBox1;
         private DevExpress.XtraReports.UserDesigner.DesignRepositoryItemComboBox designRepositoryItemComboBox1;

@@ -31,6 +31,7 @@ namespace CandidatesSearcher
             labelCandidateName.Text = vm.SortedCandidate[index].FirstName;
             labelCandidateSoname.Text = vm.SortedCandidate[index].LastName;
             labelCandidateCity.Text = vm.SortedCandidate[index].City;
+            labelIsAgreeToRelocate.Text = vm.SortedCandidate[index].RelocationAgreement ? "Да" : "Нет";
             if(vm.SortedCandidate[index].Gender == HumanResourcesLibrary.DataClasses.Gender.Male)
                 labelCandidateMale.Text = "Мужчина";
             else
@@ -54,5 +55,12 @@ namespace CandidatesSearcher
             }
             
         }
+
+        private void pictureCandidatePhoto_MouseClick(object sender, MouseEventArgs e)
+        {
+            Clipboard.SetText(string.Format("Name: {0}\n Soname: {1}\n", labelCandidateName.Text,labelCandidateSoname.Text));
+        }
+
+       
     }
 }

@@ -13,6 +13,8 @@ using DevExpress.Xpf.Editors;
 using DevExpress.XtraGrid.Views.Base;
 using System.Collections.ObjectModel;
 using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 
 
 namespace CandidatesSearcher
@@ -21,7 +23,7 @@ namespace CandidatesSearcher
     {
         CandidateSearchVievModel vm;
         CandidateSearchCommand command;
-        int index;
+        //int index;
 
         public SearchCandidateMainForm()
         {
@@ -29,7 +31,7 @@ namespace CandidatesSearcher
             vm = new CandidateSearchVievModel();
             vm.View = this; 
             command = new CandidateSearchCommand(vm);
-            ComboBoxItemCollection updater = CandidateEnglishLevel.Properties.Items;
+            ComboBoxItemCollection updater = candidateEnglishLevel.Properties.Items;
             updater.BeginUpdate();
             updater.Add(new ComboBoxAdd(EnglishLevel.Beginner, "Beginer"));
             updater.Add(new ComboBoxAdd(EnglishLevel.Elementary, "Elementary"));
@@ -37,6 +39,7 @@ namespace CandidatesSearcher
             updater.Add(new ComboBoxAdd(EnglishLevel.Intermediate, "Intermediate"));
             updater.Add(new ComboBoxAdd(EnglishLevel.UpperIntermediate, "UpperIntermediate"));
             updater.Add(new ComboBoxAdd(EnglishLevel.Proficiency, "Proficiency"));
+            updater.Add(new ComboBoxAdd(EnglishLevel.Unknown, "Clear"));
             updater.EndUpdate();      
         }
 
@@ -86,14 +89,12 @@ namespace CandidatesSearcher
             }
       private void CandidateEnglishLevel_EditValueChanged(object sender, EventArgs e)
       {
-          var editValue = (ComboBoxAdd)CandidateEnglishLevel.EditValue;
-          vm.EngLevel = editValue.Level;
+              var editValue = (ComboBoxAdd)candidateEnglishLevel.EditValue;
+              vm.EngLevel = editValue.Level;
       }
 
       private void CandidateFromDate_EditValueChanged(object sender, EventArgs e)
-      {
-          //vm.FromDate = (DateTime)CandidateFromDate.EditValue;
-          
+      {  
           vm.FromDate = (DateTime)CandidateFromDate.EditValue;
       }
 
@@ -115,18 +116,20 @@ namespace CandidatesSearcher
           CandidateTable.Refresh();
       }
 
-      private void CandidateTable_DoubleClick(object sender, EventArgs e)
+
+      private void CandidateGridview_DoubleClick(object sender, EventArgs e)
       {
-          
-          SearchCandidatFullInfoForm testDialog = new SearchCandidatFullInfoForm(vm,1);
-          
+          GridView view = (GridView)sender;
+          GridHitInfo info = view.CalcHitInfo(view.GridControl.PointToClient(Control.MousePosition));
+          int cellNumberInfo=0;
 
-          if (testDialog.ShowDialog(this) == DialogResult.OK)
+          if (info.InRow || info.InRowCell)
           {
-                  
+              cellNumberInfo = info.RowHandle;
           }
-          
 
+          SearchCandidatFullInfoForm form= new SearchCandidatFullInfoForm(vm,cellNumberInfo);
+          form.ShowDialog();
       }
 
      
