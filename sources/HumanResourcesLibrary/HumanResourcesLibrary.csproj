@@ -50,10 +50,17 @@
     <Compile Include="DataClasses\SocialNetworkType.cs" />
     <Compile Include="DataClasses\UniqueItem.cs" />
     <Compile Include="DataClasses\Vacancy.cs" />
+    <Compile Include="DataClasses\VacancyProject.cs" />
     <Compile Include="IMainRepository.cs" />
     <Compile Include="MainRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositoryService.cs" />
+    <Compile Include="DataClasses\VacancyCity.cs" />
+    <Compile Include="DataClasses\VacancyComment.cs" />
+    <Compile Include="DataClasses\VacancyEnum_LevelEnglish.cs" />
+    <Compile Include="DataClasses\VacancyEnum_Status.cs" />
+    <Compile Include="DataClasses\VacancyEnum_TypeEmployment.cs" />
+    <Compile Include="DataClasses\VacancyResponsiblePerson.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

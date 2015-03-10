@@ -12,7 +12,7 @@ namespace HumanResourcesLibrary.DataClasses
         Female
     }
 
-    public class Candidate : UniqueItem, IDeepCopy<Candidate>
+    public class Candidate : UniqueItem, IDeepCopy<Candidate>, IEquatable<Candidate>
     {
         public string LastName { get; set; }
         public string MiddleName { get; set; }
@@ -30,10 +30,22 @@ namespace HumanResourcesLibrary.DataClasses
         public EnglishLevel EnglishLevel { get; set; }
         public List<ContactWithCandidate> ContactsList { get; set; }
         public List<SocialNetwork> SocialNetworksList { get; set; }
-        public ContactWithCandidate LastContact { get ; set; }
+        public ContactWithCandidate LastContact 
+        {
+            get
+            {
+                var lastContact =
+                    from contact in ContactsList
+                    orderby contact.Date descending
+                    select contact;
+                return lastContact.FirstOrDefault();
+
+            }
+        }
 
         public Candidate()
         {
+            DOB = DateTime.Now;
             Phones = new List<Phone>();
             ContactsList = new List<ContactWithCandidate>();
             SocialNetworksList = new List<SocialNetwork>();
@@ -55,7 +67,12 @@ namespace HumanResourcesLibrary.DataClasses
             copy.Country = this.Country;
             copy.City = this.City;
             copy.RelocationAgreement = this.RelocationAgreement;
-            copy.Photo = (byte[])this.Photo;
+            copy.Photo = null;
+            if (this.Photo != null)
+            {
+                copy.Photo = new byte[this.Photo.Length];
+                Array.Copy(this.Photo, copy.Photo, this.Photo.Length);
+            }
             copy.Email = this.Email;
             copy.Skype = this.Skype;
             copy.SiteURL = this.SiteURL;
@@ -81,5 +98,44 @@ namespace HumanResourcesLibrary.DataClasses
             return socialNetwork.CreateDeepCopy();
         }
 
+        public bool Equals(Candidate other)
+        {
+            bool result = true;
+
+            if (!this.ContactsList.SequenceEqual(other.ContactsList))
+                result = false;
+            else if (!this.Phones.SequenceEqual(other.Phones))
+                result = false;
+            else if (!this.SocialNetworksList.SequenceEqual(other.SocialNetworksList))
+                result = false;
+            else if (this.LastName != other.LastName)
+                result = false;
+            else if (this.MiddleName != other.MiddleName)
+                result = false;
+            else if (this.FirstName != other.FirstName)
+                result = false;
+            else if (this.DOB != other.DOB)
+                result = false;
+            else if (this.Gender != other.Gender)
+                result = false;
+            else if (this.Country != other.Country)
+                result = false;
+            else if (this.City != other.City)
+                result = false;
+            else if (this.RelocationAgreement != other.RelocationAgreement)
+                result = false;
+            else if (this.Email != other.Email)
+                result = false;
+            else if (this.Skype != other.Skype)
+                result = false;
+            else if (this.SiteURL != other.SiteURL)
+                result = false;
+            else if ((this.Photo == null && other.Photo != null) || (this.Photo != null && other.Photo == null))
+                result = false;
+            else if (this.Photo != null && !this.Photo.SequenceEqual(other.Photo))
+                result = false;
+
+            return result;        
+        }
     }
 }

@@ -11,6 +11,21 @@
     <AssemblyName>CandidatesParser</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,7 +46,29 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v14.2, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Charts.v14.2.Core, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v14.2, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Office.v14.2.Core, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v14.2.Core, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v14.2.Core, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v14.2.Core, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Spreadsheet.v14.2.Core, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v14.2, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v14.2, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v14.2, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v14.2, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v14.2, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v14.2, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraNavBar.v14.2, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v14.2, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraRichEdit.v14.2, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraSpreadsheet.v14.2, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v14.2, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,21 +81,51 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CandidateForms\CandidatesParserViewModel.cs" />
+    <Compile Include="CandidateForms\CandidatesParserWriterDataBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CandidateForms\CandidatesParserWriterDataBase.Designer.cs">
+      <DependentUpon>CandidatesParserWriterDataBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CandidateForms\CandidatesParserMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CandidateForms\CandidatesParserMainForm.Designer.cs">
+      <DependentUpon>CandidatesParserMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CandidateForms\CandidatesParserSelectData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CandidateForms\CandidatesParserSelectData.Designer.cs">
+      <DependentUpon>CandidatesParserSelectData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CandidateForms\CandidatesParserMainForm.resx">
+      <DependentUpon>CandidatesParserMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CandidateForms\CandidatesParserSelectData.resx">
+      <DependentUpon>CandidatesParserSelectData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CandidateForms\CandidatesParserWriterDataBase.resx">
+      <DependentUpon>CandidatesParserWriterDataBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -67,6 +134,57 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ContactParserLibrary\ContactParserLibrary.csproj">
+      <Project>{39f11a56-93cc-4a99-973d-4e3da738b644}</Project>
+      <Name>ContactParserLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HumanResourcesLibrary\HumanResourcesLibrary.csproj">
+      <Project>{6215de6e-887f-46b6-a0eb-d023c4695f32}</Project>
+      <Name>HumanResourcesLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CandidateForms\Style Res\14124762-Социальные-сети-anonymous-Аватары.jpg" />
+    <None Include="CandidateForms\Style Res\Form2Design.png" />
+    <None Include="CandidateForms\Style Res\Form2Design1.png" />
+    <None Include="CandidateForms\Style Res\Form2Design2.png" />
+    <Content Include="CandidateForms\Style Res\Form2\1211810742.png" />
+    <Content Include="CandidateForms\Style Res\Form2\change-gmail-sent-from-email-address.png" />
+    <Content Include="CandidateForms\Style Res\Form2\gg62210445.jpg" />
+    <None Include="CandidateForms\Style Res\Form2\gmailEmails_Icon.png" />
+    <Content Include="CandidateForms\Style Res\Form2\mail.png" />
+    <Content Include="CandidateForms\Style Res\Form2\Skype-Green.png" />
+    <None Include="CandidateForms\Style Res\Form2\SkypeGreen_Icon.png" />
+    <None Include="CandidateForms\Style Res\Form2\WebSite_Icon.png" />
+    <Content Include="CandidateForms\Style Res\ICO\33879602-set-of-silhouette-people-man-and-woman-avatar-profile-pictures-with-shadow-on-color-vintage-backgrou.jpg" />
+    <Content Include="CandidateForms\Style Res\ICO\Icon.ico" />
+    <Content Include="CandidateForms\Style Res\ICO\Icon.xcf" />
+    <Content Include="CandidateForms\Style Res\Line.png" />
+    <Content Include="CandidateForms\Style Res\Line.xcf" />
+    <Content Include="CandidateForms\Style Res\Main_Ima.png" />
+    <Content Include="CandidateForms\Style Res\Main_Ima.xcf" />
+    <Content Include="CandidateForms\Style Res\Old-versus-New-Anonymous-Avatar.jpg" />
+    <Content Include="CandidateForms\Style Res\stock-vector-people-profile-silhouettes-in-white-color-194554952.jpg" />
+    <Content Include="Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

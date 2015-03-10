@@ -23,7 +23,6 @@ namespace CandidatesSearcher
 
         public CandidateSearchVievModel()
         {
-           // searchComand = ViewModelSource.Create(() => new CandidateSearchCommand(this));
             searchComand = new CandidateSearchCommand(this);
             
         }
@@ -95,10 +94,7 @@ namespace CandidatesSearcher
          {
              get { return engLevel; }
              set
-             {
-                 if (value == null)
-                     engLevel = default(EnglishLevel);
-                 else
+             { 
                  if (value != engLevel)
                  {
                      engLevel = value;

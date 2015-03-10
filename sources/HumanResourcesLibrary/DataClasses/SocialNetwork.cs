@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HumanResourcesLibrary.DataClasses
 {
-    public class SocialNetwork : IDeepCopy<SocialNetwork>
+    public class SocialNetwork : IDeepCopy<SocialNetwork>, IEquatable<SocialNetwork>
     {
         public SocialNetwork CreateDeepCopy()
         {
@@ -19,5 +19,10 @@ namespace HumanResourcesLibrary.DataClasses
         public SocialNetworkType Type { get; set; }
         public string Link { get; set; }
         public SocialNetwork() { }
+
+        public bool Equals(SocialNetwork other)
+        {
+            return this.Type == other.Type && this.Link == other.Link;
+        }
     }
 }

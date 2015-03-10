@@ -27,7 +27,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.recentlyUsedItemsComboBox1 = new DevExpress.XtraReports.UserDesigner.RecentlyUsedItemsComboBox();
             this.designRepositoryItemComboBox1 = new DevExpress.XtraReports.UserDesigner.DesignRepositoryItemComboBox();
             this.CandidateCity = new DevExpress.XtraEditors.TextEdit();
@@ -80,7 +79,7 @@
             this.textEdit5 = new DevExpress.XtraEditors.TextEdit();
             this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSource = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.recentlyUsedItemsComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.designRepositoryItemComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CandidateCity.Properties)).BeginInit();
@@ -268,6 +267,7 @@
             // CandidatePhoneColumn
             // 
             this.CandidatePhoneColumn.Caption = "Телефон";
+            this.CandidatePhoneColumn.FieldName = "Phones";
             this.CandidatePhoneColumn.Name = "CandidatePhoneColumn";
             this.CandidatePhoneColumn.OptionsColumn.ReadOnly = true;
             this.CandidatePhoneColumn.OptionsEditForm.UseEditorColRowSpan = false;
