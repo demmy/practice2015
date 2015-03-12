@@ -16,7 +16,7 @@ namespace CandidatesSearcher
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //TODO: uncomment when form will be ready: Application.Run(new CandidatesSearcherMainForm());
+            Application.Run(new SearchCandidateMainForm());
         }
     }
 }

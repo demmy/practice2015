@@ -11,7 +11,10 @@ namespace HumanResourcesLibrary
     {
         List<Vacancy> GetAllVacancies();
         List<Candidate> GetAllCandidates();
-        List<Candidate> GetCandidates(/* here search criteria go */);
+        List<Candidate> GetCandidates(string name, string soname, string candidate_phone, string city,
+                                                bool agreeToRelocate,
+                                                EnglishLevel engLevel,
+                                                DateTime from, DateTime to);
         void SaveVacancy(Vacancy v);
         void SaveCandidate(Candidate c);
     }
