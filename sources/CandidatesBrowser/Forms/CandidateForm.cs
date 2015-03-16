@@ -55,17 +55,23 @@ namespace CandidatesBrowser.Forms
 
         private void commentsGridView_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
         {
-            var newContact = (ContactWithCandidate)((GridView)sender).GetRow(e.RowHandle);
-            newContact.Date = DateTime.Now;
-            newContact.Type = ContactTypes.Call;
-            newContact.Comment = "";            
+            if (sender != null)
+            {
+                var newContact = (ContactWithCandidate)((GridView)sender).GetRow(e.RowHandle);
+                newContact.Date = DateTime.Now;
+                newContact.Type = ContactTypes.Call;
+                newContact.Comment = "";
+            }
         }
 
         private void RowsDeletion(object sender, KeyEventArgs e)
         {
-            var gridView = (GridView)sender;
-            if (e.KeyCode == Keys.Delete)
-                gridView.DeleteSelectedRows();
+            if (sender != null)
+            {
+                var gridView = (GridView)sender;
+                if (e.KeyCode == Keys.Delete)
+                    gridView.DeleteSelectedRows();
+            }
         }
 
         private void commentsGridView_KeyDown(object sender, KeyEventArgs e)
@@ -75,9 +81,12 @@ namespace CandidatesBrowser.Forms
 
         private void phonesGridView_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
         {
-            var newPhone = (Phone)((GridView)sender).GetRow(e.RowHandle);
-            newPhone.Type = PhoneType.Mobile;
-            newPhone.PhoneNumber = "";
+            if (sender != null)
+            {
+                var newPhone = (Phone)((GridView)sender).GetRow(e.RowHandle);
+                newPhone.Type = PhoneType.Mobile;
+                newPhone.PhoneNumber = "";
+            }
         }
 
         private void phonesGridView_KeyDown(object sender, KeyEventArgs e)
@@ -87,9 +96,12 @@ namespace CandidatesBrowser.Forms
 
         private void socialNetworksGridView_InitNewRow(object sender, InitNewRowEventArgs e)
         {
-            var newSocNetowrk = (SocialNetwork)((GridView)sender).GetRow(e.RowHandle);
-            newSocNetowrk.Type = SocialNetworkType.Facebook;
-            newSocNetowrk.Link = "";
+            if (sender != null)
+            {
+                var newSocNetowrk = (SocialNetwork)((GridView)sender).GetRow(e.RowHandle);
+                newSocNetowrk.Type = SocialNetworkType.Facebook;
+                newSocNetowrk.Link = "";
+            }
         }
 
         private void socialNetworksGridView_KeyDown(object sender, KeyEventArgs e)
