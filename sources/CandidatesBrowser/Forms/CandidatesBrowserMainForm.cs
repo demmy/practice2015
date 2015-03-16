@@ -38,14 +38,17 @@ namespace CandidatesBrowser.Forms
 
         private void editButton_Click(object sender, EventArgs e)
         {
-            if (mainGridView.SelectedRowsCount == 1)
+            if (mainGridView != null && mainGridView.SelectedRowsCount == 1)
                 this.mainGridView_DoubleClick(mainGridView, e);
         }
 
         private void mainGridView_DoubleClick(object sender, EventArgs e)
         {
-            candidateForm.FormCandidate = (Candidate)((GridView)sender).GetRow(((GridView)sender).FocusedRowHandle);
-            candidateForm.ShowDialog();
+            if (sender != null)
+            {
+                candidateForm.FormCandidate = (Candidate)((GridView)sender).GetRow(((GridView)sender).FocusedRowHandle);
+                candidateForm.ShowDialog();
+            }
         }
     }
 }
