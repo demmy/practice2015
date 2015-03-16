@@ -138,10 +138,10 @@ namespace CandidatesBrowser.Forms
             }
             else if (!this.candidate.Equals(this.candidateCopy))
             {
-                using (var resources = new ResXResourceSet("..\\..\\Forms\\CandidateForm.resx"))
+                using (var resources = new ResXResourceSet("..\\..\\Properties\\Resources.resx"))
                 {
-                    var message = resources.GetString("ClosingMessage");
-                    var title = resources.GetString("ClosingMBoxTitle");
+                    var message = resources.GetString("CandidateFormClosingMessage");
+                    var title = resources.GetString("CandidateFormClosingMBoxTitle");
 
                     var result = MessageBox.Show(message, title, MessageBoxButtons.YesNoCancel);
 
