@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Resources;
 using HumanResourcesLibrary.DataClasses; // for Candidate
 using DevExpress.XtraGrid.Views.Grid;
 
@@ -20,6 +21,8 @@ namespace CandidatesBrowser.Forms
             InitializeComponent();
             englishLevelComboBox.Properties.Items.AddRange(typeof (HumanResourcesLibrary.DataClasses.EnglishLevel).GetEnumValues());
             genderComboBox.Properties.Items.AddRange(typeof(HumanResourcesLibrary.DataClasses.Gender).GetEnumValues());
+
+            this.CancelButton = this.cancelButton; // pressing ESC is now equivalent to pressing Cancel
         }
         
         // TODO: you are free to change this name if you have a better one.
@@ -53,19 +56,28 @@ namespace CandidatesBrowser.Forms
 
         private Candidate candidate, candidateCopy;
 
+        // Added to avoid double checking that candidate equals candidateCopy when Save and Close button is pressed.
+        private bool saved = false;
+
         private void commentsGridView_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
         {
-            var newContact = (ContactWithCandidate)((GridView)sender).GetRow(e.RowHandle);
-            newContact.Date = DateTime.Now;
-            newContact.Type = ContactTypes.Call;
-            newContact.Comment = "";            
+            if (sender != null)
+            {
+                var newContact = (ContactWithCandidate)((GridView)sender).GetRow(e.RowHandle);
+                newContact.Date = DateTime.Now;
+                newContact.Type = ContactTypes.Call;
+                newContact.Comment = "";
+            }
         }
 
         private void RowsDeletion(object sender, KeyEventArgs e)
         {
-            var gridView = (GridView)sender;
-            if (e.KeyCode == Keys.Delete)
-                gridView.DeleteSelectedRows();
+            if (sender != null)
+            {
+                var gridView = (GridView)sender;
+                if (e.KeyCode == Keys.Delete)
+                    gridView.DeleteSelectedRows();
+            }
         }
 
         private void commentsGridView_KeyDown(object sender, KeyEventArgs e)
@@ -75,9 +87,12 @@ namespace CandidatesBrowser.Forms
 
         private void phonesGridView_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
         {
-            var newPhone = (Phone)((GridView)sender).GetRow(e.RowHandle);
-            newPhone.Type = PhoneType.Mobile;
-            newPhone.PhoneNumber = "";
+            if (sender != null)
+            {
+                var newPhone = (Phone)((GridView)sender).GetRow(e.RowHandle);
+                newPhone.Type = PhoneType.Mobile;
+                newPhone.PhoneNumber = "";
+            }
         }
 
         private void phonesGridView_KeyDown(object sender, KeyEventArgs e)
@@ -87,19 +102,26 @@ namespace CandidatesBrowser.Forms
 
         private void socialNetworksGridView_InitNewRow(object sender, InitNewRowEventArgs e)
         {
-            var newSocNetowrk = (SocialNetwork)((GridView)sender).GetRow(e.RowHandle);
-            newSocNetowrk.Type = SocialNetworkType.Facebook;
-            newSocNetowrk.Link = "";
+            if (sender != null)
+            {
+                var newSocNetowrk = (SocialNetwork)((GridView)sender).GetRow(e.RowHandle);
+                newSocNetowrk.Type = SocialNetworkType.Facebook;
+                newSocNetowrk.Link = "";
+            }
         }
 
         private void socialNetworksGridView_KeyDown(object sender, KeyEventArgs e)
         {
             RowsDeletion(sender, e);
         }
-
-        private void saveButton_Click(object sender, EventArgs e)
+       
+        private void saveAndCloseButton_Click(object sender, EventArgs e)
         {
-            SaveCandidate();
+            if (!this.candidate.Equals(this.candidateCopy))
+                SaveCandidate();
+            saved = true;
+
+            Close();
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
@@ -109,23 +131,33 @@ namespace CandidatesBrowser.Forms
 
         private void CandidateForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (!this.candidate.Equals(this.candidateCopy))
+            // if Save and Close button was pressed, everything is already up to date and we don't need to check it.
+            if (saved)
             {
-                var result = MessageBox.Show("Record has been changed but not saved.\nDo you want to save changes?",
-                    "Warning", MessageBoxButtons.YesNoCancel);
-                
-                switch (result)
+                saved = false;                
+            }
+            else if (!this.candidate.Equals(this.candidateCopy))
+            {
+                using (var resources = new ResXResourceSet("..\\..\\Properties\\Resources.resx"))
                 {
-                    case DialogResult.Yes:
-                        SaveCandidate();
-                        break;
+                    var message = resources.GetString("CandidateFormClosingMessage");
+                    var title = resources.GetString("CandidateFormClosingMBoxTitle");
 
-                    case DialogResult.No:
-                        break;
+                    var result = MessageBox.Show(message, title, MessageBoxButtons.YesNoCancel);
 
-                    case DialogResult.Cancel:
-                        e.Cancel = true;
-                        break;
+                    switch (result)
+                    {
+                        case DialogResult.Yes:
+                            SaveCandidate();
+                            break;
+
+                        case DialogResult.No:
+                            break;
+
+                        case DialogResult.Cancel:
+                            e.Cancel = true;
+                            break;
+                    }
                 }
             }
         }
