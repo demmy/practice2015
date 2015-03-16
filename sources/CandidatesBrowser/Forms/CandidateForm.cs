@@ -20,6 +20,8 @@ namespace CandidatesBrowser.Forms
             InitializeComponent();
             englishLevelComboBox.Properties.Items.AddRange(typeof (HumanResourcesLibrary.DataClasses.EnglishLevel).GetEnumValues());
             genderComboBox.Properties.Items.AddRange(typeof(HumanResourcesLibrary.DataClasses.Gender).GetEnumValues());
+
+            this.CancelButton = this.cancelButton; // pressing ESC is now equivalent to pressing Cancel
         }
         
         // TODO: you are free to change this name if you have a better one.
