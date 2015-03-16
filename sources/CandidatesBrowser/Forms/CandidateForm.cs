@@ -53,6 +53,9 @@ namespace CandidatesBrowser.Forms
 
         private Candidate candidate, candidateCopy;
 
+        // Added to avoid double checking that candidate == candidateCopy when Save and Close button is pressed.
+        private bool saved = false;
+
         private void commentsGridView_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
         {
             if (sender != null)
@@ -108,10 +111,14 @@ namespace CandidatesBrowser.Forms
         {
             RowsDeletion(sender, e);
         }
-
-        private void saveButton_Click(object sender, EventArgs e)
+       
+        private void saveAndCloseButton_Click(object sender, EventArgs e)
         {
-            SaveCandidate();
+            if (!this.candidate.Equals(this.candidateCopy))
+                SaveCandidate();
+            saved = true;
+
+            Close();
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
@@ -121,7 +128,12 @@ namespace CandidatesBrowser.Forms
 
         private void CandidateForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (!this.candidate.Equals(this.candidateCopy))
+            // if Save and Close button was pressed, everything is already up to date and we don't need to check it.
+            if (saved)
+            {
+                saved = false;                
+            }
+            else if (!this.candidate.Equals(this.candidateCopy))
             {
                 var result = MessageBox.Show("Record has been changed but not saved.\nDo you want to save changes?",
                     "Warning", MessageBoxButtons.YesNoCancel);

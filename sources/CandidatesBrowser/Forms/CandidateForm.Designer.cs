@@ -36,7 +36,7 @@
             this.contactInformationLabel = new DevExpress.XtraEditors.LabelControl();
             this.generalInforLabel = new DevExpress.XtraEditors.LabelControl();
             this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
-            this.saveButton = new DevExpress.XtraEditors.SimpleButton();
+            this.saveAndCloseButton = new DevExpress.XtraEditors.SimpleButton();
             this.socialNetworksLabel = new DevExpress.XtraEditors.LabelControl();
             this.phonesLabel = new DevExpress.XtraEditors.LabelControl();
             this.commentsLabel = new DevExpress.XtraEditors.LabelControl();
@@ -90,7 +90,7 @@
             this.genderLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.spaceBetweenEnglishAndGender = new DevExpress.XtraLayout.EmptySpaceItem();
             this.englishLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.saveButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.saveAndCloseButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.cancelButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.spaceAtFormBottom = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
@@ -143,7 +143,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.genderLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spaceBetweenEnglishAndGender)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.englishLayoutControlItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saveAndCloseButtonLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelButtonLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spaceAtFormBottom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
@@ -156,7 +156,7 @@
             this.rootLayout.Controls.Add(this.contactInformationLabel);
             this.rootLayout.Controls.Add(this.generalInforLabel);
             this.rootLayout.Controls.Add(this.cancelButton);
-            this.rootLayout.Controls.Add(this.saveButton);
+            this.rootLayout.Controls.Add(this.saveAndCloseButton);
             this.rootLayout.Controls.Add(this.socialNetworksLabel);
             this.rootLayout.Controls.Add(this.phonesLabel);
             this.rootLayout.Controls.Add(this.commentsLabel);
@@ -241,23 +241,23 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(739, 457);
+            this.cancelButton.Location = new System.Drawing.Point(718, 457);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(65, 22);
+            this.cancelButton.Size = new System.Drawing.Size(86, 22);
             this.cancelButton.StyleController = this.rootLayout;
             this.cancelButton.TabIndex = 21;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
-            // saveButton
+            // saveAndCloseButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(670, 457);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(65, 22);
-            this.saveButton.StyleController = this.rootLayout;
-            this.saveButton.TabIndex = 20;
-            this.saveButton.Text = "Save";
-            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            this.saveAndCloseButton.Location = new System.Drawing.Point(628, 457);
+            this.saveAndCloseButton.Name = "saveAndCloseButton";
+            this.saveAndCloseButton.Size = new System.Drawing.Size(86, 22);
+            this.saveAndCloseButton.StyleController = this.rootLayout;
+            this.saveAndCloseButton.TabIndex = 20;
+            this.saveAndCloseButton.Text = "Save and Close";
+            this.saveAndCloseButton.Click += new System.EventHandler(this.saveAndCloseButton_Click);
             // 
             // socialNetworksLabel
             // 
@@ -526,7 +526,7 @@
             this.commentsLayoutGroup,
             this.contactsLayoutGroup,
             this.generalInfoLayoutGroup,
-            this.saveButtonLayoutControlItem,
+            this.saveAndCloseButtonLayoutControlItem,
             this.cancelButtonLayoutControlItem,
             this.spaceAtFormBottom,
             this.emptySpaceItem1});
@@ -771,21 +771,21 @@
             this.englishLayoutControlItem.Text = "English level:";
             this.englishLayoutControlItem.TextSize = new System.Drawing.Size(63, 13);
             // 
-            // saveButtonLayoutControlItem
+            // saveAndCloseButtonLayoutControlItem
             // 
-            this.saveButtonLayoutControlItem.Control = this.saveButton;
-            this.saveButtonLayoutControlItem.Location = new System.Drawing.Point(668, 455);
-            this.saveButtonLayoutControlItem.Name = "saveButtonLayoutControlItem";
-            this.saveButtonLayoutControlItem.Size = new System.Drawing.Size(69, 26);
-            this.saveButtonLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
-            this.saveButtonLayoutControlItem.TextVisible = false;
+            this.saveAndCloseButtonLayoutControlItem.Control = this.saveAndCloseButton;
+            this.saveAndCloseButtonLayoutControlItem.Location = new System.Drawing.Point(626, 455);
+            this.saveAndCloseButtonLayoutControlItem.Name = "saveAndCloseButtonLayoutControlItem";
+            this.saveAndCloseButtonLayoutControlItem.Size = new System.Drawing.Size(90, 26);
+            this.saveAndCloseButtonLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
+            this.saveAndCloseButtonLayoutControlItem.TextVisible = false;
             // 
             // cancelButtonLayoutControlItem
             // 
             this.cancelButtonLayoutControlItem.Control = this.cancelButton;
-            this.cancelButtonLayoutControlItem.Location = new System.Drawing.Point(737, 455);
+            this.cancelButtonLayoutControlItem.Location = new System.Drawing.Point(716, 455);
             this.cancelButtonLayoutControlItem.Name = "cancelButtonLayoutControlItem";
-            this.cancelButtonLayoutControlItem.Size = new System.Drawing.Size(69, 26);
+            this.cancelButtonLayoutControlItem.Size = new System.Drawing.Size(90, 26);
             this.cancelButtonLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.cancelButtonLayoutControlItem.TextVisible = false;
             // 
@@ -794,7 +794,7 @@
             this.spaceAtFormBottom.AllowHotTrack = false;
             this.spaceAtFormBottom.Location = new System.Drawing.Point(0, 455);
             this.spaceAtFormBottom.Name = "spaceAtFormBottom";
-            this.spaceAtFormBottom.Size = new System.Drawing.Size(668, 26);
+            this.spaceAtFormBottom.Size = new System.Drawing.Size(626, 26);
             this.spaceAtFormBottom.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem1
@@ -863,7 +863,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.genderLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spaceBetweenEnglishAndGender)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.englishLayoutControlItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saveAndCloseButtonLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelButtonLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spaceAtFormBottom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
@@ -914,9 +914,9 @@
         private DevExpress.XtraLayout.LayoutControlItem socialNetworksLabelLayoutControlItem;
         private DevExpress.XtraEditors.LabelControl generalInforLabel;
         private DevExpress.XtraEditors.SimpleButton cancelButton;
-        private DevExpress.XtraEditors.SimpleButton saveButton;
+        private DevExpress.XtraEditors.SimpleButton saveAndCloseButton;
         private DevExpress.XtraLayout.LayoutControlItem generalInfoLabelLayoutControlItem;
-        private DevExpress.XtraLayout.LayoutControlItem saveButtonLayoutControlItem;
+        private DevExpress.XtraLayout.LayoutControlItem saveAndCloseButtonLayoutControlItem;
         private DevExpress.XtraLayout.LayoutControlItem cancelButtonLayoutControlItem;
         private DevExpress.XtraLayout.EmptySpaceItem spaceAtFormBottom;
         private DevExpress.XtraLayout.EmptySpaceItem spaceBetweenEnglishAndGender;
