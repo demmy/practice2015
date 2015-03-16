@@ -117,16 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="candidateBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="candidateBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing">
     <value>25, 7</value>
-  </metadata>
-  <metadata name="socialNetworksListBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  </data>
+  <data name="socialNetworksListBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing">
     <value>395, 17</value>
-  </metadata>
-  <metadata name="contactsListBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  </data>
+  <data name="contactsListBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing">
     <value>201, 17</value>
-  </metadata>
-  <metadata name="phonesBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  </data>
+  <data name="phonesBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing">
     <value>626, 17</value>
-  </metadata>
+  </data>
+  <data name="ClosingMBoxTitle" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="ClosingMessage" xml:space="preserve">
+    <value>Record has been changed but not saved.\nDo you want to save changes?</value>
+  </data>
 </root>

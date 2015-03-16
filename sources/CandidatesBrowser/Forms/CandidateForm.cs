@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Resources;
 using HumanResourcesLibrary.DataClasses; // for Candidate
 using DevExpress.XtraGrid.Views.Grid;
 
@@ -55,7 +56,7 @@ namespace CandidatesBrowser.Forms
 
         private Candidate candidate, candidateCopy;
 
-        // Added to avoid double checking that candidate == candidateCopy when Save and Close button is pressed.
+        // Added to avoid double checking that candidate equals candidateCopy when Save and Close button is pressed.
         private bool saved = false;
 
         private void commentsGridView_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
@@ -137,21 +138,26 @@ namespace CandidatesBrowser.Forms
             }
             else if (!this.candidate.Equals(this.candidateCopy))
             {
-                var result = MessageBox.Show("Record has been changed but not saved.\nDo you want to save changes?",
-                    "Warning", MessageBoxButtons.YesNoCancel);
-                
-                switch (result)
+                using (var resources = new ResXResourceSet("..\\..\\Forms\\CandidateForm.resx"))
                 {
-                    case DialogResult.Yes:
-                        SaveCandidate();
-                        break;
+                    var message = resources.GetString("ClosingMessage");
+                    var title = resources.GetString("ClosingMBoxTitle");
 
-                    case DialogResult.No:
-                        break;
+                    var result = MessageBox.Show(message, title, MessageBoxButtons.YesNoCancel);
 
-                    case DialogResult.Cancel:
-                        e.Cancel = true;
-                        break;
+                    switch (result)
+                    {
+                        case DialogResult.Yes:
+                            SaveCandidate();
+                            break;
+
+                        case DialogResult.No:
+                            break;
+
+                        case DialogResult.Cancel:
+                            e.Cancel = true;
+                            break;
+                    }
                 }
             }
         }
