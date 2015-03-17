@@ -66,6 +66,7 @@
       <DependentUpon>VacancyAddOrEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="VacancyMainForm.resx">
       <DependentUpon>VacancyMainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -80,6 +81,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -99,9 +101,6 @@
       <Project>{6215de6e-887f-46b6-a0eb-d023c4695f32}</Project>
       <Name>HumanResourcesLibrary</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

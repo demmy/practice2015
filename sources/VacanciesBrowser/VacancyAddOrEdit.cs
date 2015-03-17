@@ -40,7 +40,6 @@ namespace VacanciesBrowser
             }
             this.Close();
         }
-
         private void Save_Click(object sender, EventArgs e)
         {
             List<Vacancy> list = new List<Vacancy>();
@@ -122,6 +121,20 @@ namespace VacanciesBrowser
             DescriptionVacancy.Text = vacancy.Description;
             StartDate.EditValue = vacancy.DateStart;
             FinishDate.EditValue = vacancy.DateFinish;
+        }
+
+        private void VacancyAddOrEdit_KeyDown(object sender, KeyEventArgs e)
+        {
+                switch (e.KeyCode)
+                {
+                    case Keys.Escape: //Закрыть форму
+                        DialogResult dialogResult = MessageBox.Show("Вы действительно хотите выйти?", "Выход из программы", MessageBoxButtons.YesNo);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            this.Close();
+                        }
+                        break;
+                }
         }
     }
 }

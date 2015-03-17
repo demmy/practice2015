@@ -10,8 +10,6 @@ namespace HumanResourcesLibrary.DataClasses
     {
         public string Title { get; set; }
 
-		public int VacancyId { get; set; }
-
         public string Project { get; set; }
 
         public string City { get; set; }
