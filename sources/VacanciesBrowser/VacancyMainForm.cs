@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using HumanResourcesLibrary.DataClasses;
 using HumanResourcesLibrary;
+using VacanciesBrowser.Properties;
 
 namespace VacanciesBrowser
 {
@@ -55,12 +56,12 @@ namespace VacanciesBrowser
 
         private void barButtonItem_Version_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            MessageBox.Show("Version №001", "Version");
+            MessageBox.Show(Resources.Version, "Version");
         }
 
         private void barButtonItem_Licence_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            MessageBox.Show("Лицензионное соглашение устанавливает условия использования программы для ЭВМ «Vacancy» и заключено между любым лицом, использующим Программу («Пользователь»), и Group_1, являющейся правообладателем исключительного права на Программу («Правообладатель»).\n1.1. Пользователь не имеет права воспроизводить и распространять Программу в коммерческих целях (в том числе за плату), в том числе в составе сборников программных продуктов, без письменного согласия Правообладателя.\n1.2. Программа должна использоваться под наименованием: «Vacancy».\n1.3. Программа предоставляется на условиях «как есть» (as is). Правообладатель не предоставляет никаких гарантий в отношении безошибочной и бесперебойной работы Программы.", "Лицензионное соглашение");
+            MessageBox.Show(Resources.License, "Лицензионное соглашение");
         }
 
         private void VacancyMainForm_Load(object sender, EventArgs e)

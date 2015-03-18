@@ -202,30 +202,36 @@
             // 
             // ListLevelEnglish
             // 
+            this.ListLevelEnglish.EditValue = " ";
             this.ListLevelEnglish.Location = new System.Drawing.Point(379, 133);
             this.ListLevelEnglish.Name = "ListLevelEnglish";
             this.ListLevelEnglish.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.ListLevelEnglish.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.ListLevelEnglish.Size = new System.Drawing.Size(205, 20);
             this.ListLevelEnglish.StyleController = this.layoutControl1;
             this.ListLevelEnglish.TabIndex = 12;
             // 
             // ListTypeEmployment
             // 
+            this.ListTypeEmployment.EditValue = " ";
             this.ListTypeEmployment.Location = new System.Drawing.Point(198, 133);
             this.ListTypeEmployment.Name = "ListTypeEmployment";
             this.ListTypeEmployment.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.ListTypeEmployment.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.ListTypeEmployment.Size = new System.Drawing.Size(167, 20);
             this.ListTypeEmployment.StyleController = this.layoutControl1;
             this.ListTypeEmployment.TabIndex = 11;
             // 
             // ListResponsiblePerson
             // 
+            this.ListResponsiblePerson.EditValue = " ";
             this.ListResponsiblePerson.Location = new System.Drawing.Point(17, 133);
             this.ListResponsiblePerson.Name = "ListResponsiblePerson";
             this.ListResponsiblePerson.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.ListResponsiblePerson.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.ListResponsiblePerson.Size = new System.Drawing.Size(167, 20);
             this.ListResponsiblePerson.StyleController = this.layoutControl1;
             this.ListResponsiblePerson.TabIndex = 10;
@@ -258,34 +264,39 @@
             // 
             // ListStatus
             // 
+            this.ListStatus.EditValue = " ";
             this.ListStatus.Location = new System.Drawing.Point(17, 83);
             this.ListStatus.Name = "ListStatus";
             this.ListStatus.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.ListStatus.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.ListStatus.Size = new System.Drawing.Size(167, 20);
             this.ListStatus.StyleController = this.layoutControl1;
             this.ListStatus.TabIndex = 7;
             // 
             // ListCity
             // 
+            this.ListCity.EditValue = " ";
             this.ListCity.Location = new System.Drawing.Point(379, 33);
             this.ListCity.Name = "ListCity";
             this.ListCity.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.ListCity.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.ListCity.Size = new System.Drawing.Size(205, 20);
             this.ListCity.StyleController = this.layoutControl1;
             this.ListCity.TabIndex = 6;
             // 
             // ListProject
             // 
+            this.ListProject.EditValue = " ";
             this.ListProject.Location = new System.Drawing.Point(198, 33);
             this.ListProject.Name = "ListProject";
             this.ListProject.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.ListProject.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.ListProject.Size = new System.Drawing.Size(167, 20);
             this.ListProject.StyleController = this.layoutControl1;
             this.ListProject.TabIndex = 5;
-            this.ListProject.ToolTip = "Введите название проекта";
             // 
             // NameVacancy
             // 
@@ -488,10 +499,12 @@
             this.ClientSize = new System.Drawing.Size(598, 584);
             this.Controls.Add(this.layoutControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "VacancyAddOrEdit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Информация о вакансии";
             this.Load += new System.EventHandler(this.VacancyAddOrEdit_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.VacancyAddOrEdit_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DescriptionVacancy.Properties)).EndInit();
