@@ -8,6 +8,7 @@ namespace HumanResourcesLibrary.DataClasses
 {
     public enum EnglishLevel
     {
+        Unknown,
         Beginner,
         Elementary,
         PreIntermediate,

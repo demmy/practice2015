@@ -7,15 +7,13 @@ using System.Threading.Tasks;
 
 namespace HumanResourcesLibrary
 {
-    public class MainRepository : IMainRepository
+    internal class MainRepository : IMainRepository
     {
         private List<Vacancy> vacancies = new List<Vacancy>();
         private List<Candidate> candidates = new List<Candidate>();
         
         public MainRepository()
         {
-
-            vacancies.Add(new Vacancy() { Title = "Super Vacancy 1" });
             vacancies.Add(new Vacancy("Super Vacancy 1", new Project(1, "ISD"), new City(1, "Dnipro"), 
                             Status.Closed, new ResponsiblePerson(1, "She"), new DateTime(2015,1,22), new DateTime(2015,1,22),  
                                HumanResourcesLibrary.DataClasses.TypeEmployment.Internsip, LevelEnglish.Beginner, "dsfdsg", "ldsfmckjdsn"));
@@ -235,7 +233,7 @@ namespace HumanResourcesLibrary
                 Phones = new List<Phone>() 
                 { 
                     new Phone() { PhoneNumber = "751845", Type = PhoneType.Home },
-                    new Phone() { PhoneNumber = "7844458222", Type = PhoneType.Mobile },
+                    new Phone() { PhoneNumber = "784445822", Type = PhoneType.Mobile },
 
                 },
                 Skype = "SweetAugust",
@@ -257,7 +255,6 @@ namespace HumanResourcesLibrary
 
                 }
             });
-
         }
 
         /// <summary>
@@ -283,25 +280,10 @@ namespace HumanResourcesLibrary
         /// Use this method to get list of candidates which correspond to given criteria
         /// </summary>
         /// <returns>list of candidates</returns>
-        public List<Candidate> GetCandidates(string name, string soname, string candidate_phone, string city,
-                                                bool agreeToRelocate,
-                                                EnglishLevel engLevel,
-                                                DateTime from, DateTime to)
+        public List<Candidate> GetCandidates(/* here search criteria go */)
         {
-            
-           IEnumerable<Candidate> filteredCandidates = new List<Candidate>();
-            filteredCandidates = candidates.Where
-                (candidateName => (!string.IsNullOrWhiteSpace(name) ? candidateName.FirstName == name : true))
-                .Where(candidateSoname => (!string.IsNullOrWhiteSpace(soname) ? candidateSoname.LastName == soname : true))
-                .Where(candidateCity => (!string.IsNullOrWhiteSpace(soname) ? candidateCity.City == city : true))
-                .Where(candidateIsAgreeToRelocate => candidateIsAgreeToRelocate.RelocationAgreement == agreeToRelocate)
-                .Where(candidateEngLevel => (engLevel != EnglishLevel.Unknown ? candidateEngLevel.EnglishLevel == engLevel : true))
-                .Where(candidateFromDate => ((default(DateTime) != from) ? (candidateFromDate.DOB > from): true))
-                .Where(candidateToDate => ((default(DateTime) != to)?candidateToDate.DOB < to:true));
-           return filteredCandidates.ToList<Candidate>();        
+            return candidates.FindAll((c) => { return true; /* here search criteria go */ }).ConvertAll((c) => { return c.CreateDeepCopy(); });
         }
-                
-        
 
         /// <summary>
         /// Use this method to update the vacancy information, or to add newly created vacancy

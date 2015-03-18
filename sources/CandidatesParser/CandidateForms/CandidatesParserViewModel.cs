@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ContactParserLibrary.ContactsLibrary;
 using ContactParserLibrary.ReadWriteLibrary;
+using HumanResourcesLibrary;
 
 namespace CandidatesParser
 {
@@ -14,6 +15,8 @@ namespace CandidatesParser
 
         //this manager is speak with ContactsManager object
         ContactsManager contactsManager = new ContactsManager();
+        IMainRepository repository = RepositoryService.Repository;
+
         public List<KeyValuePair<string, bool>> GetSkypes()
         {
             return contactsManager.GetSkypes();
@@ -66,6 +69,39 @@ namespace CandidatesParser
         public void Read(string path)
         {
             contactsManager.Read(path);
+        }
+
+        public List<HumanResourcesLibrary.DataClasses.Candidate> GetAllCandidates()
+        {
+            return repository.GetAllCandidates();
+        }
+
+        public void SaveCandidate(
+            HumanResourcesLibrary.DataClasses.Candidate candidate,
+            string sSkype,
+            string sEmail,
+            string sWebSite,
+            List<Contact> lPhones
+            )
+        {
+            candidate.Skype = sSkype;
+            candidate.Email = sEmail;
+            candidate.SiteURL = sWebSite;
+
+            HumanResourcesLibrary.DataClasses.Phone tempPhone;
+
+            foreach (var item in lPhones)
+            {
+                
+                if (item.IsChosen == true)
+                {
+                    tempPhone = new HumanResourcesLibrary.DataClasses.Phone();
+                    tempPhone.PhoneNumber = item.Value;
+                    //tempPhones.Type = HumanResourcesLibrary.DataClasses.PhoneType.
+                    candidate.Phones.Add(tempPhone);
+                }
+            }
+            repository.SaveCandidate(candidate);
         }
     }
 }
