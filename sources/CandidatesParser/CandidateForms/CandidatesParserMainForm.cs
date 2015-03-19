@@ -21,190 +21,134 @@ namespace CandidatesParser.CandidateForms
         {
             InitializeComponent();
 
-            form1OrigHight = this.Height;
-            form1OrigWidth = this.Width;
-            form1MainLayoutOrigHeight = this.layoutControl1.Height;
-            form1MainLayoutOrigWidth = this.layoutControl1.Width;
+            origHeight = this.Height;
+            origWidth = this.Width;
+            mainLayoutOrigHeight = this.layoutControl.Height;
+            mainLayoutOrigWidth = this.layoutControl.Width;
 
-            
-        }
-
-        private void Form1_Button_OK_Click(object sender, EventArgs e)
-        {
-            if (File.Exists(Form1_TextField_FilePath.Text) == true)
-            {
-                manager.Read(Form1_TextField_FilePath.Text);
-                CandidatesParserSelectData modalForm1 = new CandidatesParserSelectData(manager);
-                modalForm1.ShowDialog();
-            }
-            else
-            {
-                showErrorMessage_FlieDoesNotExist();
-            }
         }
 
 
         ////////////////////////////////////   FormResizeStyle      \\\\\\\\\\\\\\\\\\\\\\\\\++
-        private void resizeFormInsisePutToCenter()
+        private void ResizeFormInside(object sender, EventArgs e)
         {
-            if(this.Width > form1OrigWidth)
+            float percent1 = (float)this.Height / origHeight;
+            float percent2 = (float)this.Width / origWidth;
+
+            float percent = (percent1 < percent2) ? (percent1) : (percent2);
+
+            this.layoutControl.Height = (int)(percent * mainLayoutOrigHeight);
+            this.layoutControl.Width = (int)(percent * mainLayoutOrigWidth);
+
+            TextResize(percent);
+            ResizeFormInsidePutToCenter();
+        }
+        private void TextResize(float percent)
+        {
+            this.textField_FilePath.Font = new System.Drawing.Font("Tahoma", (float)(8.25 * percent));
+            this.layoutControl_Button_Unused.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, this.layoutControl_Button_Unused.Height - (button_FilePath.Height));
+        }
+        private void ResizeFormInsidePutToCenter()
+        {
+            if (this.Width > origWidth)
             {
-                this.layoutControl1.Left =      0
-                                                + (this.Width 
-                                                - (this.form1OrigWidth - form1MainLayoutOrigWidth) 
-                                                - this.layoutControl1.Width) / 2;
+                this.layoutControl.Left = 0
+                                                + (this.Width
+                                                - (this.origWidth - mainLayoutOrigWidth)
+                                                - this.layoutControl.Width) / 2;
             }
             else
             {
-                this.layoutControl1.Left = 0;
+                this.layoutControl.Left = 0;
             }
 
-            if (this.Height > form1OrigHight)
+            if (this.Height > origHeight)
             {
-                this.layoutControl1.Top =       0 
+                this.layoutControl.Top = 0
                                                 + (this.Height
-                                                - (this.form1OrigHight - form1MainLayoutOrigHeight) 
-                                                - this.layoutControl1.Height) / 2;
+                                                - (this.origHeight - mainLayoutOrigHeight)
+                                                - this.layoutControl.Height) / 2;
             }
             else
             {
-                this.layoutControl1.Top = 0;
+                this.layoutControl.Top = 0;
             }
-           
-            
+
+
         }
-        private void textResize(float percent)
+
+        private void ResizeFormEnd(object sender, EventArgs e)
         {
-            this.Form1_TextField_FilePath.Font = new System.Drawing.Font("Tahoma", (float)(8.25 * percent));
-            this.layoutControlItem5.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, this.layoutControlItem5.Height - (Form1_Button_FilePath.Height));
-        }
-        private void resizeFormInside(object sender, EventArgs e)
-        {
-            float percent1 = (float)this.Height / form1OrigHight;
-            float percent2 = (float)this.Width / form1OrigWidth;
+            float percent1 = (float)this.Height / this.origHeight;
+            float percent2 = (float)this.Width / this.origWidth;
 
             float percent = (percent1 < percent2) ? (percent1) : (percent2);
 
-            this.layoutControl1.Height = (int)(percent * form1MainLayoutOrigHeight);
-            this.layoutControl1.Width = (int)(percent * form1MainLayoutOrigWidth);
-
-            textResize(percent);
-            resizeFormInsisePutToCenter();
+            this.Height = (int)(percent * this.origHeight);
+            this.Width = (int)(percent * this.origWidth);
         }
-        private void XtraForm1_ResizeEnd(object sender, EventArgs e)
+
+
+        ////////////////////////////////////   Buttons and Actions      \\\\\\\\\\\\\\\\\\\\\\\\\++
+        private void Button_OK_Click(object sender, EventArgs e)
         {
-         
-            float percent1 = (float)this.Height / this.form1OrigHight;
-            float percent2 = (float)this.Width / this.form1OrigWidth;
-
-            float percent = (percent1 < percent2) ? (percent1) : (percent2);
-
-            this.Height = (int)(percent * this.form1OrigHight);
-            this.Width = (int)(percent * this.form1OrigWidth);
-          
+            if (File.Exists(textField_FilePath.Text))
+            {
+                bool Error = false;
+                try
+                {
+                    manager.Read(textField_FilePath.Text);
+                }
+                catch
+                {
+                    MessageBox.Show(this.msgErrorIncorrectStruct);
+                    Error = true;
+                    // Maybe it not a good method, but program is working :)
+                }
+                if (!Error)
+                {
+                    CandidatesParserSelectData modalForm1 = new CandidatesParserSelectData(manager);
+                    modalForm1.ShowDialog();
+                }
+            }
+            else
+            {
+                if (textField_FilePath.Text == emptyFilePathString)
+                {
+                    MessageBox.Show(this.msgErrorEmptyFilePath);
+                }
+                else
+                {
+                    MessageBox.Show(this.msgErrorIncorrectFilePath);
+                }
+            }
         }
-
-        private void Form1_Button_FilePath_Click(object sender, EventArgs e)
+        private void Button_FilePath_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
             openFileDialog1.InitialDirectory = "c:\\";
-            openFileDialog1.Filter = "txt files (*.txt)|*.txt";
+            openFileDialog1.Filter = this.fileFormatFilter;
             openFileDialog1.FilterIndex = 2;
             openFileDialog1.RestoreDirectory = true;
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                Form1_TextField_FilePath.Text = openFileDialog1.FileName;
-
-
+                textField_FilePath.Text = openFileDialog1.FileName;
             }
-            else
+        }
+
+        private void TextField_FilePath_Leave(object sender, EventArgs e)
+        {
+            if (textField_FilePath.Text == "")
             {
-                showErrorMessage_FlieDoesNotExist();
-            }
-
-        }
-
-        private void showErrorMessage_FlieDoesNotExist()
-        {
-            MessageBox.Show("Ошибка: Невозможно считать файл с диска!!!");
-        }
-
-        private void Form1_TextField_FilePath_Leave(object sender, EventArgs e)
-        {
-            if (Form1_TextField_FilePath.Text == "")
-            {
-                Form1_TextField_FilePath.Text = "Путь к файлу...";
+                textField_FilePath.Text = emptyFilePathString;
             }
         }
-
-        private void Form1_TextField_FilePath_MouseClick(object sender, EventArgs e)
+        private void TextField_FilePath_MouseClick(object sender, EventArgs e)
         {
-            Form1_TextField_FilePath.Text = "";
-        }
-        //////// Just Copy
-        /*
-               private void resizeFormInsisePutToCenter()
-        {
-            if(this.Width > form1OrigWidth)
-            {
-                this.layoutControl1.Left =      0
-                                                + (this.Width 
-                                                - (this.form1OrigWidth - form1MainLayoutOrigWidth) 
-                                                - this.layoutControl1.Width) / 2;
-            }
-            else
-            {
-                this.layoutControl1.Left = 0;
-            }
-
-            if (this.Height > form1OrigHight)
-            {
-                this.layoutControl1.Top =       0 
-                                                + (this.Height
-                                                - (this.form1OrigHight - form1MainLayoutOrigHeight) 
-                                                - this.layoutControl1.Height) / 2;
-            }
-            else
-            {
-                this.layoutControl1.Top = 0;
-            }
-           
-            
-        }
-        private void textResize(float percent)
-        {
-            this.Form1_TextField_FilePath.Font = new System.Drawing.Font("Tahoma", (float)(8.25 * percent));
-            this.layoutControlItem5.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, this.layoutControlItem5.Height - (Form1_Button_FilePath.Height));
-        }
-        private void resizeFormInside(object sender, EventArgs e)
-        {
-            float percent1 = (float)this.Height / form1OrigHight;
-            float percent2 = (float)this.Width / form1OrigWidth;
-
-            float percent = (percent1 < percent2) ? (percent1) : (percent2);
-
-            this.layoutControl1.Height = (int)(percent * form1MainLayoutOrigHeight);
-            this.layoutControl1.Width = (int)(percent * form1MainLayoutOrigWidth);
-
-            textResize(percent);
-            resizeFormInsisePutToCenter();
+            textField_FilePath.Text = "";
         }
 
-        private void XtraForm1_ResizeEnd(object sender, EventArgs e)
-        {
-          
-            float percent1 = (float)this.Height / this.form1OrigHight;
-            float percent2 = (float)this.Width / this.form1OrigWidth;
-
-            float percent = (percent1 < percent2) ? (percent1) : (percent2);
-
-            this.Height = (int)(percent * this.form1OrigHight);
-            this.Width = (int)(percent * this.form1OrigWidth);
-         
-        }
-        */ 
-        ///////////////////////////////////////////////////////////////////////////////////////
     }
 }
