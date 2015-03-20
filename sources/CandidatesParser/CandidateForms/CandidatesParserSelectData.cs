@@ -101,28 +101,28 @@ namespace CandidatesParser.CandidateForms
         ////////////////////////////////////   Buttons and Actions      \\\\\\\\\\\\\\\\\\\\\\\\\++
         private void Button_SaveContactsToBD_Click(object sender, EventArgs e)
         {
-            CandidatesParserWriterDataBase ModalForm2 = new CandidatesParserWriterDataBase(manager);
-            ModalForm2.ShowDialog();
+            CandidatesParserWriterDataBase modalFormForWritingToDataBase = new CandidatesParserWriterDataBase(manager);
+            modalFormForWritingToDataBase.ShowDialog();
         }
         private void Button_CopySelectedToBuffer_Click(object sender, EventArgs e)
         {
-            string SelectedPhoneNumbers = "";
+            string selectedPhoneNumbers = "";
 
-            bool FirstIteration = true;
+            bool firstIteration = true;
             foreach (var item in manager.GetPhoneNumberContacts())
             {
                 
                 if (item.IsChosen)
                 {
-                    if (FirstIteration)
+                    if (firstIteration)
                     {
-                        FirstIteration = false;
+                        firstIteration = false;
                     }
                     else
                     {
-                        SelectedPhoneNumbers += "; ";
+                        selectedPhoneNumbers += "; ";
                     }
-                    SelectedPhoneNumbers += item.Value;
+                    selectedPhoneNumbers += item.Value;
                     
                 }
             }
@@ -132,7 +132,7 @@ namespace CandidatesParser.CandidateForms
                                 "Skype: " + comboBoxEdit_Skypes.EditValue.ToString() + "\n"
                                 +"EMail: " + comboBoxEdit_Emails.EditValue.ToString() + "\n"
                                 +"WebSite: " + comboBoxEdit_WebSites.EditValue.ToString() + "\n"
-                                +"PhoneNumbers: " + SelectedPhoneNumbers + "\n"
+                                +"PhoneNumbers: " + selectedPhoneNumbers + "\n"
                               );
         }
         

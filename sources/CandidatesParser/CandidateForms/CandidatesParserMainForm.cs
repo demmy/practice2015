@@ -94,7 +94,7 @@ namespace CandidatesParser.CandidateForms
         {
             if (File.Exists(textField_FilePath.Text))
             {
-                bool Error = false;
+                bool error = false;
                 try
                 {
                     manager.Read(textField_FilePath.Text);
@@ -102,13 +102,13 @@ namespace CandidatesParser.CandidateForms
                 catch
                 {
                     MessageBox.Show(this.msgErrorIncorrectStruct);
-                    Error = true;
+                    error = true;
                     // Maybe it not a good method, but program is working :)
                 }
-                if (!Error)
+                if (!error)
                 {
-                    CandidatesParserSelectData modalForm1 = new CandidatesParserSelectData(manager);
-                    modalForm1.ShowDialog();
+                    CandidatesParserSelectData modalFormForSelectData = new CandidatesParserSelectData(manager);
+                    modalFormForSelectData.ShowDialog();
                 }
             }
             else
