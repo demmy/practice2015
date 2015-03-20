@@ -15,67 +15,23 @@ namespace CandidatesParser.CandidateForms
     public partial class CandidatesParserSelectData : DevExpress.XtraEditors.XtraForm
     {
 
-        //public CandidatesParserSelectData()
         public CandidatesParserSelectData(CandidatesParserViewModel manager)
         {
             InitManager(manager);
             InitializeComponent();
 
-            /////////////////////////////////////////////////////////
-            form2OrigHight = this.Height;
-            form2OrigWidth = this.Width;
-            form2MainLayoutOrigHeight = this.layoutControl1.Height;
-            form2MainLayoutOrigWidth = this.layoutControl1.Width;
-            ////////////////////////////////////////////////////////
-
             //////////////////////// ComboBoxesInit \\\\\\\\\\\\\\\\\\\\\\\\++
-            addSkypes();
-            addEmails();
-            addWebSites();
-            addPhoneNumbersToGrid();
+            AddSkypes();
+            AddEmails();
+            AddWebSites();
+            AddPhoneNumbersToGrid();
             ////////////////////////////////////////////////////////////////
-            
-
         }
-
-        private void simpleButton2_Click(object sender, EventArgs e)
-        {
-            CandidatesParserWriterDataBase ModalForm2 = new CandidatesParserWriterDataBase(manager);
-            ModalForm2.ShowDialog();
-        }
-
-
-        ////////////////////////////////////   FormResizeStyle      \\\\\\\\\\\\\\\\\\\\\\\\\++
-        private void resizeBoxesCenter()
-        {
-            //form2_ComboBoxEdit_Skypes.Dock = DockStyle.Fill;
-            //form2_ComboBoxEdit_Emails
-            //form2_ComboBoxEdit_WebSites
-
-        }
-        private void resizeFormInside(object sender, EventArgs e)
-        {
-             resizeBoxesCenter();
-        }
-        private void XtraForm1_ResizeEnd(object sender, EventArgs e)
-        {
-            /*   
-               float percent1 = (float)this.Height / this.form1OrigHight;
-               float percent2 = (float)this.Width / this.form1OrigWidth;
-
-               float percent = (percent1 < percent2) ? (percent1) : (percent2);
-
-               this.Height = (int)(percent * this.form1OrigHight);
-               this.Width = (int)(percent * this.form1OrigWidth);
-            */
-        }
-        ///////////////////////////////////////////////////////////////////////////////////////
-    
 
         /////////////////////////////////// ComboBoxes \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\++
-        private void addSkypes()
+        private void AddSkypes()
         {
-            ComboBoxItemCollection coll = form2_ComboBoxEdit_Skypes.Properties.Items;
+            ComboBoxItemCollection coll = comboBoxEdit_Skypes.Properties.Items;
             coll.BeginUpdate();
             try
             {
@@ -89,9 +45,9 @@ namespace CandidatesParser.CandidateForms
                 coll.EndUpdate();
             }
         }
-        private void addEmails()
+        private void AddEmails()
         {
-            ComboBoxItemCollection coll = form2_ComboBoxEdit_Emails.Properties.Items;
+            ComboBoxItemCollection coll = comboBoxEdit_Emails.Properties.Items;
             coll.BeginUpdate();
             try
             {
@@ -105,9 +61,9 @@ namespace CandidatesParser.CandidateForms
                 coll.EndUpdate();
             }
         }
-        private void addWebSites()
+        private void AddWebSites()
         {
-            ComboBoxItemCollection coll = form2_ComboBoxEdit_WebSites.Properties.Items;
+            ComboBoxItemCollection coll = comboBoxEdit_WebSites.Properties.Items;
             coll.BeginUpdate();
             try
             {
@@ -121,71 +77,65 @@ namespace CandidatesParser.CandidateForms
                 coll.EndUpdate();
             }
         }
-
-        //////////////////////////// PhoneNumber Table(Grid) \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-        private void addPhoneNumbersToGrid()
+        private void ComboBoxEdit_Skypes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            form2_gridControl_PhoneNumber.DataSource = manager.GetPhoneNumberContacts();
+            manager.SelectSkype(comboBoxEdit_Skypes.SelectedIndex);
+        }
+        private void ComboBoxEdit_Emails_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            manager.SelectEmail(comboBoxEdit_Emails.SelectedIndex);
+        }
+        private void ComboBoxEdit_WebSites_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            manager.SelectWebSite(comboBoxEdit_WebSites.SelectedIndex);
         }
 
-        private void form2_ComboBoxEdit_Skypes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            manager.SelectSkype(form2_ComboBoxEdit_Skypes.SelectedIndex);
-        }
-        private void form2_ComboBoxEdit_Emails_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            manager.SelectEmail(form2_ComboBoxEdit_Emails.SelectedIndex);
-        }
-        private void form2_ComboBoxEdit_WebSites_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            manager.SelectWebSite(form2_ComboBoxEdit_WebSites.SelectedIndex);
-        }
-        /*
-         *         private void form2_ComboBoxEdit_Skypes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            manager.SelectSkype(form2_ComboBoxEdit_Skypes.SelectedIndex);
-        }
-        private void form2_ComboBoxEdit_Emails_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            manager.SelectEmail(form2_ComboBoxEdit_Emails.SelectedIndex);
-        }
-        private void form2_ComboBoxEdit_WebSites_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            manager.SelectWebSite(form2_ComboBoxEdit_WebSites.SelectedIndex);
-        }
-         */
-        private void form2_Button_CopySelectedToBuffer_Click(object sender, EventArgs e)
-        {
-            string SelectedPhoneNumbers = "";
 
-            bool FirstIteration = true;
+        //////////////////////////// PhoneNumber Table(Grid) \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\++
+        private void AddPhoneNumbersToGrid()
+        {
+            gridControl_PhoneNumber.DataSource = manager.GetPhoneNumberContacts();
+        }
+
+
+        ////////////////////////////////////   Buttons and Actions      \\\\\\\\\\\\\\\\\\\\\\\\\++
+        private void Button_SaveContactsToBD_Click(object sender, EventArgs e)
+        {
+            CandidatesParserWriterDataBase modalFormForWritingToDataBase = new CandidatesParserWriterDataBase(manager);
+            modalFormForWritingToDataBase.ShowDialog();
+        }
+        private void Button_CopySelectedToBuffer_Click(object sender, EventArgs e)
+        {
+            string selectedPhoneNumbers = "";
+
+            bool firstIteration = true;
             foreach (var item in manager.GetPhoneNumberContacts())
             {
                 
-                if (item.IsChosen == true)
+                if (item.IsChosen)
                 {
-                    if (FirstIteration)
+                    if (firstIteration)
                     {
-                        FirstIteration = false;
+                        firstIteration = false;
                     }
                     else
                     {
-                        SelectedPhoneNumbers += "; ";
+                        selectedPhoneNumbers += "; ";
                     }
-                    SelectedPhoneNumbers += item.Value;
+                    selectedPhoneNumbers += item.Value;
                     
                 }
             }
 
 
             Clipboard.SetText(
-                                "Skype: " + form2_ComboBoxEdit_Skypes.EditValue.ToString() + "\n"
-                                +"EMail: " + form2_ComboBoxEdit_Emails.EditValue.ToString() + "\n"
-                                +"WebSite: " + form2_ComboBoxEdit_WebSites.EditValue.ToString() + "\n"
-                                +"PhoneNumbers: " + SelectedPhoneNumbers + "\n"
+                                "Skype: " + comboBoxEdit_Skypes.EditValue.ToString() + "\n"
+                                +"EMail: " + comboBoxEdit_Emails.EditValue.ToString() + "\n"
+                                +"WebSite: " + comboBoxEdit_WebSites.EditValue.ToString() + "\n"
+                                +"PhoneNumbers: " + selectedPhoneNumbers + "\n"
                               );
         }
-        ////////////////////////////////////////////////////////////////////////////////////
+        
     }
 
 

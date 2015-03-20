@@ -18,25 +18,21 @@ namespace CandidatesParser.CandidateForms
         {
             InitManager(manager);
             InitializeComponent();
-            initDBGrid();
+            InitDBGrid();
         }
 
-        private void form3_Button_Close_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void initDBGrid()
+        private void InitDBGrid()
         {
             gridControl_CandidatesGrid.DataSource = manager.GetAllCandidates(); 
         }
 
+        ////////////////////////////////////   Buttons and Actions      \\\\\\\\\\\\\\\\\\\\\\\\\++
         private void Button_SaveContacts_Click(object sender, EventArgs e)
         {
             string sSkype;
             try
             {
-                sSkype = manager.GetSkypeContacts().Find(x => x.IsChosen == true).Value;
+                sSkype = manager.GetSkypeContacts().Find(x => x.IsChosen).Value;
             }
             catch 
             { 
@@ -46,7 +42,7 @@ namespace CandidatesParser.CandidateForms
             string sEmail;
             try
             {
-                sEmail = manager.GetEmailContacts().Find(x => x.IsChosen == true).Value;
+                sEmail = manager.GetEmailContacts().Find(x => x.IsChosen).Value;
             }
             catch 
             { 
@@ -56,7 +52,7 @@ namespace CandidatesParser.CandidateForms
             string sWebSite;
             try
             {
-                sWebSite = manager.GetWebSiteContacts().Find(x => x.IsChosen == true).Value;
+                sWebSite = manager.GetWebSiteContacts().Find(x => x.IsChosen).Value;
             }
             catch
             {
@@ -64,7 +60,11 @@ namespace CandidatesParser.CandidateForms
             }
 
             
-            manager.SaveCandidate(manager.GetAllCandidates()[gridView1.FocusedRowHandle], sSkype, sEmail, sWebSite, manager.GetPhoneNumberContacts());
+            manager.SaveCandidate(manager.GetAllCandidates()[gridView_CandidatesGrid.FocusedRowHandle], sSkype, sEmail, sWebSite, manager.GetPhoneNumberContacts());
+            this.Close();
+        }
+        private void Button_Close_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
     }
